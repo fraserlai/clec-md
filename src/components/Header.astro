@@ -2,7 +2,7 @@
 import { DEFAULT_LANGUAGE } from '../config/languages.mjs';
 import { CATEGORIES } from '../config/categories.mjs';
 import { t } from '../config/ui.mjs';
-import { categoryUrl, homeUrl } from '../lib/content';
+import { categoryUrl, homeUrl, withBase } from '../lib/content';
 
 interface Props {
   lang: 'zh-TW' | 'en';
@@ -11,11 +11,16 @@ const { lang } = Astro.props;
 const otherLang = lang === 'zh-TW' ? 'en' : 'zh-TW';
 
 // Compute the equivalent URL in the other language by swapping the prefix.
+// Astro.url.pathname includes the deploy base, so strip it before rewriting
+// the language prefix, then re-apply the base via withBase().
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const path = Astro.url.pathname;
+const rel = base && path.startsWith(base) ? path.slice(base.length) || '/' : path;
 const stripped =
-  lang === DEFAULT_LANGUAGE.code ? path : path.replace(/^\/en/, '') || '/';
-const otherHref =
-  otherLang === DEFAULT_LANGUAGE.code ? stripped : '/en' + stripped;
+  lang === DEFAULT_LANGUAGE.code ? rel : rel.replace(/^\/en/, '') || '/';
+const otherHref = withBase(
+  otherLang === DEFAULT_LANGUAGE.code ? stripped : '/en' + stripped,
+);
 
 const navCats = CATEGORIES.filter((c) => c.id !== 'about');
 ---
