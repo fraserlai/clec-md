@@ -1,0 +1,40 @@
+---
+import { t } from '../config/ui.mjs';
+interface Props {
+  lang: 'zh-TW' | 'en';
+}
+const { lang } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="inner">
+    <p class="disclaimer">{t(lang, 'disclaimer')}</p>
+    <p class="meta">
+      © {year} clec.md · {t(lang, 'subtitle')} · built on the
+      <a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f"
+        >LLM-Wiki</a
+      > pattern
+    </p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--line);
+    margin-top: 4rem;
+    padding: 2rem 1.2rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .inner {
+    max-width: 68rem;
+    margin: 0 auto;
+  }
+  .disclaimer {
+    margin: 0 0 0.6rem;
+  }
+  .meta a {
+    color: var(--color-brand);
+  }
+</style>

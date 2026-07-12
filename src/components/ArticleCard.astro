@@ -1,0 +1,74 @@
+---
+import { pageUrl, type AnyEntry, type Lang } from '../lib/content';
+import { categoryName } from '../config/categories.mjs';
+
+interface Props {
+  lang: Lang;
+  entry: AnyEntry;
+}
+const { lang, entry } = Astro.props;
+const d = entry.data;
+const dateStr = new Date(d.date).toISOString().slice(0, 10);
+---
+
+<a class="acard" href={pageUrl(lang, entry)}>
+  <div class="top">
+    <span class="cat">{categoryName(d.category, lang)}</span>
+    <time>{dateStr}</time>
+  </div>
+  <h3>{d.title}</h3>
+  <p>{d.description}</p>
+  {
+    d.tags?.length ? (
+      <div class="tags">
+        {d.tags.slice(0, 4).map((tag: string) => (
+          <span>#{tag}</span>
+        ))}
+      </div>
+    ) : null
+  }
+</a>
+
+<style>
+  .acard {
+    display: block;
+    padding: 1.1rem 1.2rem;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: border-color 0.12s ease;
+  }
+  .acard:hover {
+    border-color: var(--color-brand);
+  }
+  .top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-bottom: 0.4rem;
+  }
+  .cat {
+    color: var(--color-brand);
+    font-weight: 600;
+  }
+  h3 {
+    margin: 0 0 0.4rem;
+    font-size: 1.15rem;
+    line-height: 1.4;
+  }
+  p {
+    margin: 0 0 0.6rem;
+    font-size: 0.92rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+</style>

@@ -1,0 +1,23 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+.astro/
+
+# generated content collection (projected from knowledge/ by scripts/sync.mjs)
+src/content/
+
+# ingestion working files
+raw/**/*.wav
+scripts/.transcribe-state.json
+
+# os / editor
+.DS_Store
+*.log
+.vscode/
+.idea/
+
+# env
+.env
+.env.*

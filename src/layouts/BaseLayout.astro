@@ -1,0 +1,37 @@
+---
+import '../styles/global.css';
+import SEO from '../components/SEO.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  lang: 'zh-TW' | 'en';
+}
+const { title, description, lang } = Astro.props;
+const htmlLang = lang === 'zh-TW' ? 'zh-Hant' : 'en';
+---
+
+<!doctype html>
+<html lang={htmlLang}>
+  <head>
+    <SEO title={title} description={description} lang={lang} />
+  </head>
+  <body>
+    <Header lang={lang} />
+    <main class="main">
+      <slot />
+    </main>
+    <Footer lang={lang} />
+  </body>
+</html>
+
+<style>
+  .main {
+    max-width: 68rem;
+    margin: 0 auto;
+    padding: 1.5rem 1.2rem 0;
+    min-height: 60vh;
+  }
+</style>

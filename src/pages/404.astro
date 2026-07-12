@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { t } from '../config/ui.mjs';
+const lang = 'zh-TW' as const;
+---
+
+<BaseLayout title="404 · clec.md" description={t(lang, 'notFound')} lang={lang}>
+  <div class="nf">
+    <h1>404</h1>
+    <p class="a">{t(lang, 'notFound')} · {t('en', 'notFound')}</p>
+    <p class="b">{t(lang, 'notFoundBody')}</p>
+    <p><a href="/">{t(lang, 'backHome')}</a></p>
+  </div>
+</BaseLayout>
+
+<style>
+  .nf {
+    text-align: center;
+    padding: 4rem 0;
+  }
+  .nf h1 {
+    font-size: 4rem;
+    margin: 0;
+    color: var(--color-brand);
+  }
+  .a {
+    font-size: 1.2rem;
+  }
+  .b {
+    color: var(--muted);
+  }
+  .nf a {
+    color: var(--color-brand);
+  }
+</style>

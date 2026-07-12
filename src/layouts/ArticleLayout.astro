@@ -1,0 +1,127 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { t } from '../config/ui.mjs';
+import { categoryName } from '../config/categories.mjs';
+import { categoryUrl, homeUrl, type AnyEntry, type Lang } from '../lib/content';
+
+interface Props {
+  lang: Lang;
+  entry: AnyEntry;
+}
+const { lang, entry } = Astro.props;
+const d = entry.data;
+const dateStr = new Date(d.date).toISOString().slice(0, 10);
+---
+
+<BaseLayout title={`${d.title} · clec.md`} description={d.description} lang={lang}>
+  <article>
+    <nav class="crumbs">
+      <a href={homeUrl(lang)}>{t(lang, 'backHome')}</a>
+      <span>›</span>
+      <a href={categoryUrl(lang, d.category)}>{categoryName(d.category, lang)}</a>
+    </nav>
+
+    <header class="head">
+      <h1>{d.title}</h1>
+      <p class="desc">{d.description}</p>
+      <div class="meta">
+        <time>{dateStr}</time>
+        {d.difficulty ? <span class="pill">{d.difficulty}</span> : null}
+        {
+          d.lastHumanReview ? (
+            <span class="pill ok">✓ reviewed</span>
+          ) : (
+            <span class="pill draft">AI-drafted</span>
+          )
+        }
+      </div>
+    </header>
+
+    <div class="prose">
+      <slot />
+    </div>
+
+    {
+      d.sources?.length ? (
+        <section class="sources">
+          <h2>{t(lang, 'sources')}</h2>
+          <ul>
+            {d.sources.map((s: string) => (
+              <li>
+                <code>{s}</code>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null
+    }
+  </article>
+</BaseLayout>
+
+<style>
+  .crumbs {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin: 0.5rem 0 1.5rem;
+  }
+  .crumbs a {
+    text-decoration: none;
+    color: var(--color-brand);
+  }
+  .head {
+    margin-bottom: 2rem;
+  }
+  h1 {
+    font-family: var(--font-serif);
+    font-size: 2.1rem;
+    line-height: 1.25;
+    margin: 0 0 0.6rem;
+  }
+  .desc {
+    font-size: 1.1rem;
+    color: var(--muted);
+    margin: 0 0 1rem;
+  }
+  .meta {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+  .pill {
+    padding: 0.15rem 0.6rem;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+  }
+  .pill.ok {
+    color: var(--color-brand);
+    border-color: var(--color-brand);
+  }
+  .pill.draft {
+    color: var(--accent, #b45309);
+  }
+  .sources {
+    margin-top: 3rem;
+    border-top: 1px solid var(--line);
+    padding-top: 1rem;
+  }
+  .sources h2 {
+    font-size: 1rem;
+    color: var(--muted);
+  }
+  .sources ul {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0;
+  }
+  .sources li {
+    margin: 0.3rem 0;
+  }
+  .sources code {
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+</style>

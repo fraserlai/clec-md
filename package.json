@@ -1,0 +1,42 @@
+{
+  "name": "clec-md",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "description": "clec-md — an AI-native bilingual (zh-TW / en) knowledge base for the CLEC 投資理財頻道, built on the LLM-Wiki pattern.",
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "clec": "./scripts/clec.mjs"
+  },
+  "scripts": {
+    "presync": "node scripts/validate-frontmatter.mjs",
+    "sync": "node scripts/sync.mjs",
+    "predev": "npm run sync",
+    "dev": "astro dev",
+    "prebuild": "npm run sync",
+    "build": "astro build",
+    "preview": "astro preview",
+    "test": "node scripts/validate-frontmatter.mjs",
+    "transcribe": "node scripts/transcribe.mjs",
+    "convert-docs": "node scripts/convert-docs.mjs",
+    "format": "prettier --write \"**/*.{astro,mjs,js,ts,md,json}\"",
+    "format:check": "prettier --check \"**/*.{astro,mjs,js,ts}\""
+  },
+  "dependencies": {
+    "astro": "^6.2.1",
+    "@astrojs/rss": "^4.0.17",
+    "@astrojs/sitemap": "^3.7.1",
+    "gray-matter": "^4.0.3",
+    "marked": "^17.0.4",
+    "minisearch": "^7.2.0",
+    "rehype-external-links": "^3.0.0",
+    "unist-util-visit": "^5.0.0"
+  },
+  "devDependencies": {
+    "opencc-js": "^1.0.5",
+    "prettier": "^3.8.1",
+    "prettier-plugin-astro": "^0.14.1"
+  }
+}

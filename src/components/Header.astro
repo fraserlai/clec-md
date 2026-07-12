@@ -1,0 +1,102 @@
+---
+import { DEFAULT_LANGUAGE } from '../config/languages.mjs';
+import { CATEGORIES } from '../config/categories.mjs';
+import { t } from '../config/ui.mjs';
+import { categoryUrl, homeUrl } from '../lib/content';
+
+interface Props {
+  lang: 'zh-TW' | 'en';
+}
+const { lang } = Astro.props;
+const otherLang = lang === 'zh-TW' ? 'en' : 'zh-TW';
+
+// Compute the equivalent URL in the other language by swapping the prefix.
+const path = Astro.url.pathname;
+const stripped =
+  lang === DEFAULT_LANGUAGE.code ? path : path.replace(/^\/en/, '') || '/';
+const otherHref =
+  otherLang === DEFAULT_LANGUAGE.code ? stripped : '/en' + stripped;
+
+const navCats = CATEGORIES.filter((c) => c.id !== 'about');
+---
+
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href={homeUrl(lang)}>
+      <span class="logo">clec<span class="dot">.md</span></span>
+    </a>
+    <nav class="nav">
+      {
+        navCats.map((c) => (
+          <a href={categoryUrl(lang, c.id)}>{c.name[lang]}</a>
+        ))
+      }
+    </nav>
+    <a class="lang" href={otherHref}>{t(lang, 'langLabel')}</a>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    border-bottom: 1px solid var(--line);
+    background: color-mix(in srgb, var(--bg) 90%, transparent);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    backdrop-filter: blur(8px);
+  }
+  .bar {
+    max-width: 68rem;
+    margin: 0 auto;
+    padding: 0.7rem 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+  }
+  .brand {
+    text-decoration: none;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 1.2rem;
+  }
+  .logo {
+    color: var(--fg);
+  }
+  .dot {
+    color: var(--color-brand);
+  }
+  @media (prefers-color-scheme: dark) {
+    .dot {
+      color: #6ee7a8;
+    }
+  }
+  .nav {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    font-size: 0.92rem;
+    margin-inline-start: auto;
+  }
+  .nav a {
+    text-decoration: none;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .nav a:hover {
+    color: var(--color-brand);
+  }
+  .lang {
+    text-decoration: none;
+    font-size: 0.85rem;
+    padding: 0.25rem 0.7rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--fg);
+    white-space: nowrap;
+  }
+  @media (max-width: 640px) {
+    .nav {
+      display: none;
+    }
+  }
+</style>

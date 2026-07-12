@@ -1,0 +1,67 @@
+---
+import type { GetStaticPaths } from 'astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ArticleCard from '../../../components/ArticleCard.astro';
+import { CATEGORIES, getCategory } from '../../../config/categories.mjs';
+import { t } from '../../../config/ui.mjs';
+import { getPagesByCategory } from '../../../lib/content';
+
+export const getStaticPaths = (() =>
+  CATEGORIES.map((c) => ({ params: { category: c.id } }))) satisfies GetStaticPaths;
+
+const lang = 'en' as const;
+const { category } = Astro.params;
+const cat = getCategory(category!);
+const pages = await getPagesByCategory(lang, category!);
+---
+
+<BaseLayout
+  title={`${cat?.name[lang]} · clec.md`}
+  description={cat?.description[lang] ?? ''}
+  lang={lang}
+>
+  <header class="cat-head">
+    <span class="icon">{cat?.icon}</span>
+    <h1>{cat?.name[lang]}</h1>
+    <p>{cat?.description[lang]}</p>
+  </header>
+
+  {
+    pages.length ? (
+      <div class="list">
+        {pages.map((entry) => (
+          <ArticleCard lang={lang} entry={entry} />
+        ))}
+      </div>
+    ) : (
+      <p class="empty">{t(lang, 'empty')}</p>
+    )
+  }
+</BaseLayout>
+
+<style>
+  .cat-head {
+    padding: 1.5rem 0 1rem;
+  }
+  .icon {
+    font-size: 2rem;
+  }
+  .cat-head h1 {
+    font-size: 2rem;
+    margin: 0.4rem 0 0.4rem;
+  }
+  .cat-head p {
+    color: var(--muted);
+    margin: 0;
+  }
+  .list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .empty {
+    color: var(--muted);
+    padding: 2rem 0;
+  }
+</style>

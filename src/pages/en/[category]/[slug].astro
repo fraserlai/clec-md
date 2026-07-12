@@ -1,0 +1,21 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { render } from 'astro:content';
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import { getPages, idParts } from '../../../lib/content';
+
+export const getStaticPaths = (async () => {
+  const pages = await getPages('en');
+  return pages.map((entry) => {
+    const { category, slug } = idParts(entry.id);
+    return { params: { category, slug }, props: { entry } };
+  });
+}) satisfies GetStaticPaths;
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<ArticleLayout lang="en" entry={entry}>
+  <Content />
+</ArticleLayout>

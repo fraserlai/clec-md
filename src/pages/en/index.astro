@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CategoryGrid from '../../components/CategoryGrid.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { t } from '../../config/ui.mjs';
+import { getPages } from '../../lib/content';
+
+const lang = 'en' as const;
+const pages = await getPages(lang);
+const counts: Record<string, number> = {};
+for (const p of pages) counts[p.data.category] = (counts[p.data.category] ?? 0) + 1;
+const latest = pages.slice(0, 6);
+---
+
+<BaseLayout title={`clec.md · ${t(lang, 'tagline')}`} description={t(lang, 'tagline')} lang={lang}>
+  <section class="hero">
+    <h1>clec<span class="dot">.md</span></h1>
+    <p class="tagline">{t(lang, 'tagline')}</p>
+    <p class="sub">{t(lang, 'subtitle')}</p>
+  </section>
+
+  <h2 class="section-h">{t(lang, 'categoriesHeading')}</h2>
+  <CategoryGrid lang={lang} counts={counts} />
+
+  {
+    latest.length ? (
+      <>
+        <h2 class="section-h">{t(lang, 'latestHeading')}</h2>
+        <div class="list">
+          {latest.map((entry) => (
+            <ArticleCard lang={lang} entry={entry} />
+          ))}
+        </div>
+      </>
+    ) : null
+  }
+</BaseLayout>
+
+<style>
+  .hero {
+    padding: 2.5rem 0 1.5rem;
+    text-align: center;
+  }
+  .hero h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin: 0;
+  }
+  .dot {
+    color: var(--color-brand);
+  }
+  @media (prefers-color-scheme: dark) {
+    .dot {
+      color: #6ee7a8;
+    }
+  }
+  .tagline {
+    font-size: 1.2rem;
+    margin: 0.8rem 0 0.2rem;
+  }
+  .sub {
+    color: var(--muted);
+    margin: 0;
+  }
+  .section-h {
+    font-size: 1.3rem;
+    margin: 2.5rem 0 1rem;
+  }
+  .list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    gap: 1rem;
+  }
+</style>

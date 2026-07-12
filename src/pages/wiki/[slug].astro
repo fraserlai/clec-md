@@ -1,0 +1,40 @@
+---
+// Resolver for [[wikilinks]]. The remark plugin turns [[Term]] into /wiki/<slug>;
+// here we map that slug to the canonical page URL (zh-TW SSOT) and redirect.
+// Unknown slugs simply 404 — the "red link" of an as-yet-unwritten page.
+import type { GetStaticPaths } from 'astro';
+import { getPages, idParts, pageUrl } from '../../lib/content';
+import { slugifyWikiTarget } from '../../../plugins/remark-wikilinks.mjs';
+
+export const getStaticPaths = (async () => {
+  const pages = await getPages('zh-TW');
+  const seen = new Set<string>();
+  const paths = [];
+  for (const entry of pages) {
+    const { slug } = idParts(entry.id);
+    const wikiSlug = slugifyWikiTarget(slug);
+    if (seen.has(wikiSlug)) continue;
+    seen.add(wikiSlug);
+    paths.push({
+      params: { slug: wikiSlug },
+      props: { target: pageUrl('zh-TW', entry), title: entry.data.title },
+    });
+  }
+  return paths;
+}) satisfies GetStaticPaths;
+
+const { target, title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0; url=${target}`} />
+    <link rel="canonical" href={target} />
+    <title>{title} · clec.md</title>
+  </head>
+  <body>
+    <p>前往 <a href={target}>{title}</a>…</p>
+  </body>
+</html>
