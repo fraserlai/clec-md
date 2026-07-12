@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostList from '../../components/PostList.astro';
+
+const lang = 'zh-TW' as const;
+const title = 'James 的貼文與文章';
+const desc =
+  'James（CLEC）在 X、YouTube、Facebook 上的原始貼文與文章，忠實刊出（僅校對格式，未改動內容）。';
+---
+
+<BaseLayout title={`${title} · clec.md`} description={desc} lang={lang}>
+  <header class="phead">
+    <h1>{title}</h1>
+    <p class="desc">{desc}</p>
+  </header>
+  <PostList lang={lang} />
+</BaseLayout>
+
+<style>
+  .phead {
+    padding: 1rem 0 0.8rem;
+  }
+  .phead h1 {
+    font-size: 2rem;
+    margin: 0 0 0.4rem;
+  }
+  .desc {
+    color: var(--muted);
+    margin: 0;
+    max-width: 44rem;
+  }
+</style>

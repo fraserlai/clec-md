@@ -39,6 +39,9 @@ const navCats = CATEGORIES.filter((c) => c.id !== 'about');
           <a href={categoryUrl(lang, c.id)}>{c.name[lang]}</a>
         ))
       }
+      <a href={withBase(`${lang === 'zh-TW' ? '' : '/en'}/posts/`)}
+        >{lang === 'zh-TW' ? 'James 的貼文' : 'Posts'}</a
+      >
       <a href={withBase(`${lang === 'zh-TW' ? '' : '/en'}/videos/`)}
         >{lang === 'zh-TW' ? '影片目錄' : 'Videos'}</a
       >

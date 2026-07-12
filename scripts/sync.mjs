@@ -8,11 +8,10 @@
  * Runs automatically on predev/prebuild. Idempotent: clears and rewrites
  * src/content/ each run so deletions in knowledge/ propagate.
  */
-import { rmSync, mkdirSync, copyFileSync } from 'node:fs';
-import { join, dirname } from 'node:path';
+import { rmSync, mkdirSync, copyFileSync, existsSync } from 'node:fs';
+import { join, dirname, relative } from 'node:path';
 import { ENABLED_LANGUAGE_CODES } from '../src/config/languages.mjs';
-import { CONTENT_DIR, langKnowledgeDir, listMarkdown } from './lib/knowledge.mjs';
-import { relative } from 'node:path';
+import { CONTENT_DIR, ROOT, langKnowledgeDir, listMarkdown } from './lib/knowledge.mjs';
 
 rmSync(CONTENT_DIR, { recursive: true, force: true });
 
@@ -33,4 +32,18 @@ for (const lang of ENABLED_LANGUAGE_CODES) {
   }
   console.log(`  sync ${lang}: ${files.length} pages`);
 }
-console.log(`✓ synced ${total} knowledge pages -> src/content/`);
+
+// James's posts/articles (verbatim) — a separate collection.
+const postsBase = join(ROOT, 'posts');
+if (existsSync(postsBase)) {
+  const postFiles = listMarkdown(postsBase);
+  for (const abs of postFiles) {
+    const dest = join(CONTENT_DIR, 'posts', relative(postsBase, abs));
+    mkdirSync(dirname(dest), { recursive: true });
+    copyFileSync(abs, dest);
+  }
+  console.log(`  sync posts: ${postFiles.length} posts`);
+  total += postFiles.length;
+}
+
+console.log(`✓ synced ${total} items -> src/content/`);

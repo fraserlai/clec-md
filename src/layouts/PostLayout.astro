@@ -1,0 +1,119 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { sourceBadge, viewOriginalLabel } from '../config/posts.mjs';
+import { withBase } from '../lib/content';
+import { langPrefix } from '../config/languages.mjs';
+
+interface Props {
+  lang: 'zh-TW' | 'en';
+  entry: any;
+}
+const { lang, entry } = Astro.props;
+const d = entry.data;
+const dateStr = new Date(d.date).toISOString().slice(0, 10);
+const postsHome = withBase(`${langPrefix(lang)}/posts/`);
+const backLabel = lang === 'zh-TW' ? 'James 的貼文' : "James's Posts";
+const faithfulNote =
+  lang === 'zh-TW'
+    ? '這是 James 的原始貼文，忠實刊出（僅校對轉換格式，未改動內容）。'
+    : "James's original post, published faithfully (proofread for formatting only, content unchanged).";
+---
+
+<BaseLayout title={`${d.title} · clec.md`} description={d.title} lang={lang}>
+  <article>
+    <nav class="crumbs">
+      <a href={postsHome}>← {backLabel}</a>
+    </nav>
+
+    <header class="head">
+      <div class="meta-top">
+        <span class="badge">{sourceBadge(d.source)}</span>
+        {d.series ? <span class="series">{d.series}</span> : null}
+        <time>{dateStr}</time>
+      </div>
+      <h1>{d.title}</h1>
+      {
+        d.sourceUrl ? (
+          <a class="orig" href={d.sourceUrl} target="_blank" rel="noopener noreferrer">
+            {viewOriginalLabel(d.source, lang)}
+          </a>
+        ) : null
+      }
+    </header>
+
+    <div class="prose post-body">
+      <slot />
+    </div>
+
+    <p class="faithful">{faithfulNote}</p>
+  </article>
+</BaseLayout>
+
+<style>
+  .crumbs {
+    font-size: 0.85rem;
+    margin: 0.5rem 0 1.2rem;
+  }
+  .crumbs a {
+    text-decoration: none;
+    color: var(--color-brand);
+  }
+  .head {
+    margin-bottom: 1.6rem;
+  }
+  .meta-top {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+  .badge {
+    font-weight: 700;
+    color: #fff;
+    background: var(--color-brand);
+    border-radius: 6px;
+    padding: 0.1rem 0.5rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.03em;
+  }
+  .series {
+    color: var(--color-brand);
+    font-weight: 600;
+  }
+  h1 {
+    font-family: var(--font-serif);
+    font-size: 1.9rem;
+    line-height: 1.3;
+    margin: 0 0 0.6rem;
+  }
+  .orig {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-brand);
+    text-decoration: none;
+  }
+  .orig:hover {
+    text-decoration: underline;
+  }
+  /* Posts arrive as long run-on paragraphs; keep them readable. */
+  .post-body {
+    white-space: pre-wrap;
+    line-height: 1.95;
+  }
+  .faithful {
+    font-size: 0.82rem;
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+    margin-top: 2.5rem;
+    padding-top: 1rem;
+  }
+  @media (prefers-color-scheme: dark) {
+    .series,
+    .orig,
+    .crumbs a {
+      color: #6ee7a8;
+    }
+  }
+</style>

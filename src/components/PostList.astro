@@ -1,0 +1,110 @@
+---
+import { getCollection } from 'astro:content';
+import { sourceBadge } from '../config/posts.mjs';
+import { withBase } from '../lib/content';
+
+interface Props {
+  lang: 'zh-TW' | 'en';
+}
+const { lang } = Astro.props;
+
+const posts = (await getCollection('posts'))
+  .filter((e: any) => e.data.status !== 'draft')
+  .sort((a: any, b: any) => +new Date(b.data.date) - +new Date(a.data.date));
+
+const postUrl = (e: any) => withBase(`/posts/${e.id}/`);
+const dateOf = (e: any) => new Date(e.data.date).toISOString().slice(0, 10);
+---
+
+<ul class="plist">
+  {
+    posts.map((e: any) => (
+      <li>
+        <a href={postUrl(e)}>
+          <span class={`badge b-${e.data.source}`}>{sourceBadge(e.data.source)}</span>
+          {e.data.ep ? <span class="ep">{e.data.ep}</span> : null}
+          <span class="ptitle">{e.data.title}</span>
+          <time>{dateOf(e)}</time>
+        </a>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .plist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .plist li a {
+    display: grid;
+    grid-template-columns: auto auto 1fr auto;
+    align-items: baseline;
+    gap: 0.6rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--line);
+    text-decoration: none;
+    color: var(--fg);
+  }
+  .plist li a:hover .ptitle {
+    color: var(--color-brand);
+  }
+  .badge {
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #fff;
+    background: var(--color-brand);
+    border-radius: 5px;
+    padding: 0.05rem 0.4rem;
+    letter-spacing: 0.03em;
+  }
+  .b-FB {
+    background: #1877f2;
+  }
+  .b-YouTube {
+    background: #c4302b;
+  }
+  .b-X {
+    background: #111;
+  }
+  .ep {
+    font-variant-numeric: tabular-nums;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--color-brand);
+  }
+  .ptitle {
+    line-height: 1.4;
+  }
+  time {
+    color: var(--muted);
+    font-size: 0.78rem;
+    white-space: nowrap;
+  }
+  @media (prefers-color-scheme: dark) {
+    .ep {
+      color: #6ee7a8;
+    }
+  }
+  @media (max-width: 640px) {
+    .plist li a {
+      grid-template-columns: auto 1fr;
+      grid-template-areas: 'badge title' 'ep date';
+      gap: 0.3rem 0.5rem;
+    }
+    .badge {
+      grid-area: badge;
+    }
+    .ptitle {
+      grid-area: title;
+    }
+    .ep {
+      grid-area: ep;
+    }
+    time {
+      grid-area: date;
+      justify-self: end;
+    }
+  }
+</style>

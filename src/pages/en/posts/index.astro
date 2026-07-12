@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PostList from '../../../components/PostList.astro';
+
+const lang = 'en' as const;
+const title = "James's Posts & Articles";
+const desc =
+  "James's (CLEC) original posts and articles from X, YouTube, and Facebook, published faithfully (proofread for formatting only, content unchanged). Posts are in Chinese.";
+---
+
+<BaseLayout title={`${title} · clec.md`} description={desc} lang={lang}>
+  <header class="phead">
+    <h1>{title}</h1>
+    <p class="desc">{desc}</p>
+  </header>
+  <PostList lang={lang} />
+</BaseLayout>
+
+<style>
+  .phead {
+    padding: 1rem 0 0.8rem;
+  }
+  .phead h1 {
+    font-size: 2rem;
+    margin: 0 0 0.4rem;
+  }
+  .desc {
+    color: var(--muted);
+    margin: 0;
+    max-width: 44rem;
+  }
+</style>

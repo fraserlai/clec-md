@@ -47,4 +47,20 @@ const en = defineCollection({
   }),
 });
 
-export const collections = { 'zh-TW': zhTW, en };
+// James's original posts & articles (X / YouTube / FB), published faithfully —
+// proofread for conversion artifacts only, not synthesized like knowledge pages.
+const posts = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/posts' }),
+  schema: z.object({
+    title: z.string(),
+    date: z.coerce.date(),
+    source: z.enum(['X', 'YouTube', 'FB']),
+    sourceUrl: z.string().optional(),
+    sourceType: z.string().optional().default(''),
+    series: z.string().optional().default(''),
+    ep: z.string().optional().default(''),
+    status: z.enum(['draft', 'published']).optional().default('published'),
+  }),
+});
+
+export const collections = { 'zh-TW': zhTW, en, posts };
