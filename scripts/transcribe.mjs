@@ -25,7 +25,7 @@ import {
 } from 'node:fs';
 import { join, basename, extname } from 'node:path';
 import { tmpdir } from 'node:os';
-import { spawnSync } from 'node:child_process';
+import { spawnSync, spawn } from 'node:child_process';
 import * as OpenCC from 'opencc-js';
 import {
   SOURCE_DIR,
@@ -47,6 +47,10 @@ const val = (f) => {
 const onlyFolder = val('--folder');
 const limit = val('--limit') ? parseInt(val('--limit'), 10) : Infinity;
 const listOnly = has('--list');
+// Concurrency: encode runs on the ANE (Core ML), decode on the GPU (Metal).
+// Running several files at once overlaps those stages so both accelerators
+// stay busy. ~4.5GB RAM per large-v3 instance → 3 is a safe default on 32GB.
+const jobs = Math.max(1, val('--jobs') ? parseInt(val('--jobs'), 10) : 1);
 
 const toTraditional = OpenCC.Converter({ from: 'cn', to: 'twp' });
 const OUT_ROOT = join(RAW_DIR, 'transcripts');
@@ -64,14 +68,18 @@ function targetPath(folder, file) {
   return join(OUT_ROOT, folder, basename(file, extname(file)) + '.md');
 }
 
+// Async spawn so multiple transcriptions can run concurrently in one process.
 function run(cmd, cmdArgs, opts = {}) {
-  const r = spawnSync(cmd, cmdArgs, { encoding: 'utf8', ...opts });
-  if (r.status !== 0) {
-    throw new Error(
-      `${cmd} failed (${r.status}): ${(r.stderr || '').slice(-500)}`,
-    );
-  }
-  return r;
+  return new Promise((resolve, reject) => {
+    const child = spawn(cmd, cmdArgs, { stdio: ['ignore', 'ignore', 'pipe'], ...opts });
+    let stderr = '';
+    if (child.stderr) child.stderr.on('data', (d) => (stderr += d));
+    child.on('error', reject);
+    child.on('close', (code) => {
+      if (code !== 0) reject(new Error(`${cmd} failed (${code}): ${stderr.slice(-500)}`));
+      else resolve();
+    });
+  });
 }
 
 function ffprobeDuration(abs) {
@@ -85,25 +93,26 @@ function ffprobeDuration(abs) {
   return Number.isFinite(d) ? d : null;
 }
 
-function transcribeOne({ folder, file, abs }) {
+async function transcribeOne({ folder, file, abs }) {
   const out = targetPath(folder, file);
   if (existsSync(out)) return 'skip';
   mkdirSync(join(OUT_ROOT, folder), { recursive: true });
 
   const stem = basename(file, extname(file));
-  const wav = join(tmpdir(), `clec-${Date.now()}-${Math.random().toString(36).slice(2)}.wav`);
-  const whisperOut = join(tmpdir(), `clec-${Date.now()}-${Math.random().toString(36).slice(2)}`);
+  const uniq = `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+  const wav = join(tmpdir(), `clec-${uniq}.wav`);
+  const whisperOut = join(tmpdir(), `clec-${uniq}-out`);
 
   try {
     // 1. extract audio
-    run('ffmpeg', ['-y', '-i', abs, '-ar', '16000', '-ac', '1', '-c:a',
-      'pcm_s16le', wav], { stdio: ['ignore', 'ignore', 'pipe'] });
+    await run('ffmpeg', ['-y', '-i', abs, '-ar', '16000', '-ac', '1', '-c:a',
+      'pcm_s16le', wav]);
 
     // 2. whisper.cpp
-    run(join(WHISPER_DIR, WHISPER_BIN),
+    await run(join(WHISPER_DIR, WHISPER_BIN),
       ['-m', WHISPER_MODEL, '-l', WHISPER_LANG, '-f', wav, '-otxt', '-of',
         whisperOut, '-nt'],
-      { cwd: WHISPER_DIR, stdio: ['ignore', 'ignore', 'pipe'] });
+      { cwd: WHISPER_DIR });
 
     // 3. Simplified -> Traditional (Taiwan, with phrase conversion)
     const raw = readFileSync(whisperOut + '.txt', 'utf8').trim();
@@ -155,20 +164,31 @@ if (listOnly) {
 }
 
 pending = pending.slice(0, limit);
-console.log(`Transcribing ${pending.length} video(s)…`);
+console.log(`Transcribing ${pending.length} video(s) with ${jobs} parallel job(s)…`);
+
 let ok = 0;
-for (let i = 0; i < pending.length; i++) {
-  const v = pending[i];
-  const t0 = Date.now();
-  process.stdout.write(`[${i + 1}/${pending.length}] ${v.folder}/${v.file} … `);
-  try {
-    const r = transcribeOne(v);
-    const secs = ((Date.now() - t0) / 1000).toFixed(0);
-    console.log(r === 'skip' ? 'skip' : `done (${secs}s)`);
-    if (r === 'ok') ok++;
-  } catch (e) {
-    console.log('FAILED');
-    console.error('   ' + e.message);
+let done = 0;
+let next = 0;
+const total = pending.length;
+
+async function worker() {
+  while (next < total) {
+    const i = next++;
+    const v = pending[i];
+    const t0 = Date.now();
+    try {
+      const r = await transcribeOne(v);
+      const secs = ((Date.now() - t0) / 1000).toFixed(0);
+      done++;
+      console.log(`[${done}/${total}] ${v.folder}/${v.file} … ${r === 'skip' ? 'skip' : `done (${secs}s)`}`);
+      if (r === 'ok') ok++;
+    } catch (e) {
+      done++;
+      console.log(`[${done}/${total}] ${v.folder}/${v.file} … FAILED`);
+      console.error('   ' + e.message);
+    }
   }
 }
+
+await Promise.all(Array.from({ length: Math.min(jobs, total) }, () => worker()));
 console.log(`✓ ${ok} transcribed → ${OUT_ROOT}`);
