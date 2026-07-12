@@ -8,8 +8,10 @@ dist/
 # generated content collection (projected from knowledge/ by scripts/sync.mjs)
 src/content/
 
-# ingestion working files
-raw/**/*.wav
+# raw sources are kept LOCAL-ONLY (transcripts + converted docs, incl. full
+# book texts). Only the derived, cited knowledge/ pages are committed.
+raw/*
+!raw/README.md
 scripts/.transcribe-state.json
 
 # os / editor
