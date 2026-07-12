@@ -99,3 +99,20 @@ Transcribed the video versions of the flagship lecture (whisper large-v3 + openc
 These are the spoken versions of the same chapters already ingested from the PDF, so they
 corroborate (provenance) rather than spawn redundant pages. Added scripts/transcribe-file.mjs
 for one-off arbitrary-path transcription (sequential; coexists with the bulk job).
+
+## [2026-07-12] section | James's Posts & Articles (verbatim)
+
+New `posts` collection (separate from synthesized knowledge/), published faithfully:
+- Imported 37 X/YouTube posts + 2 FB (所有文章彙總 index of 167 links + 重要資訊連結).
+- scripts/import-posts.mjs does mechanical cleanup only (strip 來源 line + base64
+  images + tracking params); never rewrites James's words.
+- /posts + /en/posts listing (source badges, newest-first), /posts/[...slug] detail,
+  PostLayout with 'View original ↗' + faithfulness note; header nav link.
+- Deleted the stray 九十四 post per request.
+
+FB backfill: 270 individual FB articles are Google Drive online-only (readdir sees
+only 2; daily sync limit). They import faithfully as they sync — re-run:
+  CLEC_SOURCE_DIR=<drive> npm run convert-docs -- --folder "FB Wealthyin50的貼文"
+  node scripts/import-posts.mjs --folder "FB Wealthyin50的貼文"
+NOT crawling FB: WebFetch returns summarized (non-verbatim) text, which would violate
+the 'proofread only, don't modify context' rule. The 彙總 index post links all 167.
