@@ -12,7 +12,7 @@
  *   node scripts/import-posts.mjs --folder "FB Wealthyin50的貼文"
  *   node scripts/import-posts.mjs --list
  */
-import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync, statSync } from 'node:fs';
 import { join, basename, extname } from 'node:path';
 import matter from 'gray-matter';
 import { ROOT } from './lib/knowledge.mjs';
@@ -81,18 +81,32 @@ function cleanBody(body) {
   return { body: out, sourceUrl };
 }
 
+// Recursively list *.md under dir, returning paths relative to dir.
+function listMdRel(dir, prefix = '') {
+  const out = [];
+  for (const entry of readdirSync(dir)) {
+    if (entry.startsWith('.')) continue;
+    const abs = join(dir, entry);
+    const rel = prefix ? `${prefix}/${entry}` : entry;
+    if (statSync(abs).isDirectory()) out.push(...listMdRel(abs, rel));
+    else if (entry.endsWith('.md')) out.push(rel);
+  }
+  return out;
+}
+
 function importFolder(folder) {
   const dir = join(RAW_DOCS, folder);
   if (!existsSync(dir)) return { total: 0, written: 0 };
-  const files = readdirSync(dir).filter((f) => f.endsWith('.md')).sort();
+  const files = listMdRel(dir).sort();
   let written = 0;
-  for (const file of files) {
-    const stem = basename(file, extname(file));
-    const outPath = join(OUT, folder, slugify(stem) + '.md');
+  for (const relFile of files) {
+    const subdir = relFile.includes('/') ? relFile.slice(0, relFile.lastIndexOf('/')) : '';
+    const stem = basename(relFile, extname(relFile));
+    const outPath = join(OUT, folder, subdir, slugify(stem) + '.md');
     if (existsSync(outPath) && !has('--force')) continue;
     if (listOnly) continue;
 
-    const raw = readFileSync(join(dir, file), 'utf8');
+    const raw = readFileSync(join(dir, relFile), 'utf8');
     const parsed = matter(raw);
     const { body, sourceUrl } = cleanBody(parsed.content);
     if (!body) continue;

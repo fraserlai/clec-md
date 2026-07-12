@@ -10,6 +10,14 @@ Format: `- [title](knowledge/<category>/<slug>.md) — one-line summary` · `zh-
 - [勞工還是資本家？跳出老鼠籠](knowledge/investing-mindset/勞工還是資本家.md) — 佃農/地主、老鼠籠、富有是天賦、物質vs精神能量。 · zh-TW · en
 - [值得讀的投資書籍（書單）](knowledge/investing-mindset/值得讀的投資書籍.md) — CLEC 由淺入深的書單；精神能量來自多看書。 · zh-TW · en
 
+## life-philosophy · 人生哲學與生活
+
+- [快樂是人權：簡約生活、拒絕錯配、用錢買回憶](knowledge/life-philosophy/快樂是人權.md) — 簡約生活、物質vs精神能量、錢是垃圾、人在天堂債在銀行。 · zh-TW · en
+
+## relationships · 關係與家庭
+
+- [子女是不用繩子綁住的風箏](knowledge/relationships/子女是風箏.md) — 行為教育、身教、陪伴；財富自由後關係決定快樂；放下對孩子的焦慮。 · zh-TW · en
+
 ## index-etf · 指數與 ETF 投資
 
 - [為什麼是納斯達克100（QQQ）](knowledge/index-etf/為什麼是納斯達克100.md) — QQQ vs SPY vs VT、火車頭理論、200年四資產、不要問清單。 · zh-TW · en

@@ -20,6 +20,24 @@ export const CATEGORIES = [
     icon: '🧭',
   },
   {
+    id: 'life-philosophy',
+    name: { 'zh-TW': '人生哲學與生活', en: 'Life & Philosophy' },
+    description: {
+      'zh-TW': '富有是天賦、快樂是人權、簡約生活、物質與精神能量——CLEC 不只談投資，更談怎麼過一個值得的人生。',
+      en: 'Being rich is a birthright, happiness is a human right, simple living, material vs. spiritual energy — CLEC is about how to live a life worth living, not just investing.',
+    },
+    icon: '🌱',
+  },
+  {
+    id: 'relationships',
+    name: { 'zh-TW': '關係與家庭', en: 'Relationships & Family' },
+    description: {
+      'zh-TW': '父母、子女、配偶與陪伴：財富自由後，真正決定你快不快樂的是關係。',
+      en: 'Parents, children, spouse, and presence: once you have financial freedom, relationships decide your happiness.',
+    },
+    icon: '👨‍👩‍👧',
+  },
+  {
     id: 'asset-allocation',
     name: { 'zh-TW': '資產配置', en: 'Asset Allocation' },
     description: {
