@@ -38,3 +38,21 @@ Wove wikilinks across all pages; updated index.md. Total knowledge pages now 8×
 Diagnosed low GPU use: Core ML encoder runs on ANE (not GPU), decoder on Metal,
 alternating → single stream underuses hardware. Added --jobs worker pool
 (overlaps ANE+GPU). Priority job relaunched at jobs=3 (~2-3× throughput).
+
+## [2026-07-11] ingest | raw/docs/教學資料 strategy notes + 理財聖經 + posts → 6 pages
+
+Ingested the finite high-value docs (deduping lecture variants):
+- index-etf/UCITS-ETF-非美國投資人 (from 【UCITS ETF】 note — US estate tax, iShares CNDX)
+- asset-allocation/聰明再平衡法 (from 【聰明再平衡法】 note — advanced/leveraged rebalancing)
+- glossary/Beta (from 【Beta 的計算】 — QQQ=1.0 convention)
+- investing-mindset/值得讀的投資書籍 (from 【值得讀的投資書籍】 reading list)
+- behavioral-finance/崩盤是朋友 (from 理財聖經 iron law 3 + lecture — 46% rebound)
+- glossary/儲蓄險與壽險陷阱 (from post 0001 — 16yr life insurance = 0.64%)
+Knowledge base now 14 topic pages × 2 langs. Empty categories remaining: risk-cashflow, macro-economy.
+
+Deferred/not ingested (redundant or ongoing):
+- CLEC寶典 V1.0.0 (繁/簡/英): reviewed — content substantially overlaps 講座/聖經.
+- 世界最佳QQQ note, 圖文/簡中 lecture variants: duplicate of existing pages.
+- Charles Schwab note: promotional + contains a personal email; skipped for privacy.
+- posts 0002/0003, 統計概率隨機, 5 short transcripts: lower priority / partial overlap.
+- raw/transcripts/長篇 (~2000 videos): still transcribing (npm run transcribe), ongoing stream.
