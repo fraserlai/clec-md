@@ -89,3 +89,13 @@ Remaining posts mostly REINFORCE existing pages (not new pages): 0003/0005/0014/
 /0011(出書) tangential, skipped. Knowledge base now 19 topics × 2 langs.
 
 ## [2026-07-12] transcribe | Downloads 00694 lecture ch1 (video, 56min) — running
+
+## [2026-07-12] transcribe+ingest | 講座影片版 ch1/ch2/ch3 (00694/00695/00696)
+
+Transcribed the video versions of the flagship lecture (whisper large-v3 + opencc):
+- 00694 ch1 (56min) → done → added as corroborating source to investing-mindset/勞工還是資本家
+- 00695 ch2 (42min) → added as source to index-etf/為什麼是納斯達克100
+- 00696 ch3 (32min) → added as source to asset-allocation/現金是空氣
+These are the spoken versions of the same chapters already ingested from the PDF, so they
+corroborate (provenance) rather than spawn redundant pages. Added scripts/transcribe-file.mjs
+for one-off arbitrary-path transcription (sequential; coexists with the bulk job).
