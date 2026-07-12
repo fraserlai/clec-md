@@ -13,7 +13,7 @@
  *   node scripts/import-posts.mjs --list
  */
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync, statSync } from 'node:fs';
-import { join, basename, extname } from 'node:path';
+import { join, basename, extname, dirname } from 'node:path';
 import matter from 'gray-matter';
 import { ROOT } from './lib/knowledge.mjs';
 
@@ -48,7 +48,8 @@ function parseDate(stem) {
 }
 
 function extractEp(stem) {
-  const m = stem.match(/^\s*(\d{2,5})\s*貼文/) || stem.match(/^\s*(\d{3,5})\b/);
+  // Only the X/YouTube "NNNN貼文" numbering — not FB filenames that start with a year.
+  const m = stem.match(/^\s*(\d{2,5})\s*貼文/);
   return m ? m[1] : '';
 }
 
@@ -62,12 +63,18 @@ function detectSeries(stem) {
 // Clean the markitdown body without altering James's text.
 function cleanBody(body) {
   let out = body;
-  // Pull the leading source URL line out (returned separately).
+  // Source URL: an explicit "來源：<url>" line (X/YouTube) — remove it from the
+  // body; otherwise the first URL near the top (FB, which wraps it in markdown).
   let sourceUrl = '';
-  const src = out.match(/^\s*來源[:：]\s*<?([^\s>]+)>?/m);
-  if (src) {
-    sourceUrl = src[1].replace(/\?s=\d+.*$/, '');
-    out = out.replace(src[0], '');
+  const cleanUrl = (u) =>
+    u.replace(/[)*\]>]+$/, '').replace(/[?&](?:s|d|mibextid|__cft__|__tn__)=[^\s)]*$/g, '');
+  const explicit = out.match(/^\s*來源[:：]\s*<?\**\[?\s*(https?:\/\/[^\s\])>*]+)/m);
+  if (explicit) {
+    sourceUrl = cleanUrl(explicit[1]);
+    out = out.replace(explicit[0], '');
+  } else {
+    const near = out.slice(0, 600).match(/https?:\/\/[^\s\])>*]+/);
+    if (near) sourceUrl = cleanUrl(near[0]);
   }
   out = out
     // drop base64 / local-path images (conversion noise, not James's content)
@@ -136,7 +143,7 @@ function importFolder(folder) {
       '',
     ].filter((l) => l !== null).join('\n');
 
-    mkdirSync(join(OUT, folder), { recursive: true });
+    mkdirSync(dirname(outPath), { recursive: true });
     writeFileSync(outPath, fm);
     written++;
   }
