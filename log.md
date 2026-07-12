@@ -65,3 +65,27 @@ markets (US/TW/CN/HK/JP/KR/CA/AU/UK/EU/SG-MY/IN/NZ/BR + Ireland UCITS), with
 2×/3× leveraged versions, per-region cash/MMF instruments, high-dividend
 retirement versions, and pledge-lending options. Cross-linked from the main
 為什麼是納斯達克100 page. Knowledge base now 15 topic pages × 2 langs.
+
+## [2026-07-12] ingest | X及YouTube的貼文 (38 posts) → 4 new pages + house update
+
+Converted all 38 posts. Created bilingual pages from the distinct/new topics:
+- retirement-planning/退休需要多少錢 (0015+0009): 15× not 50×; 1440萬 QQQI example; 15-yr cash FLOW
+- glossary/QQQI (0028): covered-call high-div; return-of-capital tax truth (TW vs US)
+- behavioral-finance/從擇時操作到打死不賣 (0032-0035): CONFLICT resolved — the "全方位操盤術"
+  market-timing/stock-picking is James's 2016 method he explicitly abandoned; kept the
+  newer doctrine (index + never sell), flagged old parts as superseded.
+- behavioral-finance/統計概率隨機與意外 (0030 + 九十四): true/false propositions, 25y vs 5y
+  return distributions, randomness/surprise.
+Updated retirement-planning/房地產 with 0031 第二版 (30-yr buy-vs-rent calc; newer-wins:
+concrete $ version supersedes the older qualitative one).
+
+Conflict-resolution applied (newer index wins): 0032-0035 timing→superseded by buy&hold;
+0031 第二版 supersedes 短篇00002 qualitative; 0015 (15×/1440萬) refines the lecture's
+50×/33× tiers for the retirement target number.
+
+Remaining posts mostly REINFORCE existing pages (not new pages): 0003/0005/0014/0017→房地產;
+0004/0010/0012/0013/0022/0023/0024/0025/0026/0027/0029→勞工還是資本家; 0018/0002→崩盤是朋友;
+0019→UCITS/遺產稅; 0007→質押/global table; 0021→為什麼是納斯達克100; 0006→(見證). 0020(中華商場)
+/0011(出書) tangential, skipped. Knowledge base now 19 topics × 2 langs.
+
+## [2026-07-12] transcribe | Downloads 00694 lecture ch1 (video, 56min) — running

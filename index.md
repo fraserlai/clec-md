@@ -23,12 +23,15 @@ Format: `- [title](knowledge/<category>/<slug>.md) — one-line summary` · `zh-
 
 ## retirement-planning · 退休與財務規劃
 
+- [退休需要多少錢？15 倍不是 50 倍](knowledge/retirement-planning/退休需要多少錢.md) — 年開銷15倍可退休；1440萬範例（QQQI現金流）；15年現金流≠15年現金。 · zh-TW · en
 - [三層防線：退休那年市場大跌](knowledge/retirement-planning/三層防線.md) — 三年現金墊 + 質押≤20% + 等市場回來。 · zh-TW · en
-- [房地產與指數基金：退休現金流](knowledge/retirement-planning/房地產與指數基金的退休現金流.md) — 出租房到老年變負擔；指數基金不賣不課稅、可傳承。 · zh-TW · en
+- [房地產與指數基金：退休現金流](knowledge/retirement-planning/房地產與指數基金的退休現金流.md) — 出租房到老年變負擔；含購屋vs租屋30年試算（第二版）。 · zh-TW · en
 
 ## behavioral-finance · 投資心理學
 
 - [崩盤是你最好的朋友](knowledge/behavioral-finance/崩盤是朋友.md) — 觸底後平均反彈46%；離開市場才是最大風險；6尺高的人淹死在2尺深的水。 · zh-TW · en
+- [從擇時操作到打死不賣（哲學演變）](knowledge/behavioral-finance/從擇時操作到打死不賣.md) — James 2000/2008擇時的歷史，如何演變成純被動；舊法已被取代。 · zh-TW · en
+- [統計、概率、隨機、意外](knowledge/behavioral-finance/統計概率隨機與意外.md) — 長期為可證偽的真命題、短期是隨機；25年vs5年報酬分佈；期望值錯配。 · zh-TW · en
 
 ## glossary · 名詞解釋
 
@@ -36,6 +39,7 @@ Format: `- [title](knowledge/<category>/<slug>.md) — one-line summary` · `zh-
 - [質押借款 vs 融資](knowledge/glossary/質押借款.md) — 質押=抵押借款不賣股；融資=可強制平倉。CLEC 支持質押、反對融資。 · zh-TW · en
 - [Beta（以 QQQ=1.0 為基準）](knowledge/glossary/Beta.md) — QQQ=1.0、QLD=2.0、TQQQ=3.0、現金=0.0；組合beta=加權和。 · zh-TW · en
 - [儲蓄險／壽險不是投資](knowledge/glossary/儲蓄險與壽險陷阱.md) — 16年壽險實際報酬0.64%；保險歸保險、投資歸投資。 · zh-TW · en
+- [QQQI（納指高股息）與資本返還](knowledge/glossary/QQQI.md) — 月配約1%；配息多為資本返還，台灣投資人稅務可忽略、美國要注意成本基礎。 · zh-TW · en
 
 ## about · 關於
 
