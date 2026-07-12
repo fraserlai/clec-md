@@ -22,7 +22,10 @@ export function slugifyWikiTarget(name) {
     .toLowerCase();
 }
 
-export default function remarkWikilinks() {
+export default function remarkWikilinks(options = {}) {
+  // Deploy base (e.g. '/clec-md') so wikilinks work under a GitHub Pages
+  // subpath. Passed from astro.config.mjs; defaults to root.
+  const base = (options.base ?? '').replace(/\/$/, '');
   return (tree) => {
     visit(tree, 'text', (node, index, parent) => {
       if (!parent || index === null) return;
@@ -42,7 +45,7 @@ export default function remarkWikilinks() {
         const slug = slugifyWikiTarget(target);
         children.push({
           type: 'link',
-          url: `/wiki/${slug}`,
+          url: `${base}/wiki/${slug}`,
           data: { hProperties: { className: 'wikilink' } },
           children: [{ type: 'text', value: label }],
         });

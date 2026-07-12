@@ -27,18 +27,31 @@ export async function getPagesByCategory(
   return (await getPages(lang)).filter((e) => e.data.category === category);
 }
 
+/**
+ * Prefix an internal path with the configured deploy base
+ * (`import.meta.env.BASE_URL`, e.g. '/clec-md/' on GitHub Pages, '/' on a
+ * root/custom-domain deploy). Every internal link must go through this so the
+ * site works under a subpath.
+ */
+export function withBase(path: string): string {
+  return (import.meta.env.BASE_URL + path.replace(/^\//, '')).replace(
+    /\/{2,}/g,
+    '/',
+  );
+}
+
 /** Canonical URL for a page, honoring the default-language (no prefix) rule. */
 export function pageUrl(lang: Lang, entry: AnyEntry): string {
   const { slug } = idParts(entry.id);
-  return `${langPrefix(lang)}/${entry.data.category}/${slug}/`;
+  return withBase(`${langPrefix(lang)}/${entry.data.category}/${slug}/`);
 }
 
 export function categoryUrl(lang: Lang, categoryId: string): string {
-  return `${langPrefix(lang)}/${categoryId}/`;
+  return withBase(`${langPrefix(lang)}/${categoryId}/`);
 }
 
 export function homeUrl(lang: Lang): string {
-  return `${langPrefix(lang)}/`;
+  return withBase(`${langPrefix(lang)}/`);
 }
 
 export const isDefaultLang = (lang: string) => lang === DEFAULT_LANGUAGE.code;
