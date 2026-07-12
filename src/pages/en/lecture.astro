@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import TweetEmbed from '../../components/TweetEmbed.astro';
 import { LECTURE } from '../../config/lecture.mjs';
 import { langPrefix } from '../../config/languages.mjs';
 import { withBase } from '../../lib/content';
@@ -32,6 +33,18 @@ const title = LECTURE.title[lang];
         ))
       }
     </ol>
+
+    <h2>Full videos</h2>
+    {
+      LECTURE.chapters.map((c) => (
+        <div class="video-block">
+          <p class="video-label">
+            Chapter {c.n} · {c.title[lang]}
+          </p>
+          <TweetEmbed url={c.tweet} />
+        </div>
+      ))
+    }
 
     <h2>About this course</h2>
     <p>
@@ -134,6 +147,15 @@ const title = LECTURE.title[lang];
     background: var(--color-brand-soft);
     padding: 0.1em 0.35em;
     border-radius: 4px;
+  }
+  .video-block {
+    margin: 0 0 1.5rem;
+  }
+  .video-label {
+    font-weight: 600;
+    color: var(--muted);
+    margin: 0 0 0.3rem;
+    font-size: 0.92rem;
   }
   .disclaimer {
     font-size: 0.85rem;

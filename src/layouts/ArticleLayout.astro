@@ -1,5 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import TweetEmbed from '../components/TweetEmbed.astro';
 import { t } from '../config/ui.mjs';
 import { categoryName } from '../config/categories.mjs';
 import { LECTURE, lectureChapterFor } from '../config/lecture.mjs';
@@ -72,6 +73,17 @@ const chWord = (n: number) =>
             {lang === 'zh-TW' ? '看課程總覽 →' : 'Course overview →'}
           </span>
         </a>
+      ) : null
+    }
+
+    {
+      lc && lc.chapter.tweet ? (
+        <section class="chapter-video">
+          <h2 class="video-h">
+            ▶ {lang === 'zh-TW' ? `第 ${lc.chapter.n} 章 · 完整影片` : `Chapter ${lc.chapter.n} · Full video`}
+          </h2>
+          <TweetEmbed url={lc.chapter.tweet} />
+        </section>
       ) : null
     }
 
@@ -150,6 +162,14 @@ const chWord = (n: number) =>
     .cb-cta {
       color: #6ee7a8;
     }
+  }
+  .chapter-video {
+    margin: 0 0 1.5rem;
+  }
+  .video-h {
+    font-size: 1rem;
+    color: var(--muted);
+    margin: 0 0 0.4rem;
   }
   .chapter-nav {
     display: grid;

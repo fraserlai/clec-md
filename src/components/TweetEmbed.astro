@@ -1,0 +1,58 @@
+---
+/**
+ * Embeds an X / Twitter post (incl. its video) via the official widgets.js.
+ * The loader script is idempotent (guarded by element id) so it's safe to use
+ * this component multiple times on one page.
+ */
+interface Props {
+  url: string;
+  maxWidth?: number;
+}
+const { url, maxWidth = 550 } = Astro.props;
+// widgets.js resolves either twitter.com or x.com; normalize to twitter.com.
+const href = url.replace('://x.com', '://twitter.com');
+---
+
+<div class="tweet-embed">
+  <blockquote
+    class="twitter-tweet"
+    data-dnt="true"
+    data-media-max-width={maxWidth}
+  >
+    <a href={href}></a>
+  </blockquote>
+</div>
+
+<script is:inline>
+  window.twttr =
+    window.twttr ||
+    (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = 'https://platform.twitter.com/widgets.js';
+      fjs.parentNode.insertBefore(js, fjs);
+      t._e = [];
+      t.ready = function (f) {
+        t._e.push(f);
+      };
+      return t;
+    })(document, 'script', 'twitter-wjs');
+  // Re-scan in case widgets.js was already loaded on a prior view.
+  if (window.twttr && window.twttr.widgets && window.twttr.widgets.load) {
+    window.twttr.widgets.load();
+  }
+</script>
+
+<style>
+  .tweet-embed {
+    margin: 1.2rem 0;
+    min-height: 2rem;
+  }
+  .tweet-embed :global(.twitter-tweet) {
+    margin-inline: 0 !important;
+  }
+</style>

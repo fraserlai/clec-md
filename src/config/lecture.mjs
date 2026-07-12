@@ -36,6 +36,7 @@ export const LECTURE = {
         'zh-TW': '你是勞工還是資本家？為什麼要投資、為什麼做資本家的底層邏輯。',
         en: 'Laborer or capitalist? The bedrock logic of why you invest and why you become a capitalist.',
       },
+      tweet: 'https://twitter.com/clec168/status/2071329516484796535',
     },
     {
       n: 2,
@@ -46,6 +47,7 @@ export const LECTURE = {
         'zh-TW': '投資什麼、哪個市場：核心是納斯達克100，不是 SPY 或 VT。',
         en: 'What to buy and which market: the core is the Nasdaq-100, not SPY or VT.',
       },
+      tweet: 'https://twitter.com/clec168/status/2071585253316313318',
     },
     {
       n: 3,
@@ -56,6 +58,7 @@ export const LECTURE = {
         'zh-TW': '錢具體怎麼擺、退休提領率分級、崩盤那年怎麼辦。',
         en: 'How to actually hold your money, retirement withdrawal tiers, and what to do when it crashes.',
       },
+      tweet: 'https://twitter.com/clec168/status/2071585566735700473',
     },
   ],
 };
