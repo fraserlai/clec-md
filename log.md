@@ -56,3 +56,12 @@ Deferred/not ingested (redundant or ongoing):
 - Charles Schwab note: promotional + contains a personal email; skipped for privacy.
 - posts 0002/0003, 統計概率隨機, 5 short transcripts: lower priority / partial overlap.
 - raw/transcripts/長篇 (~2000 videos): still transcribing (npm run transcribe), ongoing stream.
+
+## [2026-07-11] ingest | 世界最佳QQQ → 全球納斯達克100指數基金對照 (consolidated)
+
+Ingested the deferred worldwide-QQQ doc into one big bilingual reference page:
+index-etf/全球納斯達克100指數基金對照. Consolidates QQQ equivalents across 14+
+markets (US/TW/CN/HK/JP/KR/CA/AU/UK/EU/SG-MY/IN/NZ/BR + Ireland UCITS), with
+2×/3× leveraged versions, per-region cash/MMF instruments, high-dividend
+retirement versions, and pledge-lending options. Cross-linked from the main
+為什麼是納斯達克100 page. Knowledge base now 15 topic pages × 2 langs.
