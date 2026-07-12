@@ -47,6 +47,8 @@ const val = (f) => {
 const onlyFolder = val('--folder');
 const limit = val('--limit') ? parseInt(val('--limit'), 10) : Infinity;
 const listOnly = has('--list');
+// Process newest-first (highest episode number first) instead of oldest-first.
+const desc = has('--desc');
 // Concurrency: encode runs on the ANE (Core ML), decode on the GPU (Metal).
 // Running several files at once overlaps those stages so both accelerators
 // stay busy. ~4.5GB RAM per large-v3 instance → 3 is a safe default on 32GB.
@@ -163,8 +165,11 @@ if (listOnly) {
   process.exit(0);
 }
 
+if (desc) pending.reverse();
 pending = pending.slice(0, limit);
-console.log(`Transcribing ${pending.length} video(s) with ${jobs} parallel job(s)…`);
+console.log(
+  `Transcribing ${pending.length} video(s) with ${jobs} parallel job(s), ${desc ? 'newest-first' : 'oldest-first'}…`,
+);
 
 let ok = 0;
 let done = 0;

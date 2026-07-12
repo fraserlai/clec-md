@@ -1,0 +1,156 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { CHANNELS, VIDEOS, videoUrl } from '../../data/videos.mjs';
+
+const lang = 'en' as const;
+const groups = [
+  { key: 'lecture', label: 'First Class · The Ten-Billion-Dollar Investment Lecture' },
+  { key: 'topic', label: 'CLEC Features' },
+  { key: 'long', label: 'Long-form' },
+];
+const byGroup = (k: string) => VIDEOS.filter((v) => v.group === k);
+const title = 'Video Index';
+const desc = "Index of all CLEC videos (X channel): episode, title, date, and link. Higher episode number = newer. Titles are in Chinese.";
+const watch = 'Watch on X ↗';
+---
+
+<BaseLayout title={`${title} · clec.md`} description={desc} lang={lang}>
+  <header class="vhead">
+    <h1>{title}</h1>
+    <p class="desc">{desc}</p>
+    <div class="channels">
+      {
+        CHANNELS.map((c) => (
+          <a href={c.url} target="_blank" rel="noopener noreferrer">
+            {c.name} ↗
+          </a>
+        ))
+      }
+    </div>
+  </header>
+
+  {
+    groups.map((g) => (
+      <section class="group">
+        <h2>{g.label}</h2>
+        <ul class="vlist">
+          {byGroup(g.key).map((v) => (
+            <li>
+              <span class="ep">{v.ep}</span>
+              <a class="vtitle" href={videoUrl(v.id)} target="_blank" rel="noopener noreferrer">
+                {v.title}
+              </a>
+              <time>{v.date}</time>
+              <a class="watch" href={videoUrl(v.id)} target="_blank" rel="noopener noreferrer">
+                {watch}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))
+  }
+
+  <p class="disclaimer">
+    Links point to CLEC's official X channel posts, for indexing and reference only.
+    Content is copyright CLEC.
+  </p>
+</BaseLayout>
+
+<style>
+  .vhead {
+    padding: 1rem 0 0.5rem;
+  }
+  .vhead h1 {
+    font-size: 2rem;
+    margin: 0 0 0.4rem;
+  }
+  .desc {
+    color: var(--muted);
+    margin: 0 0 1rem;
+  }
+  .channels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+  .channels a {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-brand);
+    text-decoration: none;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+  }
+  .group {
+    margin-top: 2rem;
+  }
+  .group h2 {
+    font-size: 1.25rem;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 0.35rem;
+    margin: 0 0 0.6rem;
+  }
+  .vlist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .vlist li {
+    display: grid;
+    grid-template-columns: 3.4rem 1fr auto;
+    grid-template-areas: 'ep title date' 'ep watch watch';
+    gap: 0.15rem 0.8rem;
+    align-items: baseline;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .ep {
+    grid-area: ep;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    color: var(--color-brand);
+    font-size: 0.9rem;
+  }
+  .vtitle {
+    grid-area: title;
+    color: var(--fg);
+    text-decoration: none;
+    line-height: 1.45;
+  }
+  .vtitle:hover {
+    color: var(--color-brand);
+  }
+  time {
+    grid-area: date;
+    color: var(--muted);
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+  .watch {
+    grid-area: watch;
+    justify-self: start;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-brand);
+    text-decoration: none;
+  }
+  .watch:hover {
+    text-decoration: underline;
+  }
+  @media (prefers-color-scheme: dark) {
+    .ep,
+    .channels a,
+    .watch {
+      color: #6ee7a8;
+    }
+  }
+  .disclaimer {
+    font-size: 0.85rem;
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+    margin-top: 2rem;
+    padding-top: 1rem;
+  }
+</style>
