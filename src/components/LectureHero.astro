@@ -1,0 +1,131 @@
+---
+import { LECTURE } from '../config/lecture.mjs';
+import { langPrefix } from '../config/languages.mjs';
+import { withBase } from '../lib/content';
+
+interface Props {
+  lang: 'zh-TW' | 'en';
+}
+const { lang } = Astro.props;
+const hubUrl = withBase(`${langPrefix(lang)}/lecture/`);
+const chUrl = (c: { category: string; slug: string }) =>
+  withBase(`${langPrefix(lang)}/${c.category}/${c.slug}/`);
+const startLabel = lang === 'zh-TW' ? '從這裡開始 →' : 'Start here →';
+const chapterWord = lang === 'zh-TW' ? '第 %d 章' : 'Chapter %d';
+---
+
+<section class="lecture">
+  <a class="banner" href={hubUrl}>
+    <span class="kicker">★ {LECTURE.kicker[lang]}</span>
+    <h2>{LECTURE.title[lang]}</h2>
+    <p class="intro">{LECTURE.intro[lang]}</p>
+    <span class="start">{startLabel}</span>
+  </a>
+  <div class="chapters">
+    {
+      LECTURE.chapters.map((c) => (
+        <a class="chapter" href={chUrl(c)}>
+          <span class="num">{chapterWord.replace('%d', String(c.n))}</span>
+          <span class="ctitle">{c.title[lang]}</span>
+          <span class="cblurb">{c.blurb[lang]}</span>
+        </a>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .lecture {
+    margin: 1.5rem 0 0.5rem;
+  }
+  .banner {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    background:
+      radial-gradient(120% 140% at 100% 0%, #1f6f43 0%, #14532d 55%, #0e3a20 100%);
+    border-radius: 16px;
+    padding: 1.6rem 1.8rem;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #14532d;
+  }
+  .banner:hover .start {
+    transform: translateX(4px);
+  }
+  .kicker {
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    color: #a7f3c8;
+    font-weight: 700;
+  }
+  .banner h2 {
+    font-family: var(--font-serif);
+    font-size: 1.9rem;
+    margin: 0.35rem 0 0.5rem;
+    line-height: 1.2;
+  }
+  .intro {
+    margin: 0;
+    max-width: 44rem;
+    color: #e6f5ec;
+    font-size: 0.98rem;
+    line-height: 1.7;
+  }
+  .start {
+    display: inline-block;
+    margin-top: 0.9rem;
+    font-weight: 700;
+    color: #eafff2;
+    transition: transform 0.12s ease;
+  }
+  .chapters {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.6rem;
+    margin-top: 0.6rem;
+  }
+  .chapter {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.9rem 1rem;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: border-color 0.12s ease;
+  }
+  .chapter:hover {
+    border-color: var(--color-brand);
+  }
+  .num {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-brand);
+    letter-spacing: 0.04em;
+  }
+  .ctitle {
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.35;
+  }
+  .cblurb {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  @media (prefers-color-scheme: dark) {
+    .num {
+      color: #6ee7a8;
+    }
+  }
+  @media (max-width: 680px) {
+    .chapters {
+      grid-template-columns: 1fr;
+    }
+    .banner h2 {
+      font-size: 1.5rem;
+    }
+  }
+</style>

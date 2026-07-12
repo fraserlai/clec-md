@@ -31,6 +31,9 @@ const navCats = CATEGORIES.filter((c) => c.id !== 'about');
       <span class="logo">clec<span class="dot">.md</span></span>
     </a>
     <nav class="nav">
+      <a class="lecture-link" href={withBase(`${lang === 'zh-TW' ? '' : '/en'}/lecture/`)}
+        >★ {lang === 'zh-TW' ? '投資第一堂課' : 'First Class'}</a
+      >
       {
         navCats.map((c) => (
           <a href={categoryUrl(lang, c.id)}>{c.name[lang]}</a>
@@ -89,6 +92,15 @@ const navCats = CATEGORIES.filter((c) => c.id !== 'about');
   }
   .nav a:hover {
     color: var(--color-brand);
+  }
+  .nav a.lecture-link {
+    color: var(--color-brand);
+    font-weight: 700;
+  }
+  @media (prefers-color-scheme: dark) {
+    .nav a.lecture-link {
+      color: #6ee7a8;
+    }
   }
   .lang {
     text-decoration: none;

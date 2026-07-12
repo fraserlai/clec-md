@@ -1,0 +1,143 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { LECTURE } from '../config/lecture.mjs';
+import { langPrefix } from '../config/languages.mjs';
+import { withBase } from '../lib/content';
+
+const lang = 'zh-TW' as const;
+const chUrl = (c: { category: string; slug: string }) =>
+  withBase(`${langPrefix(lang)}/${c.category}/${c.slug}/`);
+const title = LECTURE.title[lang];
+---
+
+<BaseLayout title={`${title} · clec.md`} description={LECTURE.intro[lang]} lang={lang}>
+  <article class="hub">
+    <p class="kicker">★ {LECTURE.kicker[lang]}</p>
+    <h1>{title}</h1>
+    <p class="intro">{LECTURE.intro[lang]}</p>
+
+    <blockquote class="creed">{LECTURE.creed[lang]}</blockquote>
+
+    <h2>三章導覽</h2>
+    <ol class="chapters">
+      {
+        LECTURE.chapters.map((c) => (
+          <li>
+            <a href={chUrl(c)}>
+              <span class="num">第 {c.n} 章</span>
+              <span class="ctitle">{c.title[lang]}</span>
+              <span class="cblurb">{c.blurb[lang]}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ol>
+
+    <h2>關於這門課</h2>
+    <p>
+      《{title}》是 CLEC 的核心——它把二十多年的教學濃縮成三章。內容整理自
+      <code>價值十億元的投資講座_無圖版_v1.pdf</code>，並對照影片版逐字稿（00694／00695／00696，
+      以 whisper 轉錄）。上面三章的頁面同時也屬於各自的主題分類，方便你依主題瀏覽；
+      但若你是第一次來，建議<strong>從第一章循序讀到第三章</strong>。
+    </p>
+
+    <p class="disclaimer">
+      本站內容整理自 CLEC，僅供教育與參考，非個人化投資建議。投資有風險，決策請自行負責。
+    </p>
+  </article>
+</BaseLayout>
+
+<style>
+  .hub {
+    max-width: 46rem;
+  }
+  .kicker {
+    color: var(--color-brand);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    margin: 0.5rem 0 0.2rem;
+  }
+  @media (prefers-color-scheme: dark) {
+    .kicker {
+      color: #6ee7a8;
+    }
+  }
+  h1 {
+    font-family: var(--font-serif);
+    font-size: 2.4rem;
+    line-height: 1.2;
+    margin: 0 0 0.6rem;
+  }
+  .intro {
+    font-size: 1.12rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .creed {
+    font-family: var(--font-serif);
+    background: var(--color-brand-soft);
+    border-left: 4px solid var(--color-brand);
+    border-radius: 0 8px 8px 0;
+    padding: 1rem 1.2rem;
+    margin: 1.6rem 0;
+    line-height: 1.9;
+  }
+  h2 {
+    font-size: 1.35rem;
+    margin: 2.2rem 0 1rem;
+  }
+  .chapters {
+    list-style: none;
+    counter-reset: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.7rem;
+  }
+  .chapters a {
+    display: grid;
+    gap: 0.25rem;
+    padding: 1.1rem 1.2rem;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: border-color 0.12s ease;
+  }
+  .chapters a:hover {
+    border-color: var(--color-brand);
+  }
+  .num {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--color-brand);
+    letter-spacing: 0.04em;
+  }
+  @media (prefers-color-scheme: dark) {
+    .num {
+      color: #6ee7a8;
+    }
+  }
+  .ctitle {
+    font-weight: 700;
+    font-size: 1.15rem;
+  }
+  .cblurb {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  code {
+    font-size: 0.85em;
+    background: var(--color-brand-soft);
+    padding: 0.1em 0.35em;
+    border-radius: 4px;
+  }
+  .disclaimer {
+    font-size: 0.85rem;
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+    margin-top: 2.5rem;
+    padding-top: 1rem;
+  }
+</style>

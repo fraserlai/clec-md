@@ -2,7 +2,16 @@
 import BaseLayout from './BaseLayout.astro';
 import { t } from '../config/ui.mjs';
 import { categoryName } from '../config/categories.mjs';
-import { categoryUrl, homeUrl, type AnyEntry, type Lang } from '../lib/content';
+import { LECTURE, lectureChapterFor } from '../config/lecture.mjs';
+import { langPrefix } from '../config/languages.mjs';
+import {
+  categoryUrl,
+  homeUrl,
+  withBase,
+  idParts,
+  type AnyEntry,
+  type Lang,
+} from '../lib/content';
 
 interface Props {
   lang: Lang;
@@ -11,6 +20,20 @@ interface Props {
 const { lang, entry } = Astro.props;
 const d = entry.data;
 const dateStr = new Date(d.date).toISOString().slice(0, 10);
+
+// Is this page a chapter of the flagship lecture? If so, show course nav.
+const { slug } = idParts(entry.id);
+const lc = lectureChapterFor(d.category, slug);
+const hubUrl = withBase(`${langPrefix(lang)}/lecture/`);
+const chUrl = (c: { category: string; slug: string }) =>
+  withBase(`${langPrefix(lang)}/${c.category}/${c.slug}/`);
+const prevCh = lc && lc.index > 0 ? LECTURE.chapters[lc.index - 1] : null;
+const nextCh =
+  lc && lc.index < LECTURE.chapters.length - 1
+    ? LECTURE.chapters[lc.index + 1]
+    : null;
+const chWord = (n: number) =>
+  lang === 'zh-TW' ? `第 ${n} 章` : `Chapter ${n}`;
 ---
 
 <BaseLayout title={`${d.title} · clec.md`} description={d.description} lang={lang}>
@@ -37,9 +60,47 @@ const dateStr = new Date(d.date).toISOString().slice(0, 10);
       </div>
     </header>
 
+    {
+      lc ? (
+        <a class="course-banner" href={hubUrl}>
+          <span class="cb-star">★</span>
+          <span class="cb-text">
+            {lang === 'zh-TW' ? '本章屬於' : 'Part of'}《{LECTURE.title[lang]}》·{' '}
+            {chWord(lc.chapter.n)}
+          </span>
+          <span class="cb-cta">
+            {lang === 'zh-TW' ? '看課程總覽 →' : 'Course overview →'}
+          </span>
+        </a>
+      ) : null
+    }
+
     <div class="prose">
       <slot />
     </div>
+
+    {
+      lc ? (
+        <nav class="chapter-nav">
+          {prevCh ? (
+            <a class="prev" href={chUrl(prevCh)}>
+              <span class="dir">← {chWord(prevCh.n)}</span>
+              <span class="t">{prevCh.title[lang]}</span>
+            </a>
+          ) : (
+            <span />
+          )}
+          {nextCh ? (
+            <a class="next" href={chUrl(nextCh)}>
+              <span class="dir">{chWord(nextCh.n)} →</span>
+              <span class="t">{nextCh.title[lang]}</span>
+            </a>
+          ) : (
+            <span />
+          )}
+        </nav>
+      ) : null
+    }
 
     {
       d.sources?.length ? (
@@ -59,6 +120,73 @@ const dateStr = new Date(d.date).toISOString().slice(0, 10);
 </BaseLayout>
 
 <style>
+  .course-banner {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    text-decoration: none;
+    background: var(--color-brand-soft);
+    border: 1px solid var(--color-brand);
+    border-radius: 10px;
+    padding: 0.7rem 1rem;
+    margin: 0 0 1.8rem;
+    font-size: 0.92rem;
+  }
+  .cb-star {
+    color: var(--color-brand);
+  }
+  .cb-text {
+    font-weight: 600;
+  }
+  .cb-cta {
+    margin-inline-start: auto;
+    color: var(--color-brand);
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  @media (prefers-color-scheme: dark) {
+    .cb-star,
+    .cb-cta {
+      color: #6ee7a8;
+    }
+  }
+  .chapter-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.7rem;
+    margin: 2.5rem 0 0;
+  }
+  .chapter-nav a {
+    display: grid;
+    gap: 0.2rem;
+    padding: 0.9rem 1.1rem;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    text-decoration: none;
+    background: var(--card);
+    transition: border-color 0.12s ease;
+  }
+  .chapter-nav a:hover {
+    border-color: var(--color-brand);
+  }
+  .chapter-nav .next {
+    text-align: right;
+  }
+  .chapter-nav .dir {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--color-brand);
+  }
+  .chapter-nav .t {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+  @media (prefers-color-scheme: dark) {
+    .chapter-nav .dir {
+      color: #6ee7a8;
+    }
+  }
   .crumbs {
     display: flex;
     gap: 0.5rem;
