@@ -41,7 +41,7 @@ const title = LECTURE.title[lang];
           <p class="video-label">
             第 {c.n} 章 · {c.title[lang]}
           </p>
-          <TweetEmbed url={c.tweet} />
+          <TweetEmbed url={c.tweet} lang={lang} />
         </div>
       ))
     }

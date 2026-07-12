@@ -7,10 +7,14 @@
 interface Props {
   url: string;
   maxWidth?: number;
+  lang?: 'zh-TW' | 'en';
 }
-const { url, maxWidth = 550 } = Astro.props;
+const { url, maxWidth = 550, lang = 'zh-TW' } = Astro.props;
 // widgets.js resolves either twitter.com or x.com; normalize to twitter.com.
 const href = url.replace('://x.com', '://twitter.com');
+// Human-facing fallback link (works even if the widget script is blocked).
+const watchUrl = url.replace('://twitter.com', '://x.com');
+const watchLabel = lang === 'zh-TW' ? '在 X 上觀看 ↗' : 'Watch on X ↗';
 ---
 
 <div class="tweet-embed">
@@ -21,6 +25,9 @@ const href = url.replace('://x.com', '://twitter.com');
   >
     <a href={href}></a>
   </blockquote>
+  <a class="watch-on-x" href={watchUrl} target="_blank" rel="noopener noreferrer"
+    >{watchLabel}</a
+  >
 </div>
 
 <script is:inline>
@@ -54,5 +61,21 @@ const href = url.replace('://x.com', '://twitter.com');
   }
   .tweet-embed :global(.twitter-tweet) {
     margin-inline: 0 !important;
+  }
+  .watch-on-x {
+    display: inline-block;
+    margin-top: 0.2rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-brand);
+    text-decoration: none;
+  }
+  .watch-on-x:hover {
+    text-decoration: underline;
+  }
+  @media (prefers-color-scheme: dark) {
+    .watch-on-x {
+      color: #6ee7a8;
+    }
   }
 </style>

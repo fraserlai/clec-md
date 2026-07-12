@@ -82,7 +82,7 @@ const chWord = (n: number) =>
           <h2 class="video-h">
             ▶ {lang === 'zh-TW' ? `第 ${lc.chapter.n} 章 · 完整影片` : `Chapter ${lc.chapter.n} · Full video`}
           </h2>
-          <TweetEmbed url={lc.chapter.tweet} />
+          <TweetEmbed url={lc.chapter.tweet} lang={lang} />
         </section>
       ) : null
     }
