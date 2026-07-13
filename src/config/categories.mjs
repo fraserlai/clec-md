@@ -83,6 +83,15 @@ export const CATEGORIES = [
     icon: '🧠',
   },
   {
+    id: 'qa',
+    name: { 'zh-TW': '學員問答', en: 'Q&A' },
+    description: {
+      'zh-TW': 'Clubhouse 直播裡一問再問的經典問題——每頁一題，累積 James 歷次的回答與情境變體。',
+      en: 'The questions asked over and over in the Clubhouse sessions — one page per recurring question, accumulating James\'s answers and situational variants across dates.',
+    },
+    icon: '❓',
+  },
+  {
     id: 'macro-economy',
     name: { 'zh-TW': '總體經濟', en: 'Macroeconomics' },
     description: {

@@ -116,3 +116,59 @@ only 2; daily sync limit). They import faithfully as they sync — re-run:
   node scripts/import-posts.mjs --folder "FB Wealthyin50的貼文"
 NOT crawling FB: WebFetch returns summarized (non-verbatim) text, which would violate
 the 'proofread only, don't modify context' rule. The 彙總 index post links all 167.
+
+## [2026-07-12] schema | Clubhouse ingest model (bundle + 4 streams + qa category)
+
+Restructured how 長篇 (Clubhouse Q&A) sessions are ingested, after comparing our 00570
+transcript + 簡報 deck against cfnavi.org/c00570. Findings that drove it:
+- A session is not "lecture + Q&A"; it's FOUR streams: 開場講授 / 學員提問 / 學員分享 /
+  外部資源連結. The 分享 often carries the best teaching (cfnavi promotes it to key points).
+- Deck holds canonical doctrine James SKIPS aloud (「這頁不念，在貼文0009上」); transcript
+  holds all Q&A/分享/ad-libs. Neither alone is complete → ingest unit = BUNDLE
+  (transcript + 簡報 + cited 貼文). Deck/貼文 text wins on wording; transcript elaborates.
+- whisper repetition loops swallow whole speaker turns (00570 lines 244-254), not just noise.
+
+Built:
+- New `qa` category (src/config/categories.mjs; content.config.ts z.enum picks it up
+  automatically). Contract: one page per CANONICAL recurring question, append dated entries,
+  link to doctrine (don't restate). Codified bundle + 4-stream + qa contract in CLAUDE.md.
+- Saved converted 00570 deck → raw/docs/簡報資料/ (markitdown; tables mangled, treat as raw).
+- Pilot on 00570 (5 new bilingual pages + 1 update):
+  - risk-cashflow/十五年現金流 (講授: 現金流≠現金, extreme-scenario test) — fills empty category
+  - risk-cashflow/韓信點兵借貸順序 (講授: 信貸→房貸→質押 by risk attribute)
+  - qa/退休需要幾倍年開銷 (提問: 15×/25× by dividend yield; links to 退休需要多少錢 doctrine)
+  - qa/帳戶類型該放什麼資產 (提問: QLD→Roth, BOXX/QQQI→Traditional, pair to Beta 1.0)
+  - behavioral-finance/身份認同與長期投資 (分享: 大喬's Atomic Habits identity → 打死不賣)
+  - Updated asset-allocation/現金是空氣: 現金流 refinement box + 00570 source.
+Knowledge base now 24 topic pages × 2 langs (incl. first 2 qa + first 2 risk-cashflow).
+
+Pipeline follow-ups (not done): add 簡報資料 to convert-docs auto-flow (only manual so far);
+keep whisper segment timestamps in raw/ (for qa time-anchors + loop detection + lecture/
+Q&A boundary); degraded transcripts (loops) need targeted re-transcription. Regional intel
+from 00570 (China 溢價 12%, HK broker crackdown, 僑匯) noted but not yet filed into
+全球納斯達克100指數基金對照 — next pass.
+
+## [2026-07-13] tooling | Whisper timestamps + bundle-aware 簡報 conversion (pipeline #1+#2)
+
+Did the two pipeline follow-ups from the ingest-model work:
+
+#2 whisper segment timestamps — transcribe.mjs + transcribe-file.mjs now run whisper with
+`-oj` (JSON) and emit a timestamped body (`[mm:ss] …` per segment) + `segmentTimestamps: true`
+frontmatter; plain-text `-otxt` retained as fallback. Refactored clean-transcript.mjs to
+export `loopLineMask()`; new scripts/lib/whisper-segments.mjs (parseWhisperJson / clock /
+segmentsToBody) runs the SAME loop-stripper on converted speech text BEFORE attaching the
+[mm:ss] prefix (else repeated lines dodge de-dup via differing timestamps). Verified end-to-end
+on a 20s clip against the installed whisper build: JSON offsets parse, `[00:00]` anchors emitted,
+loops still stripped, opencc still applied. Old transcripts (pre-today) have no timestamps —
+re-transcribe to add.
+
+#1 簡報資料 in convert-docs — folder was already in DOC_FOLDERS but never run + frontmatter
+was generic. Added `--match <substr>` (convert one session's deck) and bundle-aware frontmatter:
+`episode` (parsed from filename), `transcriptPair` (auto-found in raw/transcripts by episode #),
+`citedPosts` (scanned from body: "0009 貼文" → ["0007","0009"]), and a `converter` PDF-table
+caveat. Ran it on 00570 → replaced the earlier hand-cleaned raw deck (which violated raw/'s
+"never edited by hand" rule) with faithful markitdown extraction carrying the auto-linked bundle.
+簡報資料 now shows 126 pending / 127 in the pipeline. Docs updated in CLAUDE.md.
+
+Still open: bulk-convert remaining 126 簡報 decks (resumable, run when needed); file 00570
+regional intel into 全球納斯達克100指數基金對照; re-transcribe 00570 itself to gain timestamps.

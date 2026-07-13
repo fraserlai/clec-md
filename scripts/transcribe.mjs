@@ -36,6 +36,15 @@ import {
   RAW_DIR,
   VIDEO_FOLDERS,
 } from './config.mjs';
+import { stripHallucinatedRepeats } from './lib/clean-transcript.mjs';
+import { parseWhisperJson, segmentsToBody } from './lib/whisper-segments.mjs';
+
+// ffmpeg silenceremove: drop silence gaps longer than 2s (keeping 0.3s padding
+// so words don't glue). Long dead-air is what sends whisper into repetition-loop
+// hallucinations; removing it before transcription is the first line of defence.
+const SILENCE_FILTER =
+  'silenceremove=start_periods=1:start_silence=0.3:start_threshold=-40dB:' +
+  'stop_periods=-1:stop_silence=0.3:stop_duration=2:stop_threshold=-40dB';
 
 const args = process.argv.slice(2);
 const has = (f) => args.includes(f);
@@ -106,19 +115,25 @@ async function transcribeOne({ folder, file, abs }) {
   const whisperOut = join(tmpdir(), `clec-${uniq}-out`);
 
   try {
-    // 1. extract audio
-    await run('ffmpeg', ['-y', '-i', abs, '-ar', '16000', '-ac', '1', '-c:a',
-      'pcm_s16le', wav]);
+    // 1. extract audio, trimming long silences (see SILENCE_FILTER)
+    await run('ffmpeg', ['-y', '-i', abs, '-ar', '16000', '-ac', '1',
+      '-af', SILENCE_FILTER, '-c:a', 'pcm_s16le', wav]);
 
-    // 2. whisper.cpp
+    // 2. whisper.cpp. -oj keeps per-segment timestamps (for time anchors);
+    //    -otxt is a fallback. -mc 0 disables carrying decoded text back in as
+    //    context, which is what lets a repetition loop feed and reinforce itself.
     await run(join(WHISPER_DIR, WHISPER_BIN),
-      ['-m', WHISPER_MODEL, '-l', WHISPER_LANG, '-f', wav, '-otxt', '-of',
-        whisperOut, '-nt'],
+      ['-m', WHISPER_MODEL, '-l', WHISPER_LANG, '-f', wav, '-oj', '-otxt', '-of',
+        whisperOut, '-nt', '-mc', '0'],
       { cwd: WHISPER_DIR });
 
-    // 3. Simplified -> Traditional (Taiwan, with phrase conversion)
-    const raw = readFileSync(whisperOut + '.txt', 'utf8').trim();
-    const text = toTraditional(raw).replace(/\n{3,}/g, '\n\n');
+    // 3. Simplified -> Traditional (Taiwan, with phrase conversion), then strip
+    //    any residual whisper repetition-loop hallucination as a backstop.
+    //    Prefer the timestamped (JSON) path; fall back to plain text.
+    const { body, removed, total, timestamped } = buildBody(whisperOut, toTraditional);
+    if (removed > 0) {
+      console.warn(`   ⚠ ${file}: stripped ${removed}/${total} repetition-loop lines`);
+    }
 
     const duration = ffprobeDuration(abs);
     const fm = [
@@ -129,10 +144,11 @@ async function transcribeOne({ folder, file, abs }) {
       duration ? `durationSec: ${Math.round(duration)}` : null,
       `transcribedAt: ${new Date().toISOString().slice(0, 10)}`,
       'transcriber: whisper.cpp large-v3 (zh) + opencc s2twp',
+      timestamped ? 'segmentTimestamps: true' : null,
       'kind: transcript',
       '---',
       '',
-      text,
+      body,
       '',
     ].filter((l) => l !== null).join('\n');
 
@@ -141,7 +157,32 @@ async function transcribeOne({ folder, file, abs }) {
   } finally {
     rmSync(wav, { force: true });
     rmSync(whisperOut + '.txt', { force: true });
+    rmSync(whisperOut + '.json', { force: true });
   }
+}
+
+/**
+ * Build the transcript body from whisper output, preferring the timestamped
+ * JSON (`[mm:ss] …` lines) and falling back to plain text if JSON is missing or
+ * unparseable. Both paths run the repetition-loop stripper.
+ */
+function buildBody(whisperOut, convert) {
+  const jsonPath = whisperOut + '.json';
+  if (existsSync(jsonPath)) {
+    try {
+      const segs = parseWhisperJson(readFileSync(jsonPath, 'utf8'));
+      if (segs.length) {
+        const { body, removed, total } = segmentsToBody(segs, convert);
+        return { body, removed, total, timestamped: true };
+      }
+    } catch {
+      /* fall through to plain-text path */
+    }
+  }
+  const rawTxt = readFileSync(whisperOut + '.txt', 'utf8').trim();
+  const converted = convert(rawTxt).replace(/\n{3,}/g, '\n\n');
+  const { text, removed, total } = stripHallucinatedRepeats(converted);
+  return { body: text, removed, total, timestamped: false };
 }
 
 // ---- main ----

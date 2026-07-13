@@ -16,6 +16,14 @@ import { tmpdir } from 'node:os';
 import { spawnSync } from 'node:child_process';
 import * as OpenCC from 'opencc-js';
 import { WHISPER_DIR, WHISPER_BIN, WHISPER_MODEL, WHISPER_LANG, RAW_DIR } from './config.mjs';
+import { stripHallucinatedRepeats } from './lib/clean-transcript.mjs';
+import { parseWhisperJson, segmentsToBody } from './lib/whisper-segments.mjs';
+
+// Trim silence gaps >2s (keeping 0.3s padding) before whisper — long dead-air is
+// what triggers repetition-loop hallucinations. See scripts/transcribe.mjs.
+const SILENCE_FILTER =
+  'silenceremove=start_periods=1:start_silence=0.3:start_threshold=-40dB:' +
+  'stop_periods=-1:stop_silence=0.3:stop_duration=2:stop_threshold=-40dB';
 
 const args = process.argv.slice(2);
 let subdir = '講座';
@@ -44,6 +52,24 @@ function dur(f) {
   return Number.isFinite(d) ? Math.round(d) : null;
 }
 
+// Prefer the timestamped JSON body (`[mm:ss] …`); fall back to plain text.
+// Both paths run the repetition-loop stripper. See scripts/transcribe.mjs.
+function buildBody(wout, convert) {
+  const jsonPath = wout + '.json';
+  if (existsSync(jsonPath)) {
+    try {
+      const segs = parseWhisperJson(readFileSync(jsonPath, 'utf8'));
+      if (segs.length) {
+        const { body, removed, total } = segmentsToBody(segs, convert);
+        return { body, removed, total, timestamped: true };
+      }
+    } catch { /* fall through */ }
+  }
+  const converted = convert(readFileSync(wout + '.txt', 'utf8').trim()).replace(/\n{3,}/g, '\n\n');
+  const { text, removed, total } = stripHallucinatedRepeats(converted);
+  return { body: text, removed, total, timestamped: false };
+}
+
 for (const abs of files) {
   if (!existsSync(abs)) { console.error('skip (missing): ' + abs); continue; }
   const stem = basename(abs, extname(abs));
@@ -56,19 +82,23 @@ for (const abs of files) {
   const t0 = Date.now();
   console.log(`transcribing (${dur(abs)}s): ${stem} …`);
   try {
-    run('ffmpeg', ['-y', '-i', abs, '-ar', '16000', '-ac', '1', '-c:a', 'pcm_s16le', wav]);
+    run('ffmpeg', ['-y', '-i', abs, '-ar', '16000', '-ac', '1',
+      '-af', SILENCE_FILTER, '-c:a', 'pcm_s16le', wav]);
     run(join(WHISPER_DIR, WHISPER_BIN),
-      ['-m', WHISPER_MODEL, '-l', WHISPER_LANG, '-f', wav, '-otxt', '-of', wout, '-nt'],
+      ['-m', WHISPER_MODEL, '-l', WHISPER_LANG, '-f', wav, '-oj', '-otxt', '-of', wout, '-nt', '-mc', '0'],
       { cwd: WHISPER_DIR });
-    const text = toTraditional(readFileSync(wout + '.txt', 'utf8').trim()).replace(/\n{3,}/g, '\n\n');
+    const { body, removed, total, timestamped } = buildBody(wout, toTraditional);
+    if (removed > 0) console.warn(`  ⚠ stripped ${removed}/${total} repetition-loop lines`);
     const fm = ['---', `title: ${JSON.stringify(stem)}`,
       `sourceFile: ${JSON.stringify(basename(abs))}`, `sourceType: ${JSON.stringify(subdir)}`,
       `durationSec: ${dur(abs)}`, `transcribedAt: ${new Date().toISOString().slice(0, 10)}`,
-      'transcriber: whisper.cpp large-v3 (zh) + opencc s2twp', 'kind: transcript', '---', '', text, ''].join('\n');
+      'transcriber: whisper.cpp large-v3 (zh) + opencc s2twp',
+      ...(timestamped ? ['segmentTimestamps: true'] : []),
+      'kind: transcript', '---', '', body, ''].join('\n');
     writeFileSync(out, fm);
     console.log(`  done (${((Date.now() - t0) / 1000).toFixed(0)}s) → ${out}`);
   } finally {
-    rmSync(wav, { force: true }); rmSync(wout + '.txt', { force: true });
+    rmSync(wav, { force: true }); rmSync(wout + '.txt', { force: true }); rmSync(wout + '.json', { force: true });
   }
 }
 console.log('✓ all done');

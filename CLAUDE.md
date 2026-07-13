@@ -45,8 +45,11 @@ The Astro site (`src/`) is a *projection* of `knowledge/`. `npm run sync` copies
 
 ## Category taxonomy
 
-`investing-mindset` · `asset-allocation` · `index-etf` · `retirement-planning` ·
-`risk-cashflow` · `behavioral-finance` · `macro-economy` · `glossary` · `about`
+`investing-mindset` · `life-philosophy` · `relationships` · `asset-allocation` ·
+`index-etf` · `retirement-planning` · `risk-cashflow` · `behavioral-finance` ·
+`macro-economy` · `qa` · `glossary` · `about`
+
+(`qa` = canonical recurring Clubhouse questions — see the qa contract under Ingest.)
 
 (Canonical list + bilingual names in `src/config/categories.mjs`. Refine as content
 grows; changing an `id` changes URLs.)
@@ -101,6 +104,53 @@ When new `raw/` sources exist (or the human points at some):
 A single meaty source can touch 5–15 pages. Prefer ingesting related sources together
 (e.g. an episode + its `簡報資料` slides + the matching FB/X post by episode number).
 
+#### Clubhouse sessions (長篇) — the bundle + four streams
+
+Most `長篇` files are the Saturday Clubhouse Q&A. **The ingest unit is a bundle, not a
+file:** the `長篇` transcript **＋** its `簡報資料` deck (same episode number) **＋** the
+`貼文` the deck cites (the deck names them, e.g. 「0009 貼文」). Pull all three before
+writing — each holds material the others miss:
+- The **deck** carries canonical, precisely-worded doctrine, sometimes text James *skips*
+  aloud (「這頁我就不念了，在貼文 XXXX 上面」). It's also the citation hub (which 貼文 / which
+  external links) and an alignment skeleton — James walks it in page order (「講義第 3 頁」),
+  so the lecture span of the transcript can be structured against it.
+- The **transcript** carries the AI/market ad-libs, all Q&A, and all 學員分享 — none of which
+  are in the deck.
+- On wording conflicts, **deck/貼文 text wins; transcript supplies elaboration.** whisper
+  garbles tickers/numbers and has repetition loops that swallow whole segments — cross-check
+  against the deck, and don't trust a number that appears only in a degraded transcript run.
+
+A session splits into **four streams**, each filed differently:
+
+1. **開場講授 → concept pages** (the topical categories, as usual). Deck+貼文 authoritative.
+2. **學員提問 → `qa/` pages** — see the qa contract below. Transcript-sourced.
+3. **學員分享** splits by nature: **regional/practical intel** (China 溢價, HK pledge banks,
+   ISA/僑匯 rules…) → region/practical pages (extend `全球納斯達克100指數基金對照` or a
+   per-region page); this content *decays*, so keep `lastVerified` tight. **Teaching-quality
+   stories** (identity investing, the 爺爺 story) → fold into the relevant concept page as an
+   attributed 學員分享 illustration (the way cfnavi promotes them to key points).
+4. **外部資源連結** (from the deck) → `knowledge/resources/` link collections.
+
+Skip the deck's **weekly boilerplate** (pCloud links, 不要問 rules, disclaimer, scam
+warnings, 訂閱 slides, 市場永遠上漲) — it repeats every week; ingest that doctrine once as
+evergreen pages, not per session.
+
+#### The `qa/` page contract (canonical recurring questions)
+
+James answers the same few dozen questions across hundreds of sessions. Do **not** make a
+page per video's Q&A (that never compounds). Make **one page per canonical question**, and
+**append a dated entry** each time it recurs:
+- Title = the canonical question; `> **30 秒重點**` = the bottom-line answer.
+- A「情境變體」list (the concrete forms people ask it in).
+- Dated answer entries, each citing its source session (`長篇/00570 …`), wikilinked to the
+  concept page that carries the underlying principle. The page then also shows how the answer
+  *evolved* (cf. `從擇時操作到打死不賣`).
+- `category: 'qa'`; put the home topic in `subcategory:` (`retirement-planning`, `risk-cashflow`…).
+- **A qa page links to doctrine; it does not restate it.** Keep the evergreen mechanism on the
+  concept page and let the qa page carry the situational answer + variants.
+- **Before creating one, check `index.md`'s qa section** for an existing canonical question —
+  usually you append an entry rather than make a new page.
+
 ### Query
 1. Read `index.md` to find relevant pages; drill into them.
 2. Synthesize an answer with citations to knowledge pages / raw sources.
@@ -115,8 +165,13 @@ zh-TW/en drift, broken wikilinks. Report findings and suggested next sources/que
 ## Ingestion pipeline (raw sourcing)
 
 - `npm run transcribe -- --list` — pending video transcriptions by folder.
-- `npm run transcribe -- --folder 長篇 --limit 5` — transcribe a batch.
+- `npm run transcribe -- --folder 長篇 --limit 5` — transcribe a batch. New transcripts
+  carry per-segment time anchors (`[mm:ss] …` body lines + `segmentTimestamps: true`), so
+  qa pages can cite "00570 @ 1:12:30" and the lecture→Q&A boundary is machine-findable.
+  (Files transcribed before 2026-07-13 have no timestamps; re-transcribe to add them.)
 - `npm run convert-docs -- --list` / `--folder X及YouTube的貼文` — convert documents.
+- `npm run convert-docs -- --folder 簡報資料 --match 00570` — convert one session's deck.
+  Deck frontmatter auto-links its `transcriptPair` and `citedPosts` — that's the bundle.
 - Paths/binaries are configured in `scripts/config.mjs` (override via env vars).
 - ~2,166 videos exist; full transcription is a multi-day resumable background job.
   Both scripts skip already-done files, so just re-run to continue.
