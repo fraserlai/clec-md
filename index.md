@@ -23,7 +23,7 @@ Format: `- [title](knowledge/<category>/<slug>.md) — one-line summary` · `zh-
 
 - [為什麼是納斯達克100（QQQ）](knowledge/index-etf/為什麼是納斯達克100.md) — QQQ vs SPY vs VT、火車頭理論、200年四資產、不要問清單。 · zh-TW · en
 - [非美國投資人：UCITS ETF 避開美國遺產稅](knowledge/index-etf/UCITS-ETF-非美國投資人.md) — 6萬免稅額/40%遺產稅；改買愛爾蘭 iShares CNDX。 · zh-TW · en
-- [全球納斯達克100指數基金對照（各國 QQQ 替代品）](knowledge/index-etf/全球納斯達克100指數基金對照.md) — 美/台/中/港/日/韓/加/澳/英/歐/星馬/印/紐/巴 的 QQQ、槓桿版、現金與質押管道。 · zh-TW · en
+- [全球納斯達克100指數基金對照（各國 QQQ 替代品）](knowledge/index-etf/全球納斯達克100指數基金對照.md) — 美/台/中/港/日/韓/加/澳/英/歐/星馬/印/紐/巴 的 QQQ、槓桿版、現金與質押管道；含香港匯豐質押實務。 · zh-TW · en
 
 ## asset-allocation · 資產配置
 

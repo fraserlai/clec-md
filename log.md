@@ -389,3 +389,20 @@ Cleared the two previously-deferred items with proper deck-based sourcing (per "
   not filed as a headline number.
 Knowledge base 34 topic pages × 2 langs. 00514–00539 batch now fully mined (distinctive filed,
 rest reinforce-only). Re-transcription job still running below 00514.
+
+## [2026-07-14] ingest (loop) | 00508 香港匯豐質押實務 → 全球對照
+
+Loop fire (job 28fd54fc). Re-transcription completed 00502, 00505–00513 (below 00514); ingesting
+newest-first, newer-wins. Filed the batch's clearest distinctive (regional/practical) item:
+- EXTEND index-etf/全球納斯達克100指數基金對照 (zh+en) — 香港匯豐匯財組合貸款 operational detail from
+  00508: HSBC 可股票質押 (非中國居民可赴港開戶); **QQQ/SGOV 可質押但 BOXX 不可** (現金抵押改用 SGOV/MMF);
+  借2%/維持250% 只能一半QQQ一半貨基、不能一開始配槓桿; 管道=匯豐銀行/證券, 家信不能質押, 富途只有 margin
+  (利息高，最多借10%). Decaying regional intel → 標註會變動. Source [^2] 00508 @08:00–20:00/@39:30.
+
+Reinforce-only (logged, not separately filed): 00513 (選那斯達克100/AI→為什麼是納斯達克100), 00512
+(資產配置模擬全攻略：槓桿/再平衡/現金轉換→聰明再平衡法,彈性再平衡2.0；deck-heavy 模擬器教學), 00511
+(風險與現金才是起點→現金是空氣,三層防線), 00510 (活著就能致富→現金是空氣,崩盤是朋友), 00509 (貪婪恐懼/
+笑到最後→statistics,崩盤是朋友), 00507 (時間>金錢/資本主義勞動陷阱→別為錢賣命,勞工還是資本家,美元霸權),
+00506 (股票融資放大收益→質押借款 融資vs質押), 00505 (Kevin Tsai 客座：簡單長期複利→核心哲學), 00502
+(財務槓桿/市場沒有低點只有更高→從擇時操作,聰明再平衡). Knowledge base 34 topic pages × 2 langs.
+Re-transcription job still running below 00502.
