@@ -172,3 +172,163 @@ caveat. Ran it on 00570 → replaced the earlier hand-cleaned raw deck (which vi
 
 Still open: bulk-convert remaining 126 簡報 decks (resumable, run when needed); file 00570
 regional intel into 全球納斯達克100指數基金對照; re-transcribe 00570 itself to gain timestamps.
+
+## [2026-07-13] ingest | 00565–00567, 00571, 00572 (5 completed re-transcribed items)
+
+Ingested the 5 newly-timestamped 長篇 completed by the re-transcription job (00568/00569/00570/
+00573 already ingested earlier). Bundle = transcript + 簡報 deck. Mostly reinforcing; filed the
+distinctive new material:
+- NEW risk-cashflow/欠錢不還與資產傳承 (00566) — PAL / buy-borrow-die: 「欠錢能不還就不要還」(甲乙
+  流動性比較), when-to-pledge thresholds (TW 1000萬 / CN 250萬 / HK 150萬 / US 80萬; pledgers hold
+  30% cash), Schwab PAL inheritance (on-PAL → reregister/replacement; beneficiary → repay+close OR
+  use own PAL to inherit w/o selling; step-up basis ≈ no cap-gains), 培養下一代. zh+en.
+- EXTENDED qa/退休需要幾倍年開銷 with 00566's retirement-multiple × lifestyle table (15×平淡/20×中等/
+  35×較好/50×+優渥). zh+en.
+- EXTENDED risk-cashflow/韓信點兵借貸順序 with 00571's 啟動資金 > 省小錢 (borrow 20–100萬 start-capital
+  ≫ monthly ±$500; post 0016 math: from 200k, $3000/mo→7y3m to 1M, $2500→7y7m, $2000→8y3m). zh+en.
+- EXTENDED risk-cashflow/十五年現金流 with 00567's cash-cushion glide-path (N years out → hold 15−N
+  years, +1/yr → 15 at retirement). zh+en.
+- CORRECTION (00567, newer-wins): China cash = money-market 511880 (~1%), NOT 161115 (bond/stock
+  underlying, principal can lose). Fixed 現金是空氣 + 三層防線 (zh+en); 全球對照 was already correct.
+
+Reinforce-only (no separate page, per precedent): 00565 (等待最笨/立即市價買進 → 現金是空氣單筆買進,
+從擇時操作到打死不賣); 00567 (富有是天賦, QQQ 1000→百萬, 巴菲特長壽 → 為什麼是納斯達克100, 勞工還是資本家,
+別為錢賣命); 00572 財富獨立宣言 (manifesto → 從擇時操作到打死不賣, 身份認同; 433配置+每年質押2%、隨資產
+翻倍重做配置的 worked example → 聰明再平衡法 / 欠錢不還與資產傳承 — file properly next pass).
+Knowledge base now 28 topic pages × 2 langs (risk-cashflow 4, qa 4).
+
+Re-transcription job b22amzov0 progress: 8/494 done (00565–00573), newest-first, jobs=3; multi-week ETA.
+whisper.cpp note: large-v3-turbo (~5–8× faster, small accuracy cost) available via
+`sh ./models/download-ggml-model.sh large-v3-turbo`; Core ML build (-DWHISPER_COREML=1) gives >3×.
+Lever to cut the multi-week backlog to days if desired (kept large-v3 for now).
+
+## [2026-07-13] tooling | Switched transcription to large-v3-turbo (~5× faster)
+
+Set up turbo per request. Benchmarked clean (single instance, 60 s Chinese audio): large-v3 **20 s**
+vs turbo **4 s** (≈5×, ~15× realtime), quality on par (identical meaning; one 碳/炭 homophone).
+flash-attn (`-fa`) hit 3 s but dropped a sentence at a chunk boundary → NOT used (SSOT quality).
+
+Setup: `sh models/download-ggml-model.sh large-v3-turbo` failed (HF Xet storage 403), fetched via
+`huggingface_hub.hf_hub_download` instead (installed `huggingface_hub[hf_xet]` into the markitdown venv).
+The stale Aug-2024 `main` binary can't load turbo → rebuilt whisper-cli: `cmake -B build
+-DCMAKE_BUILD_TYPE=Release && cmake --build build -j --target whisper-cli` (Metal backend).
+transcribe.mjs now labels `transcriber:` from the actual model (MODEL_LABEL from WHISPER_MODEL),
+so turbo transcripts read `whisper.cpp large-v3-turbo`.
+
+Stopped the large-v3 job b22amzov0 at 15/494 done (00557–00573 timestamped; lost 3 in-flight, resumable)
+and relaunched on turbo as **bcvba2i1h**: `WHISPER_BIN=build/bin/whisper-cli
+WHISPER_MODEL=models/ggml-large-v3-turbo.bin npm run transcribe -- --folder 長篇 --desc
+--redo-untimestamped --jobs 3` → 478 pending (skips the 16 already-timestamped), 3 turbo workers.
+The 16 done with large-v3 keep their (higher-tier) transcripts; turbo does the older back-catalog.
+Multi-week ETA → now days. Config defaults left as main/large-v3 (turbo via env); runbook in
+raw/transcripts/_revisit-no-timestamps.md.
+
+## [2026-07-13] ingest | 00547–00558 batch (13 turbo-completed episodes)
+
+Ingested the distinctive new material from the turbo backlog's first 13 completions (00547–00558;
+00565–00573 done earlier). Bundle = timestamped transcript + 簡報 deck. Mostly reinforcing; filed:
+- NEW retirement-planning/美國退休帳戶只提撥Roth (00551) — Pre-Tax IRA/401K = 資產毒藥丸: (1) RMD forces
+  withdrawals into top bracket, (2) retirement-age Roth conversion still taxed high ($2M @15% → convert
+  ~$340k/yr for 10y), (3) DOUBLE taxation as inheritance (estate tax once + heir's income tax on
+  principal+growth). Contribution order: Roth → brokerage → never Pre-Tax. Non-US: avoid US accounts
+  (→ UCITS). Complements qa/帳戶類型該放什麼資產 (placement) with the account-type doctrine. zh+en.
+- EXTENDED risk-cashflow/欠錢不還與資產傳承 (00556) — WHY never repay: repaying shrinks the asset base so
+  the 2% drawdown shrinks (5M×2%=100k vs repay→4M×2%=80k); bank's view (stock pledge = safe/liquid
+  collateral → bank happy for you not to repay; vs credit/mortgage must be repaid). 433+2% 自動導航. zh+en.
+
+Reinforce-only (logged, not separately filed): 00547 (真正的風險不是下跌/模擬考驗→現金是空氣,三層防線),
+00548 (QQQI 股息穩定機制→QQQI), 00549 (投資是選制度/非美籍別碰美國帳戶/年輕人別碰高股息→美國退休帳戶,UCITS),
+00550 (不是每個人適合用借來的錢/心理素質→欠錢不還,質押借款), 00552 (稅務繼承錯誤配置→美國退休帳戶),
+00553 (QQQI+433 打造15倍現金流→現金是空氣,退休需要多少錢), 00554/00555 (勞工到資本家/諾亞方舟→勞工還是資本家),
+00557 (投資秘訣 intro), 00558 (投資是風險控管/週期思維→從擇時操作到打死不賣). Deferred for a proper pass:
+00549 年輕人別碰高股息 (age×high-dividend rule) and 00548 QQQI covered-call mechanism could extend those pages.
+Knowledge base now 30 topic pages × 2 langs (retirement-planning 5, risk-cashflow 4, qa 4).
+
+## [2026-07-13] transcribe | 00573 (first timestamped transcript) + job cleanup
+
+Transcribed 00573【真正讓我富有的…買進持有打死不賣】(2026-07-11, 211 min, the cfnavi c00573
+episode) through the new pipeline → FIRST transcript with `segmentTimestamps: true` and
+`[mm:ss]` anchors every ~30s. Verified the real whisper build's `-oj` JSON parses correctly
+end-to-end. 00573 is buy-and-hold-themed (not career), so not cited in the career pages below;
+it's a good candidate for a full four-stream bundle ingest later.
+
+Job cleanup (user-directed): found 3 overlapping whisper jobs — killed a redundant no-timestamp
+00573 job (other session) and an 8.5h `--jobs 2` bulk backlog job (old code, no timestamps;
+its output was all on the revisit list anyway). Kept the timestamped 00573 run. See
+raw/transcripts/_revisit-no-timestamps.md for the re-transcribe backlog.
+
+## [2026-07-13] ingest | Career-path pages (life-philosophy doctrine + qa) from 00568/00569/00570
+
+Decided taxonomy home for student career questions: NO new top-level category. Doctrine →
+life-philosophy; the recurring questions → qa (subcategory: life-philosophy); the answer threads
+through investing-mindset / retirement-planning / risk-cashflow via wikilinks; shared 職涯/工作 tag.
+Built (zh+en):
+- life-philosophy/別為錢賣命 — 15× start thinking retire / 25× retire / >50× still working =
+  "用生命換垃圾"; 多活十年 > 多工作十年; 生命 > 金錢 (體檢); 提早離開老鼠籠; 工作是選項 (開店為虧錢).
+  Sources 00568 + 00569 + 00570.
+- qa/該不該辭職或提早退休 — two-step answer (夠不夠 → 值不值得); variants: 轉職/全職投資/慣老闆/
+  toxic workplace. 00570 SF (42, 三班輪, 試算後直接退休), Eason (全職投資自由人), 中敏 (freedom then
+  meaningful work not money). Toxic-workplace variant cross-links relationships.
+Knowledge base now 26 topic pages × 2 langs (life-philosophy 2, qa 3). npm test/build pending
+(Bash classifier was temporarily down at write time — re-run `npm test` + `npm run build`).
+[Later same day: validated — npm test OK (56 pages), build green.]
+
+## [2026-07-13] transcribe | 長篇 full backlog re-transcription launched (00572→00001, timestamped)
+
+Added `--redo-untimestamped` (alias `--overwrite`) to transcribe.mjs: re-transcribes existing
+outputs lacking `segmentTimestamps: true`, and overwrites each only when its new version is
+ready (no missing-file window); files already timestamped are skipped (so 00573 is left alone).
+`hasTimestamps()` reads the frontmatter flag. Launched background job b22amzov0:
+`transcribe --folder 長篇 --desc --redo-untimestamped --jobs 3` → 493 pending / 494 (all but
+00573), newest-first. Multi-day resumable job; re-run to continue. 32GB RAM → jobs=3 (~13.5GB).
+
+## [2026-07-13] ingest | 00573 bundle (transcript+簡報) → 1 new qa + property/buy-hold extensions
+
+First bundle ingest using a TIMESTAMPED transcript (cites carry @mm:ss). 00573 is mostly
+reinforcing (打死不賣 / 保險解約 / 現金+槓桿演變 / 市場與我無關), so filed as:
+- NEW qa/保單該不該解約還是等期滿 (zh+en) — the dominant recurring question in 00573 (asked 5+×:
+  @12:30, @1:31:30, @2:52:30, @3:07:30, @3:09:30). Answer: 立即解約, 等期滿=沉沒成本虧更大; 唯一保
+  定期壽險+必要險. subcategory glossary → links [[儲蓄險與壽險陷阱]].
+- EXTENDED retirement-planning/房地產 (zh+en) with 00573's age×assets four-line home rule
+  (年輕不買/中年有錢不用/沒錢不能/有點錢可以) + 50歲6000萬賣房租房原則 + 房子是消費品. New [^3].
+- Added 00573 as corroborating source to behavioral-finance/從擇時操作到打死不賣 (title thesis)
+  + cross-linked 身份認同與長期投資.
+Bundle note: 00573 簡報 was auto-converted with episode:"00573" but no transcriptPair/citedPosts
+(converted before the transcript existed; deck cites no 貼文 numbers). Knowledge base now 27
+topic pages × 2 langs (qa 4). Deferred: 00573 非美籍→香港/遺產稅 Q&A (@2:32:30) and Traditional→Roth
+conversion-pace math (@2:52:00) — reinforce existing UCITS / Roth-placement pages, next pass.
+
+## [2026-07-13] ingest | 00559/00564/00549/00542/00546/00540 → NEW macro-economy category + 5 pages
+
+Ingested the newer un-ingested completed timestamped 長篇 (gap 00559–00564 + late-2025
+00540–00546), newest-first, newer-wins. Opened the previously-empty **macro-economy** category
+and cleared the deferred age×high-dividend item. Bundle = timestamped transcript (+deck where it
+carried distinctive slides; 00559/00561/00562/00563 decks were boilerplate-only, so content came
+from transcripts; 00564 deck was the rich one). Built (zh+en):
+- **NEW macro-economy/景氣循環與週期判讀** (00559 @16:30–53:00, +00561) — five loops (消費→庫存→
+  投資→信貸→房地產), IPO/新興市場-超車-美國 late-cycle signals, and the key doctrine: **做週期勝率
+  <50% (James 自陳~20%), 目的是降報酬換心安/資產平滑, 不是多賺**; discipline = 決定了不要跳來跳去、
+  事先預判 (50/100 日均線)。Cross-links 從擇時操作到打死不賣.
+- **NEW macro-economy/美元霸權與石油美元** (00559 @38:30–47:00, +00540 @9:30–12:30, +00564 deck
+  stablecoin) — James's geopolitical read (flagged as opinion): wars (俄/委/伊朗) = force world
+  resources into USD trade → keep printing; 皮肉傷 vs 內傷; stablecoins can't change money's
+  nature; individual escape = own 納指100, 做美國的主人 (跳出剝削/內捲循環). Cross-links 勞工還是資本家.
+- **NEW qa/年輕人適合買高股息嗎** (00549 @16:30–19:00, +00564, +00559) — DEFERRED item cleared.
+  高股息是15倍退休族的現金流解方 (10×高股息+5×成長); **年輕人最大風險=低報酬, 不要碰高股息**; 把現金
+  (SGOV/00865B) 轉高股息「會死掉」(跌80%→高股息跌60%)。subcategory investing-mindset.
+- **EXTEND 現金是空氣** — 短債 vs 長債 callout (00559/00564): 短債(1/3/6M)≈現金本金保證; 長債
+  (30Y)是風險資產, 一點波動就跌20%+; 「留現金」=短債/貨基, 不是長債充數. New [^2].
+- **EXTEND qa/該不該辭職或提早退休** — append 00546〈你早就可以退休了只是你不敢〉: 門檻15倍、
+  「想退休就退休吧勇敢一點」, 障礙常是心理非財務. New variant + 歷次回答 + [^3].
+- **EXTEND retirement-planning/退休需要多少錢** — 00542 的 **2.5% 分水嶺** (≤2.5%/≥40倍 不必高股息;
+  >2.5% 要搭 QQQI) + A/B 組合混合解法 (A純指數~2.5%, B=QQQI~11%, 解目標提領率). New [^3].
+
+Reinforce-only (reviewed, logged, not separately filed): 00560 (散戶輸在情緒→從擇時操作,崩盤是朋友),
+00561 (週期殘酷真相→景氣循環新頁), 00562 (有錢就買打死不賣→從擇時操作,身份認同), 00563 (投資沒有標準
+答案/覺醒→life-philosophy), 00541 (兩倍槓桿不會歸零但需再平衡→聰明再平衡法,質押借款), 00543 (市場恐懼/
+房產牢籠→崩盤是朋友,房地產), 00544 (跌十年生存法則→三層防線,十五年現金流), 00545 (家庭悲劇變喜劇/陪伴→
+子女是風箏,快樂是人權), 00564 minor (無所謂沒關係都可以 stress mantra; 抱怨只是宣洩情緒不要給建議→
+relationships). 00542「QQQ不是科技是最強公司」→ 為什麼是納斯達克100 (reinforce, not edited this pass).
+Cross-linked 景氣循環 into 從擇時操作到打死不賣 relatedTopics (avoid orphan). npm test OK (68 pages),
+build green (441 pages). Knowledge base now 33 topic pages × 2 langs (macro-economy 2 [new], qa 5).
+Re-transcription job b22amzov0/turbo still running below 00540 (older back-catalog).

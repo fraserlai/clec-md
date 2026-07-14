@@ -13,6 +13,8 @@
  * Usage:
  *   node scripts/transcribe.mjs --list                 # show pending counts
  *   node scripts/transcribe.mjs --folder 長篇 --limit 3 # transcribe 3 from 長篇
+ *   node scripts/transcribe.mjs --folder 長篇 --desc --redo-untimestamped
+ *                                                       # re-do pre-timestamp transcripts, newest-first
  *   node scripts/transcribe.mjs                         # all folders, priority order
  */
 import {
@@ -58,6 +60,11 @@ const limit = val('--limit') ? parseInt(val('--limit'), 10) : Infinity;
 const listOnly = has('--list');
 // Process newest-first (highest episode number first) instead of oldest-first.
 const desc = has('--desc');
+// Re-transcribe existing outputs that predate segment timestamps (to add
+// `[mm:ss]` anchors). Files already carrying `segmentTimestamps: true` are left
+// alone; each redone file is overwritten only when its new version is ready, so
+// there's never a window where a transcript is missing.
+const redo = has('--redo-untimestamped') || has('--overwrite');
 // Concurrency: encode runs on the ANE (Core ML), decode on the GPU (Metal).
 // Running several files at once overlaps those stages so both accelerators
 // stay busy. ~4.5GB RAM per large-v3 instance → 3 is a safe default on 32GB.
@@ -65,6 +72,8 @@ const jobs = Math.max(1, val('--jobs') ? parseInt(val('--jobs'), 10) : 1);
 
 const toTraditional = OpenCC.Converter({ from: 'cn', to: 'twp' });
 const OUT_ROOT = join(RAW_DIR, 'transcripts');
+// Label provenance with the actual model in use (e.g. large-v3 or large-v3-turbo).
+const MODEL_LABEL = basename(WHISPER_MODEL).replace(/^ggml-/, '').replace(/\.bin$/, '');
 
 function listVideos(folder) {
   const dir = join(SOURCE_DIR, folder);
@@ -77,6 +86,15 @@ function listVideos(folder) {
 
 function targetPath(folder, file) {
   return join(OUT_ROOT, folder, basename(file, extname(file)) + '.md');
+}
+
+/** Does an existing transcript already carry per-segment timestamps? */
+function hasTimestamps(out) {
+  try {
+    return /\nsegmentTimestamps:\s*true/.test(readFileSync(out, 'utf8').slice(0, 600));
+  } catch {
+    return false;
+  }
 }
 
 // Async spawn so multiple transcriptions can run concurrently in one process.
@@ -106,7 +124,9 @@ function ffprobeDuration(abs) {
 
 async function transcribeOne({ folder, file, abs }) {
   const out = targetPath(folder, file);
-  if (existsSync(out)) return 'skip';
+  // Skip existing outputs — unless we're redoing untimestamped ones, and this
+  // one still lacks timestamps. Never redo a transcript that already has them.
+  if (existsSync(out) && (!redo || hasTimestamps(out))) return 'skip';
   mkdirSync(join(OUT_ROOT, folder), { recursive: true });
 
   const stem = basename(file, extname(file));
@@ -143,7 +163,7 @@ async function transcribeOne({ folder, file, abs }) {
       `sourceType: ${JSON.stringify(folder)}`,
       duration ? `durationSec: ${Math.round(duration)}` : null,
       `transcribedAt: ${new Date().toISOString().slice(0, 10)}`,
-      'transcriber: whisper.cpp large-v3 (zh) + opencc s2twp',
+      `transcriber: whisper.cpp ${MODEL_LABEL} (zh) + opencc s2twp`,
       timestamped ? 'segmentTimestamps: true' : null,
       'kind: transcript',
       '---',
@@ -190,7 +210,9 @@ const folders = onlyFolder ? [onlyFolder] : VIDEO_FOLDERS;
 let pending = [];
 for (const folder of folders) {
   for (const v of listVideos(folder)) {
-    if (!existsSync(targetPath(v.folder, v.file))) pending.push(v);
+    const out = targetPath(v.folder, v.file);
+    if (!existsSync(out)) pending.push(v); // missing → transcribe
+    else if (redo && !hasTimestamps(out)) pending.push(v); // untimestamped → redo
   }
 }
 
