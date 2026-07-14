@@ -34,7 +34,7 @@ Format: `- [title](knowledge/<category>/<slug>.md) — one-line summary` · `zh-
 
 - [退休需要多少錢？15 倍不是 50 倍](knowledge/retirement-planning/退休需要多少錢.md) — 年開銷15倍可退休；1440萬範例（QQQI現金流）；15年現金流≠15年現金；2.5%提領率是要不要高股息的分水嶺。 · zh-TW · en
 - [三層防線：退休那年市場大跌](knowledge/retirement-planning/三層防線.md) — 三年現金墊 + 質押≤20% + 等市場回來。 · zh-TW · en
-- [房地產與指數基金：退休現金流](knowledge/retirement-planning/房地產與指數基金的退休現金流.md) — 出租房到老年變負擔；含購屋vs租屋30年試算（第二版）；年齡×資產四分法。 · zh-TW · en
+- [房地產與指數基金：退休現金流](knowledge/retirement-planning/房地產與指數基金的退休現金流.md) — 出租房到老年變負擔；購屋vs租屋30年試算；年齡×資產四分法；活化房產：理財型房貸 vs 以房養老。 · zh-TW · en
 - [美國退休帳戶：只提撥 Roth，別碰 Pre-Tax](knowledge/retirement-planning/美國退休帳戶只提撥Roth.md) — Pre-Tax IRA/401K是毒藥：RMD推到最高稅率、conversion稅率仍高、變遺產雙重課稅（00551）。 · zh-TW · en
 
 ## risk-cashflow · 風險與現金流
