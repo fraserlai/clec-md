@@ -374,3 +374,18 @@ Consciously DEFERRED (not lost — quality gate, for a proper pass):
 - 00527/00528 6000萬→60億 2% 質押滾雪球 — decades-long projection is assumption-heavy; won't file
   a speculative 60億 figure. Reinforces 欠錢不還與資產傳承 / 韓信點兵 as-is.
 Knowledge base now 34 topic pages × 2 langs (qa 6).
+
+## [2026-07-14] ingest (loop, deep-pass) | 00538 彈性再平衡2.0 from deck → 聰明再平衡法
+
+Cleared the two previously-deferred items with proper deck-based sourcing (per "go ahead"):
+- EXTEND asset-allocation/聰明再平衡法 (zh+en) — NEW「彈性再平衡2.0」section, sourced from the
+  CONVERTED 00538 簡報 (not the garbled transcript). Mechanism: variant of 聰明再平衡 keyed on the
+  15-year cash line — 現金<15年時下跌年從原型(QQQ)補槓桿(不消耗現金，現金15年不減損)；現金≥15年時
+  回到傳統(從現金補)。下跌年再平衡前提=高點握有>15年現金(18年→可撐3年下跌)。回測 vs 純聰明再平衡
+  「贏多輸少」且最低維持率更高 → 對質押者多一層維持率保護。Cross-link 十五年現金流. Source [^2] 00538 deck.
+- 00527/00528 6000萬→60億: read 00527 transcript — the「60億」is a deck projection (assumption-heavy);
+  transcript substance (2% 質押 + 聰明再平衡把現金移出/現金年數逐年增加 @1:20:30; 房產回報率<2%的估值;
+  立即單筆買進) is already covered by 十五年現金流 / 欠錢不還 / 現金是空氣. Confirmed reinforce-only,
+  not filed as a headline number.
+Knowledge base 34 topic pages × 2 langs. 00514–00539 batch now fully mined (distinctive filed,
+rest reinforce-only). Re-transcription job still running below 00514.
