@@ -354,3 +354,23 @@ Reinforce-only: 00514/00533/00534 (活著比回報率重要/先定現金再選Be
 知識即革命→勞工還是資本家,美元霸權), 00539 (紀律致富→從擇時操作), 00518/00519/00520/00521/00522/00523
 (資產配置/波動是祝福/反詐騙→崩盤是朋友,現金是空氣). Knowledge base 33 topic pages × 2 langs.
 Re-transcription job still running below 00514.
+
+## [2026-07-14] ingest (loop, follow-up) | qa/以房養老 + stablecoin + QQQ-vs-VT real returns
+
+Follow-up to the same loop fire after review flagged (a) the batch wasn't fully mined and
+(b) a missing qa page. Filed the recurring-question + two clean data-backed extensions:
+- NEW qa/該不該以房養老 (zh+en) — canonical recurring question across 00525/00529/00532.
+  以房養老不是「缺錢才用」(活化資產去投資); 退休無收入辦不到理財型房貸→以房養老補位; 父母有房鼓勵其
+  以房養老 (養房子不如養孩子). Doctrine stays on 房地產頁; qa links to it. subcategory retirement-planning.
+- EXTEND macro-economy/美元霸權與石油美元 (zh+en) — stablecoin section expanded from 00517:
+  三類穩定幣、中心化本質、真正差別是「效率」(數位1秒 vs SWIFT 2–4天)、Trump 推數位貨幣是霸權的數位競賽。[^4]
+- EXTEND index-etf/為什麼是納斯達克100 (zh+en) — real annualized-return callout from 00526:
+  17yr QQQ 15.8% / SPY·VOO·VTI ~9.6% / VT 5.7% (VT<1/3 QQQ); 40yr QQQ ~14% / SPY ~8.95%.[^2]
+Cross-linked 房地產頁↔該不該以房養老; index.md gains the qa line + updated 房地產 desc.
+
+Consciously DEFERRED (not lost — quality gate, for a proper pass):
+- 00538 彈性再平衡2.0 (現金15年不減損升級版) — deck-dependent; whisper run garbled around the
+  維持率 tables. Needs 00538 簡報 conversion before filing numbers.
+- 00527/00528 6000萬→60億 2% 質押滾雪球 — decades-long projection is assumption-heavy; won't file
+  a speculative 60億 figure. Reinforces 欠錢不還與資產傳承 / 韓信點兵 as-is.
+Knowledge base now 34 topic pages × 2 langs (qa 6).
