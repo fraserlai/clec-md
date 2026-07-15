@@ -441,3 +441,28 @@ CLAUDE.md bundle contract). Audited every episode I filed distinctive material f
   topic/special decks (00508/00538/00564/00501) carry the real numbers.
 Process fix: replaced loop cron 28fd54fc → **003ba9a4** with a prompt that MANDATES converting+reading
 the deck before writing, "deck wins on numbers", and never filing a transcript-only number/ticker/rate.
+
+## [2026-07-15] ingest (loop, bundle-strict) | 00476 → Roth 轉換工具/時機
+
+Loop fire (job 003ba9a4, new bundle-enforcing prompt). Re-transcription completed 00460–00490
+(31 eps); ingesting newest-first, newer-wins. Bundle check: ran `convert-docs --match 00476` →
+**0 documents (00476 has NO deck)**; proceeded transcript-only and FLAGGED it, avoiding whisper-
+garbled calculator example numbers.
+- EXTEND retirement-planning/美國退休帳戶只提撥Roth (zh+en) — new「怎麼轉出來」section from 00476:
+  學員 Linda 做的中英雙語 Traditional→Roth **轉換計算器**(輸入 IRA餘額/報酬/年齡/收入→每年該轉多少);
+  **在低收入年轉**(退休後、未領社安金/未觸發RMD那幾年稅負最輕); **保險話術警告**(保險經紀想把
+  Traditional IRA 搬進保單/7702→別上當, link 儲蓄險與壽險陷阱). No-deck caveat added; source [^3].
+
+Reinforce-only (logged, not separately filed): 00490 (勞工撿垃圾/退休房貸是風險→勞工還是資本家,房地產),
+00489 (美元霸權/貿易出超國悲哀/QQQ勝SPY→美元霸權,為什麼是納斯達克100), 00488 (AI/台積電/不還本金成長→
+欠錢不還), 00487 (最大化成功概率非回報率→統計概率隨機與意外), 00486 (新經濟時代趨勢→macro/景氣循環),
+00485 (買房變窮/借錢成富豪→房地產,勞工還是資本家), 00484/00483 (固若金湯資產配置/立即市價買進→現金是空氣,
+從擇時操作), 00482/00481/00480/00479/00478/00477 (長期持有/複利/立即投資→為什麼是納斯達克100,從擇時操作),
+00475 (極端狀況要有現金/欠債可不還→三層防線,欠錢不還), 00474 (市場永遠起漲點→崩盤是朋友), 00473 (領導者
+眼光→life-philosophy), 00472 (高科技製造陷阱/資本主義戰爭→美元霸權,勞工還是資本家), 00471 (投資AI起飛→
+為什麼是納斯達克100), 00470 (讓子女富有別讓保險經紀發財→儲蓄險與壽險陷阱,子女是風箏), 00469 (別把股神當
+學習對象→從擇時操作), 00468 (階段性財富自由→別為錢賣命), 00467/00466 (欠債更富有/資本家歡迎印錢→欠錢不還,
+美元霸權), 00465 (現金無風險獲利/人可以不知不可無知→現金是空氣), 00464/00463 (省稅更富有/跑在國稅局前面→
+美國退休帳戶,欠錢不還), 00462 (華爾街的錢都是我的→勞工還是資本家), 00461 (勞力所得85%不屬於你→勞工還是
+資本家,美元霸權), 00460 (槓桿基金風險控管/最少必要知識→聰明再平衡,Beta). Knowledge base 35 topic pages ×
+2 langs. Job still running below 00460.
