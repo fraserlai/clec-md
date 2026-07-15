@@ -7,6 +7,7 @@ Format: `- [title](knowledge/<category>/<slug>.md) — one-line summary` · `zh-
 
 ## investing-mindset · 投資理財觀念
 
+- [價值一億元的投資人生講座（第一堂課總覽）](knowledge/investing-mindset/價值一億元的投資人生講座.md) — CLEC 年度第一堂課 00451 的骨架與入口；富有是天賦→走出老鼠籠→金錢轉化管道→長期持有納指；誰不可投資；一億→十億演進。 · zh-TW · en
 - [勞工還是資本家？跳出老鼠籠](knowledge/investing-mindset/勞工還是資本家.md) — 佃農/地主、老鼠籠、富有是天賦、物質vs精神能量。 · zh-TW · en
 - [值得讀的投資書籍（書單）](knowledge/investing-mindset/值得讀的投資書籍.md) — CLEC 由淺入深的書單；精神能量來自多看書。 · zh-TW · en
 
