@@ -75,6 +75,7 @@ _一問再問的經典問題，一頁一題，累積歷次回答。連向 doctri
 - [儲蓄險／壽險不是投資](knowledge/glossary/儲蓄險與壽險陷阱.md) — 16年壽險實際報酬0.64%；保險歸保險、投資歸投資。 · zh-TW · en
 - [QQQI（納指高股息）與資本返還](knowledge/glossary/QQQI.md) — 月配約1%；配息多為資本返還，台灣投資人稅務可忽略、美國要注意成本基礎。 · zh-TW · en
 - [ROA / ROE / ROI：別被回報率話術騙了](knowledge/glossary/回報率ROA-ROE-ROI.md) — ROA÷總資產、ROE÷自有淨資產（借錢放大）、ROI÷投入部分；投機者只講ROI唬人，該問ROE；巴菲特看ROE（00501）。 · zh-TW · en
+- [債券不是安全資產：為什麼不買長債與公司債](knowledge/glossary/為什麼不買債券.md) — 長債/公司債基金跌得比大盤兇、漲得比指數慢、回報低；只有短債≈現金；高利率≠該買長債避險（00434/00438）。 · zh-TW · en
 
 ## about · 關於
 
