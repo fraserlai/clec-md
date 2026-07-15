@@ -73,6 +73,7 @@ _一問再問的經典問題，一頁一題，累積歷次回答。連向 doctri
 - [Beta（以 QQQ=1.0 為基準）](knowledge/glossary/Beta.md) — QQQ=1.0、QLD=2.0、TQQQ=3.0、現金=0.0；組合beta=加權和。 · zh-TW · en
 - [儲蓄險／壽險不是投資](knowledge/glossary/儲蓄險與壽險陷阱.md) — 16年壽險實際報酬0.64%；保險歸保險、投資歸投資。 · zh-TW · en
 - [QQQI（納指高股息）與資本返還](knowledge/glossary/QQQI.md) — 月配約1%；配息多為資本返還，台灣投資人稅務可忽略、美國要注意成本基礎。 · zh-TW · en
+- [ROA / ROE / ROI：別被回報率話術騙了](knowledge/glossary/回報率ROA-ROE-ROI.md) — ROA÷總資產、ROE÷自有淨資產（借錢放大）、ROI÷投入部分；投機者只講ROI唬人，該問ROE；巴菲特看ROE（00501）。 · zh-TW · en
 
 ## about · 關於
 
