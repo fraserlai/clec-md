@@ -542,3 +542,26 @@ this fire. Restarted the turbo job: `WHISPER_BIN=build/bin/whisper-cli
 WHISPER_MODEL=models/ggml-large-v3-turbo.bin node scripts/transcribe.mjs --folder 長篇 --desc
 --redo-untimestamped --jobs 3` (323 videos queued newest-first; confirmed 3 whisper workers +
 node alive). Next fire should have fresh episodes below 00408 to ingest. No knowledge/page changes.
+
+## [2026-07-19] ingest (loop, bundle-strict) | 00379 → NEW behavioral-finance/投資的七個層級
+
+Loop fire (job 003ba9a4). Transcription job produced 00377, 00379–00407 (30 eps, 2022–2023);
+newest-first. Bundle check: convert-docs on 00379/00397/00392 → NO decks (2022 episodes, transcript-
+only); framework is qualitative (no numbers to garble) so filed transcript-only and flagged.
+- NEW behavioral-finance/投資的七個層級 (zh+en) — James's own investor-development ladder:
+  初一(只買基金)→初二(買賣股票)→中一(K線/技術分析)→**中二(自認技術超群=最危險,99%在此陣亡)**→
+  高一(加風險控管)→高二(趨勢/類股輪動)→最高階(買指數不操作,時間拿去遊山玩水). Punchline:
+  **初一級≈最高階**(報酬與生活一樣)→可跳級直達「買進持有不操作」; 最需要耐心. Links 從擇時操作
+  到打死不賣(養成版)/身份認同/為什麼是納斯達克100. No-deck flagged. Inbound from 從擇時操作 relatedTopics.
+
+Reinforce-only (logged): 00398 (2023年度第一堂課《一億元講座》→價值一億元的投資人生講座 corroborating),
+00407 (指數不分年齡/慢慢致富→為什麼是納斯達克100), 00406 (經濟學家預測都錯/央行流動性→景氣循環,從擇時
+操作), 00405/00396 (長線對社會貢獻/資產管理風控→勞工還是資本家,現金是空氣), 00404 (SPY/QQQ 20年最棒/隨時
+買不要賣→為什麼是納斯達克100,從擇時操作), 00403/00385 (短線一場空/短線不重要→常見的投資錯誤), 00402
+(指數當不動產→房地產,為什麼是納斯達克100), 00401/00386/00387 (書是最便宜投資/散戶投資正典/巴菲特金句→
+值得讀的投資書籍), 00400/00399 (全方面自由/財富是工具不是目的→別為錢賣命,快樂是人權), 00397 (投資三層級→
+投資的七個層級 簡化版), 00395/00394/00392 (投資心理學三部曲 guest→behavioral-finance reinforce), 00393
+(年輕人越早越好→為什麼是納斯達克100), 00391/00390/00389 (認識風險/市場波動是禮物/重點在持有多久→崩盤是
+朋友,現金是空氣), 00388 (無知無為/老子→從擇時操作), 00384 (利用週期買得好→景氣循環), 00383/00382/00381/
+00380/00377 (恐懼貪婪/底部在恐慌/謙卑/市場位置應對→崩盤是朋友,從擇時操作). Knowledge base now 37 topic
+pages × 2 langs (behavioral-finance 6). Transcription job idle (whisper=0) after this batch.
