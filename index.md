@@ -50,7 +50,7 @@ Format: `- [title](knowledge/<category>/<slug>.md) — one-line summary` · `zh-
 - [從擇時操作到打死不賣（哲學演變）](knowledge/behavioral-finance/從擇時操作到打死不賣.md) — James 2000/2008擇時的歷史，如何演變成純被動；舊法已被取代。 · zh-TW · en
 - [統計、概率、隨機、意外](knowledge/behavioral-finance/統計概率隨機與意外.md) — 長期為可證偽的真命題、短期是隨機；25年vs5年報酬分佈；期望值錯配。 · zh-TW · en
 - [投資的七個層級（可跳級直達最高階）](knowledge/behavioral-finance/投資的七個層級.md) — 初一→最高階；中二級自認技術超群最危險(99%陣亡)；初學者與最高階報酬一樣→直接買指數打死不賣；最需要耐心（00379）。 · zh-TW · en
-- [五個最常見的投資錯誤](knowledge/behavioral-finance/常見的投資錯誤.md) — 巴菲特+CLEC 清單：過度關注股價、過度分散、跟風暴漲股、永遠再等等、操作來操作去；避免致敗投資致勝自然來（00412）。 · zh-TW · en
+- [五個最常見的投資錯誤（＋巴菲特十大迷思）](knowledge/behavioral-finance/常見的投資錯誤.md) — CLEC 五錯：過度關注股價、過度分散、跟風、永遠再等等、操作來操作去（00412）；＋巴菲特十大迷思：成長=價值、當沖=無知稅、資產配置是銷售話術等（00372）。 · zh-TW · en
 - [投資心理學：散戶為什麼被割韭菜](knowledge/behavioral-finance/投資心理學散戶為什麼被割韭菜.md) — 客座三講：約一成賺九成不賺、輸在過度自信與情緒；牛頓南海泡沫慘賠；葛拉漢「最大敵人是自己」；投資是心理學不是技術分析（00392/00394/00395）。 · zh-TW · en
 - [我是長期投資者：用身份認同取代意志力](knowledge/behavioral-finance/身份認同與長期投資.md) — 《原子習慣》身份認同；「我是長期投資者」讓打死不賣變自然而然（學員大喬分享，00570）。 · zh-TW · en
 

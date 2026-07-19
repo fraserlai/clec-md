@@ -600,3 +600,17 @@ no distinctive new material → reinforce-only, no page. Transcription job had *
 after producing 00378; restarted turbo job (292 videos queued, 3 workers confirmed alive). No page/site
 changes this fire (log-only). We're now deep in the sparse 2022-and-earlier foundational tail — mostly
 reinforce-only from here; job also unstable between fires (self-restarting service still on offer).
+
+## [2026-07-19] ingest (loop, bundle-strict) | 00372 巴菲特十大迷思 → EXTEND 常見的投資錯誤
+
+Loop fire (job 003ba9a4). Transcription progressed to 00365; un-ingested 00365–00378 (00379 done).
+Bundle check: 00372/00376 both NO decks (2022 pre-deck-era). Filed the distinctive item as an
+EXTENSION (avoids near-duplicate of the new 常見的投資錯誤 page):
+- EXTEND behavioral-finance/常見的投資錯誤 (zh+en) — new「巴菲特親述的十個投資迷思」section from 00372:
+  不為留現金而留現金/不因升息衰退換策略/不過度分散(選股最多3隻)/波動不是風險(真風險=對公司無知+心理素質差)/
+  不需高智商只需常識/最好的投資是投資自己/「資產配置」是銷售話術(⚠️指多資產分散非CLEC的QQQ+現金+槓桿，已辨析)/
+  當沖=無知稅/成長就是價值/投資不要等待. No-deck→qualitative, Apple 100→70→10x flagged illustrative. [^2] 00372.
+
+Reinforce-only (logged): 00378,00376(景氣循環vs股市循環 Tony Chen guest→corroborates 景氣循環頁),00375,
+00374,00373,00371,00370,00369,00368(資本市場歷史觀 Wen Chang guest),00367,00366,00365(高殖利率低回報→
+年輕人適合買高股息嗎). Knowledge base 39 topic pages × 2 langs (extension, not new page). Job below 00365.
