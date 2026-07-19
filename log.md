@@ -533,3 +533,12 @@ Reinforce-only (logged): 00421/00417/00414 (AI科技/想像力創造財富→為
 00410 (避免致敗/樂觀看到機會→常見錯誤頁,崩盤是朋友), 00409 (承受不了下跌不可投資/接受慢慢致富→現金是空氣),
 00408 (不要跟風/此心安處是吾鄉→常見錯誤頁,景氣循環). Knowledge base now 38 topic pages × 2 langs
 (behavioral-finance 5). Job still running below 00408.
+
+## [2026-07-18] loop (ops) | no new episodes; restarted dead transcription job
+
+Loop fire found NO new completed episodes since last pass (lowest timestamped still 00408) and
+**whisper not running** — the re-transcription job had died with **276 長篇 still pending**. No ingest
+this fire. Restarted the turbo job: `WHISPER_BIN=build/bin/whisper-cli
+WHISPER_MODEL=models/ggml-large-v3-turbo.bin node scripts/transcribe.mjs --folder 長篇 --desc
+--redo-untimestamped --jobs 3` (323 videos queued newest-first; confirmed 3 whisper workers +
+node alive). Next fire should have fresh episodes below 00408 to ingest. No knowledge/page changes.
