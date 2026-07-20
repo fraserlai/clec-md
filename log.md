@@ -689,3 +689,19 @@ distinctive new doctrine, no page (bundle deck-check not required for reinforce-
   yet** (video-only); it's a fresh 2026 topic (consumption-as-economic-driver) worth ingesting once its
   source video reaches the transcription pipeline — flagged for a future fire. Transcription job alive
   (3 workers) grinding the old backlog below 00339.
+
+## [2026-07-20] ingest (loop, bundle-strict) | 00335 3% rule 動態算法 → EXTEND 退休需要多少錢
+
+Loop fire (job 003ba9a4). New batch 00333–00338 (2022). Bundle: convert-docs on 00335/00334 → NO
+decks (transcript-only); 3% rule doctrine is qualitative so filed transcript-only + flagged (backtest
+金額口述概數不採用).
+- EXTEND retirement-planning/退休需要多少錢 (zh+en) — NEW「3% rule 動態算法」section from 00335:
+  每月開銷=上月資產×3%÷12（動態，跟資產浮動）、每年 reset、≤3% 就很安全（跌時自動少花、本金不被掏空）、
+  借比賣安全（質押不動本金）。Ties the static 提領率分級 to the dynamic 3% rule (same 3% safety line).
+  Source [^4] 00335, no-deck flagged.
+
+Reinforce-only (logged): 00338 (QQQ/SPY風險機會/退休金永遠用不完/金錢是工具→為什麼是納斯達克100,別為錢賣命),
+00337 (不是不操作是決定不操作/沒有完美買進→從擇時操作,現金是空氣單筆買進), 00336 (clubhouse 輕鬆聊→generic),
+00334 (Traditional→Roth conversion 討論→美國退休帳戶只提撥Roth 的 Roth conversion 段, corroborating 00476),
+00333 (投資第六堂課 技術分析概論 guest Paochen Zhang→常見的投資錯誤/投資的七個層級 中段技術分析). Knowledge
+base 82 topic pages × 2 langs. 00574（2026-07-18 newest）仍待轉錄（video-only）. Job alive (3 workers).
