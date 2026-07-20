@@ -705,3 +705,44 @@ Reinforce-only (logged): 00338 (QQQ/SPY風險機會/退休金永遠用不完/金
 00334 (Traditional→Roth conversion 討論→美國退休帳戶只提撥Roth 的 Roth conversion 段, corroborating 00476),
 00333 (投資第六堂課 技術分析概論 guest Paochen Zhang→常見的投資錯誤/投資的七個層級 中段技術分析). Knowledge
 base 82 topic pages × 2 langs. 00574（2026-07-18 newest）仍待轉錄（video-only）. Job alive (3 workers).
+
+## [2026-07-20] ingest | 《緣起與今日》→ 旗艦傳記頁 + 打死不賣溯源
+
+Ingested CLEC 官方電子書 `raw/docs/教學資料/CLEC_緣起與今日_繁體中文版_V1.02.pdf`
+(James 自述，91 篇臉書文章，225 頁)。這是 CLEC 與 James 的完整緣起故事。
+
+- **NEW** `about/緣起與今日` (zh-TW + en, featured) — 旗艦傳記：宏碁工程師→
+  1990 外派美國（Frank Lee／$2000 開戶）→無知十年（星巴克、宏達電、主動基金
+  OAKMX/OAKBX、掏空個股、為何只剩美國大盤）→2000 靠運氣躲泡沫→1999–2004 回台
+  重整宏碁（專注／順命／十年為單位／權位是暫時）→2004 回美陪女兒（娃娃車司機的
+  階級體會、教女兒對等提撥投資、Apple II/iPod）→退休學紫微斗數＋催眠→「心靈理財」
+  第一堂 5–6 人→PaoChen 找教室→Panera Bread→COVID 後線上免費 CLEC。每段經歷都
+  接回它催生的教條頁。
+- **REINFORCE** `behavioral-finance/從擇時操作到打死不賣` (zh + en) — 新增第五節
+  「更早的源頭：星巴克與宏達電」，把 2000/2008 的「方法論放下」與星巴克/宏達電的
+  「情感放下」合起來；加書為 source、雙向 wikilink 到緣起頁。
+
+主要為傳記/緣起流；書中大量投資哲學章節與既有教條頁重疊（市場永遠上漲、統計概率、
+巴菲特差別等），未逐章重寫，僅由傳記頁 wikilink 帶到現行頁。index.md about 段已更新。
+
+## [2026-07-20] ingest (loop, bundle-strict) | 00292 美國房產 TOD → EXTEND 欠錢不還與資產傳承
+
+Loop fire (job 003ba9a4). Large batch 00275–00332 (46 eps, 2021–2022) newly completed. Bundle:
+convert-docs on 00292 → NO deck (2022); TOD content is procedural/qualitative so filed transcript-
+only + flagged (state-list kept general).
+- EXTEND risk-cashflow/欠錢不還與資產傳承 (zh+en) — NEW「房產也能跳過遺產認證：TOD」section from 00292:
+  美國房產 TOD (Transfer on Death Deed) 避開 probate；生前受益人無權利、可隨時重 file 撤銷；填法(county
+  下載 revocable TOD、每個所有人各填、寫全名關係、房產描述須與原始 Deed 一致、notarize→county Record);
+  陷阱(勿同時 will/Living Trust/TOD 衝突; 過戶後可能須等債權處理才能賣). TOD 解決 probate，與 step-up
+  basis 省稅是兩軸線、可並用。Source [^2] 00292, no-deck flagged.
+
+Reinforce-only (logged, batch of 45): 大量 clubhouse 輕鬆聊 (00275/00283/00285/00287/00291/00293/00297/
+00299/00303/00304/00308/00309/00313/00315/00318/00320/00324/00326/00329/00331/00332)→generic reinforce;
+投資第N堂課 guest curriculum (00300 複利基金配置/00316 折現率價值投資/00321 投資策略風控/00327 財報)→
+綜合reinforce; 00288《2022年度》第一堂課→價值一億元的投資人生講座 corroborating; 00302 (無相投資術/
+Dunning-Kruger→常見的投資錯誤,投資的七個層級 中二級過度自信); 00294 (投資五大境界/流動性才是真富有→投資
+的七個層級,欠錢不還); 00330 (QQQ股價與股息成長→QQQI,為什麼是納斯達克100); 00325 (換00757→00662→全球對照);
+00322 (美國退休帳戶稅務→美國退休帳戶只提撥Roth); 00282 (你也是巴菲特/貸款投資先享受後付款→欠錢不還);
+00277/00276 (值得的人生/離開老鼠籠/當美國公司老闆→勞工還是資本家,別為錢賣命,美元霸權); 其餘 00286/00290/
+00292剩餘/00296/00305/00307/00311/00314/00317/00323/00328/00323→崩盤是朋友/從擇時操作/勞工還是資本家
+reinforce. Knowledge base 83 topic pages × 2 langs. 00574 仍待轉錄. Job alive (3 workers).

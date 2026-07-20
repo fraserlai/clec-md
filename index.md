@@ -42,7 +42,7 @@ Format: `- [title](knowledge/<category>/<slug>.md) — one-line summary` · `zh-
 
 - [15 年現金流，不是 15 年現金](knowledge/risk-cashflow/十五年現金流.md) — 抗風險看現金流不看現金部位；理財第一步先理現金流（別借超過現金流能還／新青安例）；極端情境測試；上班族緊急備用金 vs 退休族從高點算15年。 · zh-TW · en
 - [韓信點兵：借貸順序](knowledge/risk-cashflow/韓信點兵借貸順序.md) — 先信貸→房貸→股票質押；照風險屬性排序不照利率；質押是現金流工具留到最後；借啟動資金勝過省小錢。 · zh-TW · en
-- [欠錢能不還就不要還：質押借款與資產傳承](knowledge/risk-cashflow/欠錢不還與資產傳承.md) — buy-borrow-die；甲乙流動性比較；質押門檻；PAL 繼承＋step-up basis 不賣股傳給下一代。 · zh-TW · en
+- [欠錢能不還就不要還：質押借款與資產傳承](knowledge/risk-cashflow/欠錢不還與資產傳承.md) — buy-borrow-die；甲乙流動性比較；質押門檻；PAL 繼承＋step-up basis 不賣股傳給下一代；美國房產 TOD 跳過遺產認證（00292）。 · zh-TW · en
 
 ## behavioral-finance · 投資心理學
 
@@ -82,6 +82,7 @@ _一問再問的經典問題，一頁一題，累積歷次回答。連向 doctri
 
 ## about · 關於
 
+- [緣起與今日：James 從工程師到 CLEC 的投資之路](knowledge/about/緣起與今日.md) — CLEC 官方自傳《緣起與今日》：宏碁工程師→外派美國（Frank Lee 帶進門、$2000 開戶）→無知十年（星巴克抱不住／宏達電追高殺低／主動基金）→躲兩次泡沫靠運氣→回台重整宏碁→退休陪女兒（娃娃車司機、教女兒投資）→紫微斗數/催眠→「心靈理財」小班→CLEC。每段經歷對應它催生的教條。 · zh-TW · en
 - [關於 clec.md](knowledge/about/about-clec-md.md) — 這個知識庫是什麼、內容如何從影片與文件產生。 · zh-TW · en
 
 ---
