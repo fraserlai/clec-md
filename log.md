@@ -644,3 +644,33 @@ Bundle check: both **NO decks**. Filed the distinctive framework as an extension
 Reinforce-only (logged): (this fire had no other episodes — 00359/00360 were the only 2). Note: the
 「區分投機樂趣與投資」sub-theme (投機當娛樂要與投資分開/縮小) folded as reinforce (→常見的投資錯誤/投資心理學).
 Knowledge base 39 topic pages × 2 langs (extension). Job still running below 00359.
+
+## [2026-07-19] AUDIT + ingest (loop) | coverage + deck cross-check; fixed 00535 miss; 00355/00526
+
+User asked to verify (a) deck cross-checking and (b) whether ALL completed 長篇 are ingested. Ran
+two audits over the 217 completed(timestamped) 長篇 (range 00355–00573):
+- **Coverage audit** (completed but NEITHER cited NOR in log.md): 4 flagged. 00355/00357/00361 =
+  frontier (just completed, this fire). **00535 = genuine MISS** — dropped from the 00514–00539 batch's
+  reinforce list. Fixed below.
+- **Deck cross-check** (every cited episode → deck exists?): the rich decks I'd read (00451/00501/00508/
+  00538/00564) OK. Flagged that **00526's QQQ-vs-VT return numbers were filed from TRANSCRIPT while a
+  deck existed** → read the 00526 deck: **numbers CONFIRMED** (QQQ 40y 14.12%, SP500 8.95%; 17y QQQ
+  15.8%/SP500 9.6%/VT 5.7%; 10y same). Sharpened 為什麼是納斯達克100「~14%」→**14.12%** and re-cited the
+  **deck** as authoritative (zh+en). Spot-checked 00517/00530/00537 decks = standard boilerplate, no
+  missed numbers; transcript-based ingests stand.
+
+Filed this fire:
+- EXTEND glossary/質押借款 (zh+en) — NEW「台灣質押實務風險：銀行端 vs 證券端」(00355): 國泰銀行維持率遠高於
+  130% 仍被抽銀根、餘額變 −13.6萬(銀行看標的整體額度非個人維持率); 銀行端有此風險(各行內規不同)、證券端不限
+  用途無此問題; 別一次全質押、分散不同銀行、留些未質押股票. No-deck→flagged decaying regional intel. [^2]
+- EXTEND risk-cashflow/十五年現金流 (zh+en) — fixed 00535 miss: NEW「理財第一步：先理現金流」section: 破產多
+  因現金流斷(扒三點半)不是生意差; 別蒙頭借貸超過自由現金流; 新青安/預售屋交屋現金流斷破產例; 自由現金流須正且
+  增長. 00535 deck = 週常 boilerplate. [^4]
+
+Reinforce-only (logged): 00357 (最壞已過去/資金買2/3/斷捨離/底部訊號→崩盤是朋友,景氣循環四季), 00361 (投資
+金融學 guest→reinforce). Knowledge base 39 topic pages × 2 langs (extensions). Audit clean after fixes:
+all completed 長篇 now cited or logged. Job still running below 00355.
+
+(Same fire — 00356/00358 completed mid-fire, logged reinforce-only: 00358 獨立思考/區分投機vs投資vs財務金融
+操作→投資心理學,常見的投資錯誤; 00356 為何堅持長期投資不易/右側交易/買進不賣[部分聲音斷]→從擇時操作,現金是
+空氣單筆買進. Coverage audit now clean: all 219 completed 長篇 cited or logged.)

@@ -40,7 +40,7 @@ Format: `- [title](knowledge/<category>/<slug>.md) — one-line summary` · `zh-
 
 ## risk-cashflow · 風險與現金流
 
-- [15 年現金流，不是 15 年現金](knowledge/risk-cashflow/十五年現金流.md) — 抗風險看現金流不看現金部位；極端情境測試；上班族緊急備用金 vs 退休族從高點算15年。 · zh-TW · en
+- [15 年現金流，不是 15 年現金](knowledge/risk-cashflow/十五年現金流.md) — 抗風險看現金流不看現金部位；理財第一步先理現金流（別借超過現金流能還／新青安例）；極端情境測試；上班族緊急備用金 vs 退休族從高點算15年。 · zh-TW · en
 - [韓信點兵：借貸順序](knowledge/risk-cashflow/韓信點兵借貸順序.md) — 先信貸→房貸→股票質押；照風險屬性排序不照利率；質押是現金流工具留到最後；借啟動資金勝過省小錢。 · zh-TW · en
 - [欠錢能不還就不要還：質押借款與資產傳承](knowledge/risk-cashflow/欠錢不還與資產傳承.md) — buy-borrow-die；甲乙流動性比較；質押門檻；PAL 繼承＋step-up basis 不賣股傳給下一代。 · zh-TW · en
 
@@ -73,7 +73,7 @@ _一問再問的經典問題，一頁一題，累積歷次回答。連向 doctri
 ## glossary · 名詞解釋
 
 - [指數基金（Index Fund）](knowledge/glossary/指數基金.md) — 直接持有整個市場；低成本、分散、稅務效率高。 · zh-TW · en
-- [質押借款 vs 融資](knowledge/glossary/質押借款.md) — 質押=抵押借款不賣股；融資=可強制平倉。CLEC 支持質押、反對融資。 · zh-TW · en
+- [質押借款 vs 融資](knowledge/glossary/質押借款.md) — 質押=抵押借款不賣股；融資=可強制平倉。CLEC 支持質押、反對融資；含台灣銀行端 vs 證券端質押風險（銀行可因標的抽銀根）。 · zh-TW · en
 - [Beta（以 QQQ=1.0 為基準）](knowledge/glossary/Beta.md) — QQQ=1.0、QLD=2.0、TQQQ=3.0、現金=0.0；組合beta=加權和。 · zh-TW · en
 - [儲蓄險／壽險不是投資](knowledge/glossary/儲蓄險與壽險陷阱.md) — 16年壽險實際報酬0.64%；保險歸保險、投資歸投資。 · zh-TW · en
 - [QQQI（納指高股息）與資本返還](knowledge/glossary/QQQI.md) — 月配約1%；配息多為資本返還，台灣投資人稅務可忽略、美國要注意成本基礎。 · zh-TW · en
