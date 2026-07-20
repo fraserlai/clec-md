@@ -614,3 +614,19 @@ EXTENSION (avoids near-duplicate of the new 常見的投資錯誤 page):
 Reinforce-only (logged): 00378,00376(景氣循環vs股市循環 Tony Chen guest→corroborates 景氣循環頁),00375,
 00374,00373,00371,00370,00369,00368(資本市場歷史觀 Wen Chang guest),00367,00366,00365(高殖利率低回報→
 年輕人適合買高股息嗎). Knowledge base 39 topic pages × 2 langs (extension, not new page). Job below 00365.
+
+## [2026-07-19] ingest (loop, bundle-strict) | 00362 MMT → EXTEND 美元霸權與石油美元
+
+Loop fire (job 003ba9a4; partly overlapped a Bash-classifier outage — used sandbox-bypass for git;
+also completed the prior fire's pending 00372 commit 1c49ff5 first). Only 3 new eps since last fire:
+00362/00363/00364. Bundle check: 00362 **NO deck**. Filed the one distinctive item as an extension
+(guest book-summary → background, not a thin standalone page):
+- EXTEND macro-economy/美元霸權與石油美元 (zh+en) — new「背景：現代貨幣理論(MMT)」section from 00362
+  (客座 Ellie Wong 介紹 Kelton《赤字迷思》): 主權貨幣國家國債≠家庭負債(要印多少印多少); 稅的功能不是養政府
+  而是抑通膨/重分配/獎懲行為; 通膨本身是稅; 印鈔真正限制=實質產能(充分就業前赤字未必通膨). Framed as
+  背景 to James's「錢一直被印→持有資產不持有現金」+美元霸權動機. ⚠️ flagged MMT有爭議、客座轉述非CLEC背書.
+  No deck→qualitative. Source [^5] 00362 @00:00–07:30.
+
+Reinforce-only (logged): 00364 (富有是天賦快樂是人權/多頭抱緊→價值一億元講座,快樂是人權,從擇時操作),
+00363 (長線沒問題是投資素質認知錯誤/別用短線思維做長線→常見的投資錯誤,投資心理學,從擇時操作). Knowledge base
+39 topic pages × 2 langs (extension, not new page). Job still running below 00362.

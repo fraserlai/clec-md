@@ -57,7 +57,7 @@ Format: `- [title](knowledge/<category>/<slug>.md) — one-line summary` · `zh-
 ## macro-economy · 總體經濟
 
 - [景氣循環的五個迴圈：做週期是為了心安不是報酬](knowledge/macro-economy/景氣循環與週期判讀.md) — 消費→庫存→投資→信貸→房地產；IPO/新興市場超車美國訊號；勝率<50%，降報酬換心安，最多多留10%現金。 · zh-TW · en
-- [美元霸權與石油美元](knowledge/macro-economy/美元霸權與石油美元.md) — James 地緣觀點：戰爭本質是逼世界資源以美元交易好持續印鈔；穩定幣改變不了本質；個人出路＝買納指100做美國主人。 · zh-TW · en
+- [美元霸權與石油美元](knowledge/macro-economy/美元霸權與石油美元.md) — James 地緣觀點：戰爭本質是逼世界資源以美元交易好持續印鈔；穩定幣改變不了本質；MMT 背景（印鈔理論）；個人出路＝買納指100做美國主人。 · zh-TW · en
 
 ## qa · 學員問答
 
