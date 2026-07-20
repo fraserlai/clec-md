@@ -674,3 +674,18 @@ all completed 長篇 now cited or logged. Job still running below 00355.
 (Same fire — 00356/00358 completed mid-fire, logged reinforce-only: 00358 獨立思考/區分投機vs投資vs財務金融
 操作→投資心理學,常見的投資錯誤; 00356 為何堅持長期投資不易/右側交易/買進不賣[部分聲音斷]→從擇時操作,現金是
 空氣單筆買進. Coverage audit now clean: all 219 completed 長篇 cited or logged.)
+
+## [2026-07-20] loop | 00339–00354 reinforce-only; 00574 pending transcription; videos.mjs synced
+
+Resumed after a Bash-classifier outage (prior autonomous fires had already ingested down to ~00355–
+00360 and committed: 00359/00360 四季→景氣循環, 00362 MMT→美元霸權, 00372 巴菲特十大迷思→常見的投資錯誤,
+00392–00395 投資心理學, plus an audit fix at 9227372). This fire's new batch **00339–00354** (2022
+foundational episodes) is entirely **reinforce-only** — 態度/忍耐/修煉/悟/慢慢致富/底部買進/均線買進/
+資本主義覺醒/現金是空氣/技術指標(guest)/經濟指標(guest)/如何學巴菲特 — all map to existing pages
+(崩盤是朋友, 從擇時操作, 投資的七個層級, 常見的投資錯誤, 勞工還是資本家, 現金是空氣, 景氣循環). No
+distinctive new doctrine, no page (bundle deck-check not required for reinforce-only).
+- **videos.mjs**: site video index gained **00574**（2026-07-18「消費才是經濟之母，有錢人消費是道德」）
+  and 00573 — committed to keep the site current. **00574 is the newest episode but has NO transcript
+  yet** (video-only); it's a fresh 2026 topic (consumption-as-economic-driver) worth ingesting once its
+  source video reaches the transcription pipeline — flagged for a future fire. Transcription job alive
+  (3 workers) grinding the old backlog below 00339.
