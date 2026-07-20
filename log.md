@@ -630,3 +630,17 @@ also completed the prior fire's pending 00372 commit 1c49ff5 first). Only 3 new 
 Reinforce-only (logged): 00364 (富有是天賦快樂是人權/多頭抱緊→價值一億元講座,快樂是人權,從擇時操作),
 00363 (長線沒問題是投資素質認知錯誤/別用短線思維做長線→常見的投資錯誤,投資心理學,從擇時操作). Knowledge base
 39 topic pages × 2 langs (extension, not new page). Job still running below 00362.
+
+## [2026-07-19] ingest (loop, bundle-strict) | 00359/00360 投資市場的四季 → EXTEND 景氣循環與週期判讀
+
+Loop fire (job 003ba9a4). Only 2 new eps since last fire: 00359/00360 (兩集，投資市場的四季，上/下).
+Bundle check: both **NO decks**. Filed the distinctive framework as an extension:
+- EXTEND macro-economy/景氣循環與週期判讀 (zh+en) — new「投資市場的四季」section: 市場領先經濟(約半年)、
+  四季不同步(冬末股市最兇漲/春經濟好/夏過熱最猛/秋冬市場先盤整先跌經濟才衰退); 關鍵洞見=等經濟數據確認永遠慢
+  半拍; 「夏天預測下雪」=不懂四季(投機者/分析師通病喊多喊空). No-deck→qualitative, 2009反彈幅度/利率差 flagged
+  口述、not filed as data. Complements the FIVE economic loops (§一) with the market-vs-economy-leading angle.
+  Source [^2] 00359/00360 @04:30–19:00.
+
+Reinforce-only (logged): (this fire had no other episodes — 00359/00360 were the only 2). Note: the
+「區分投機樂趣與投資」sub-theme (投機當娛樂要與投資分開/縮小) folded as reinforce (→常見的投資錯誤/投資心理學).
+Knowledge base 39 topic pages × 2 langs (extension). Job still running below 00359.
