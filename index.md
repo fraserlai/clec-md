@@ -46,7 +46,7 @@ Format: `- [title](knowledge/<category>/<slug>.md) — one-line summary` · `zh-
 
 ## behavioral-finance · 投資心理學
 
-- [崩盤是你最好的朋友](knowledge/behavioral-finance/崩盤是朋友.md) — 觸底後平均反彈46%；離開市場才是最大風險；6尺高的人淹死在2尺深的水。 · zh-TW · en
+- [崩盤是你最好的朋友](knowledge/behavioral-finance/崩盤是朋友.md) — 觸底後平均反彈46%；離開市場才是最大風險；6尺高的人淹死在2尺深的水；1929大蕭條與為何較難重演（央行QE，00340）。 · zh-TW · en
 - [從擇時操作到打死不賣（哲學演變）](knowledge/behavioral-finance/從擇時操作到打死不賣.md) — James 2000/2008擇時的歷史，如何演變成純被動；舊法已被取代。 · zh-TW · en
 - [統計、概率、隨機、意外](knowledge/behavioral-finance/統計概率隨機與意外.md) — 長期為可證偽的真命題、短期是隨機；25年vs5年報酬分佈；期望值錯配。 · zh-TW · en
 - [投資的七個層級（可跳級直達最高階）](knowledge/behavioral-finance/投資的七個層級.md) — 初一→最高階；中二級自認技術超群最危險(99%陣亡)；初學者與最高階報酬一樣→直接買指數打死不賣；最需要耐心（00379）。 · zh-TW · en
