@@ -854,3 +854,226 @@ looser 2021 number that newer content supersedes (current: 動態≤3% + 20% 硬
 隨資產提高、三層防線) → NOT filed per newer-wins. 「質押借來的錢不能再買股票」= already the 質押vs融資
 distinction (質押借款 glossary). 住旅館勝過買房→房地產; 成功不貳過→常見的投資錯誤. No page. Knowledge base
 92 topic pages × 2 langs. 00574 仍待轉錄. Job alive (3 workers).
+
+## [2026-07-23] ingest (frontier-backward, bundle-strict) | 00563 投資沒有標準答案 → 1 new concept + QQQI extension
+
+Bundle 00563: transcript + 簡報(pptx). Deck boilerplate skipped, but carried strong distinctive slides
+(變革/傳道士/投資沒有標準答案 + QQQI下行配息Q&A + 理財型房貸配置 + 兩種金錢牢籠). Lecture opening (AI財報/
+創投聰明錢/DeepMind哈薩比斯賣Google=美國資本運作強→投資美國底層邏輯) → reinforce 為什麼是納斯達克100/美元
+霸權. Filed:
+- NEW investing-mindset/投資沒有標準答案 (zh+en) — 變革=基石是起點非終點、功夫到了要忘掉武功秘籍、沒有最完善
+  配置只有客製化(入海空皆能接受); 投資沒有標準答案=傳道士傳觀念非標準答案、你的食物是別人毒藥、自己悟才是道;
+  批判思維起手式「我可能錯了/我錯了/別人才是對的」、想完留著自己用; 不挑戰不爭辯(挑戰=無知、爭辯不知誰是豬、
+  不跟豬打架、直接封鎖); 走一遭週期=父母讓孩子在面前跌倒→更確立打死不賣。deck 155-174 + transcript
+  @20:00–28:30。links 七個層級/從擇時操作/常見錯誤/快樂是人權。
+- EXTEND glossary/QQQI (zh+en) — 三新節：①下行配息「不要期望太高」保守估算(殖利率打七八折6-10%、或用你有信心
+  的年化6-18%、保守總沒錯=安身立命)；②磨損QQQI總報酬≈QQQ打25%(QQQ18% vs QQQI13%,(18-13)/18≈27.8%)；
+  ③用QQQI生息還貸款：信貸不划算(借100萬要壓135-150萬QQQI、信貸要用薪水還)、理財型房貸值得(借1000萬月供
+  4.5-5萬→500萬QQQI生息+500萬00662成長)、QQQI才讓退休又房貸者有現金流解方。@29:00–34:00 + deck頁。cross
+  房地產現金流。
+
+Reinforce/candidates (logged): QQQI非美國稅務(台灣複委託券商退稅；非台居民買JEPQ.L/倫敦用IBKR避預扣稅、IBKR
+信託避美國遺產稅)→全球對照候選; 兩種金錢牢籠(錢不夠不自由／貪得無厭已自由卻不停)→別為錢賣命 reinforce(>50倍);
+美國創投聰明錢/DeepMind外部影片→resources候選。Knowledge base +1 concept page × 2 langs. Next: 00562.
+
+## [2026-07-23] ingest (frontier-backward, bundle-strict) | 00562 為什麼一賣就回不來 → 1 new qa + 再平衡 extension
+
+Bundle 00562: transcript + 簡報(pptx). Deck boilerplate skipped. Lecture (AI革人類的命 vs 工業革命革工作的
+命、灣區裁員潮、諾亞方舟) → reinforce 勞工還是資本家/別為錢賣命/美元霸權. Filed:
+- NEW qa/家人朋友賣掉了該怎麼辦 (zh+en) — 立即市價買回(同所有「賣了怎麼辦」)；教訓=以後別通知不看影片的親友做
+  任何操作(降槓桿/週期/賣)、只講「有錢就買打死不賣」一句；買賣兩端都要做對、傳聲筒失真(傳4手/5天後)、下車
+  易上車難、學員做到<10%；週期一次就夠=親身體會操作難→更確立打死不賣。@15:00–20:30 + deck頁。links 從擇時
+  操作/常見錯誤/崩盤是朋友。
+- EXTEND asset-allocation/聰明再平衡法 (zh+en) — 新「誰需要再平衡、何時做」前置節：上班+半年(到一年)備用金→可
+  不再平衡(風險承受度高、有錢就一直買QQQ/00662)；退休無收入→一定要做(每年底/隔年初)對衝未知風險；再平衡本質=
+  上漲移現金、現金越多越安全、跟質押無關但質押者現金要更多。@26:30–28:00 + deck頁。cross 三層防線。
+
+Reinforce/candidates (logged): **質押門檻細化**(資產不足別質押=金額少卻冒風險/風險承受度不高「地心引力」vs高資產
+「助力」；美國質押不繳息利滾利像PAL vs 台灣一年/一年半要繳息=借錢繳；既質押就不賣資產更不還債)→欠錢不還/質押
+glossary **強候選**; 賣房學員(聽課後賣出租房投QQQ、遇爛租客整季幫租客打工、比市價低一成也賣、拖延=時間成本)→
+房地產現金流學員分享候選; 加拿大Wealthsimple PAL(3.95%固定+個人spread、質押率僅35%比美70%低易斷頭、利滾利)→
+全球對照候選; 信貸詐騙案例+如何算真實利率(國泰世華信貸計算機/investment calculator反推、代辦費5000→利率+0.2%、
+女友月薪3萬被借78萬年利率13.346%)→韓信點兵 reinforce(信貸要用薪水還)。Knowledge base +1 qa × 2 langs. Next: 00560.
+
+## [2026-07-23] ingest (frontier-backward, bundle-strict) | 00560 你不是輸在市場是輸在情緒 → 投資心理學 extension
+
+Bundle 00560: transcript + 簡報(pptx) (＋理財聖經v2 = evergreen reference, skipped). Deck boilerplate
+skipped. Reinforce-heavy episode (情緒教條已在投資心理學/崩盤是朋友頁) → filed ONE solid extension, no
+manufactured new page:
+- EXTEND behavioral-finance/投資心理學散戶為什麼被割韭菜 (zh+en) — 新「怎麼在漲跌中穩住情緒（2026 James
+  補充）」節：上漲想部位/下跌想現金(漲也舒服跌也高興)；同一件事兩角度(少賺好多 vs 還好沒全賣、部位有賺)；
+  穩定比回報更重要、可以少賺但不可情緒失控(FOMO/fear/greed=敵人→追高殺低)；高現金是防禦不可撤除防禦而勝戰、
+  資產配置唯一功能是穩情緒(做週期若更慌就沒達目的)；唯一可控=配置與情緒(要練習)；**老虎笑話**(書看再多沒經
+  市場洗禮還是不認得老虎→親身>書本)。@17:30–26:30/36:00 + deck頁。links 投資沒有標準答案/家人賣了怎麼辦。
+
+Reinforce/candidates (logged): 散戶投資個股命運(PopMart/星巴克跟風上車、人下車不知、蜂擁而出已虧損、與公司好壞
+無關與能力有關、指數適合大部分人；James 30年前投星巴克賺很多、5-6年前賺不到)→為什麼是納斯達克100/常見錯誤
+reinforce; 不質押的提領率低/風險高但別勉強(有人不適合質押、有人過度質押、好工具因人而異=補品或毒藥)→欠錢不還/
+投資沒有標準答案 reinforce; 情緒與「一直問為什麼」(改問法抽離、等情緒飄走)+社媒賣恐懼賣貪婪放大情緒→快樂是人權
+候選。Knowledge base +0 new pages（1 extension × 2 langs）。Next: 00558 (frontier continues; check deck).
+
+## [2026-07-23] ingest | 0039 貼文 → 單筆 vs 分批 doctrine (現金是空氣, zh+en)
+
+Source: 0039 貼文〈99%的人，都把買進方式看得太重要了！〉(2026-07-23, X @CLEC168 長文,
+人工貼入 — 尚未進 raw/docs/X及YouTube的貼文/). User pasted full text after WebFetch hit
+X's auth wall (402); syndication endpoint only gave the link preview.
+
+EXTEND asset-allocation/現金是空氣 (zh+en) — expanded the thin「單筆還是分批」section from
+3 lines into the authoritative doctrine block:
+- 「99%的人把買進方式看得太重要」→ 買進方式非成敗關鍵、打死不賣才是。
+- 真實情境: 2022 有人賣房問怎麼投入 → James 建議分批(不是分批較好, 而是對沒準備好的人 all
+  in 太強; 分批只是「感覺上」不恐懼)。
+- 統計上單筆勝分批(研究文獻/期望值): 2009–2026 只 2022 上半年下跌→~97% 勝率; 從 2000 高點算
+  27 年 3.5 下跌年→~87%。標註為 James 粗略框架非嚴謹回測。
+- 分批唯一有意義=能事先預知>1年持續下跌(永漲指數裡少數且不可預知); 做頭/漲/橫盤單筆期望值都較好。
+- 分批與單筆一樣難(漲想拉回/跌想更跌); 真做不到單筆可分批「但別拖太久」。
+- 收尾: 無完美買進法、隨時買大盤+打死不賣、不動如山、最恐懼時要勇敢(→崩盤是朋友)。
+Added [^3] 貼文 footnote, source line, relatedTopics += 統計概率隨機與意外/崩盤是朋友,
+lastVerified 2026-07-23. Wikilinks → 統計概率隨機與意外 / 從擇時操作到打死不賣 / 崩盤是朋友.
+
+Knowledge base +0 new pages (1 extension × 2 langs). Candidate: a qa/ page「該一次進場還是
+分批？」(canonical recurring Q, 情境變體=賣房/遺產/獎金/存很久的錢) — deferred until a 學員提問
+transcript instance appears to anchor it; doctrine now lives on 現金是空氣.
+
+## [2026-07-23] ingest (frontier-backward, bundle-strict) | 00558 週期思維全面升級 → 2 doctrinal extensions
+
+Bundle 00558: transcript + 簡報(pptx). Deck boilerplate skipped. Doctrinally important episode (打死不賣→
+週期演化) → 2 extensions, no new page (correctly reinforces/updates existing doctrine):
+- EXTEND behavioral-finance/從擇時操作到打死不賣 (zh+en) — 新「六、2026再進化：打死不賣→週期(風控不是操作)」節：
+  **關鍵區分 2026週期 ≠ 2000/2008擇時**——週期=只在大轉折拉現金降Beta、做完離手、目的心安(不是追價差);
+  「操作是罪惡」指買低賣高，移動配置控風險不是操作; 打死不賣與週期不衝突是進化(單細胞→多器官)、99.99%時間
+  打死不賣、只轉折時週期跳出; 可只留第一招; **最大地雷=不要跳來跳去**(打死不賣的人撐到地板才臨時做週期=掉斷崖)。
+  @17:30–20:30/35:30 + deck頁。
+- EXTEND macro-economy/景氣循環與週期判讀 (zh+en) — §二新subsection「判讀的層次順序：技術要擺最後」：全球金融→
+  消費→產業→資本投資→信貸→房地產→市場氛圍→**技術最後**(均線、頭部、底部反轉); 全部都要懂且要感受得出來;
+  只看技術=事前豬事後諸葛、跌完才知空頭; **均線失敗率80%+**(James:均線99%不準); **頭部至少6個月**成形。
+  @20:30–25:30 + deck頁。(§四「決定了不要跳來跳去」已由00559覆蓋，00558僅reinforce。)
+
+Reinforce/candidates (logged): 大量閱讀+獨立思考+好奇心=首創洞見(CLEC內容難指定哪本書)→投資沒有標準答案/書單
+reinforce; 臨在(吃飯時吃飯/聽影片專心/不滑手機)→快樂是人權候選; 石油美元鞏固or崩盤(GCC海灣四國美元交易原油、
+伊朗不從)→美元霸權 reinforce; 托尼羅賓斯/士官長躺平理財 外部影片→resources候選。Knowledge base +0 new pages
+（2 extensions × 2 langs）。Next: 00557 (check deck).
+
+## [2026-07-23] ingest (loop, dynamic self-paced) | 00557 市場跌80%你撐得住嗎 → 七個層級 extension
+
+Loop iteration 1 (self-paced). Bundle 00557: transcript + 簡報(pptx). Deck mostly reinforce (資產配置抗80%
+下跌/賣房租房/買房剛需與投資同步). Filed ONE clean extension (episode is largely reinforce → no manufactured page):
+- EXTEND behavioral-finance/投資的七個層級 (zh+en) — 新節「為什麼James說市場與我無關卻做週期？層級不同別亂套」：
+  「市場與我無關」是給無知/一知半解/自以為是者的處方(最好無動於衷=打死不賣)；James自己「市場與我有關」做週期是
+  高一級以上(懂風控)的選項、「與所有人跟市場的關係不同」；**在第幾層看的風景不一樣、不要亂套**(=00558不要跳來
+  跳去另一講法)；無動於衷本就夠安全(跌80%還是會回來)、帶週期只是希望不必再走2022痛苦底部「直接搭橋過河」。
+  解開「市場與我無關 vs 做週期」表面矛盾。deck「市場與我無關」頁 + transcript。links 從擇時操作/景氣循環。
+
+Reinforce/candidates (logged): 時局不明朗時分批按時買入(6個月逢低、成本可控、心理壓力小、但最重要仍是留足現金
+長期持有)→現金是空氣「何時分批可以」nuance候選(現有頁強調單筆); 賣房投資租房就好(出得起就租好簽長約、請全包
+搬家、幾十萬解決別用幾千萬、捨得花錢)→房地產現金流 reinforce; 買房剛需/媳婦要買房才結婚→房子與投資應同步、投資
+資金一定要有、房子為現在居住投資為老了活著、家庭和諧最重要→房地產現金流 reinforce。Knowledge base +0 new pages
+（1 extension × 2 langs）。Next un-ingested-with-deck: 00555 (00556 already ingested).
+
+## [2026-07-23] ingest (loop, dynamic self-paced) | 00555 從勞工到資本家：諾亞方舟 → 勞工還是資本家 extension
+
+Loop iteration 2. Bundle 00555: transcript + 簡報(pptx). Deck boilerplate + personal tangents (血糖/hiking/
+低碳蛋糕食譜、cfnavi播放清單、投資理財系統app) skipped. Filed ONE rich extension:
+- EXTEND investing-mindset/勞工還是資本家 (zh+en) — 新節「失業不是意外是資本主義設計；AI海嘯登諾亞方舟」+「學員
+  分享：從勞工蛻變為舵手」：**失業是資本主義的必要條件**(製造勞工急迫性、溫順工作); AI海嘯前只有登上資本家諾亞
+  方舟才能度過、人類靠思考/靈魂/工匠精神與AI區別; 地緣註腳(華人孟母三遷/儲蓄努力掙脫奴化、台灣半導體=半奴化、
+  對美國是意外); **兩則學員蛻變**——54歲走過2022熊市(疫情抓個股跌30-40%驚恐→3年半資產負轉翻倍、準備退休，James
+  「此處心安是吾鄉」); @EiffelBurkins(無腦納指ETF只買不賣、被動收入超薪水、**跨過coast point滑行點**=不必再投入靠
+  複利到終點、勞工→人生舵手、**「財富不是外顯炫耀而是無聲底氣；Money talks, but wealth keeps silent」**)。deck
+  253-343 + transcript。links 別為錢賣命/身份認同/美元霸權。
+
+Reinforce/candidates (logged): 台灣半導體地緣(對美國是意外、美國想糾正、韓國有機會突破)→美元霸權候選; coast point
+(coast FIRE滑行點=資產跨過後複利自己到終點、不必再投入)→退休需要多少錢/別為錢賣命 概念候選; CLEC AI工具(短篇問與答
+Gemini Gem 00026-00683C、NotebookLM)→resources候選; 低碳蛋糕食譜/血糖/hiking→personal,skip。Knowledge base +0
+new pages（1 extension × 2 langs）。Next un-ingested-with-deck: 00554。
+
+## [2026-07-23] ingest (loop, dynamic self-paced) | 00554 生在資本主義：迷宮與導航 → 1 new qa
+
+Loop iteration 3. Bundle 00554: transcript + 簡報(pptx). Deck boilerplate + personal (助聽器/聽力) skipped.
+Filed the canonical recurring Q&A as a new page:
+- NEW qa/資本家為何留翻身路會不會崩潰 (zh+en) — 資本主義是資本家設計來維持自己、但公平公開不能完全封殺階級
+  流動→留了致富的路只是「不宣揚」(學校不教、只有富人家族/覺悟者/CLEC告知)；**迷宮vs導航**(資本家有導航、一般人
+  拿到的導航導向勞工、CLEC給你導航)；楚門世界、剝削的迷魂藥 vs 致富的大力丸；**為何不會崩潰**=找100人介紹多數
+  當你詐騙或想錢想瘋、喚不醒、真正富有是少數(呼應家人賣了怎麼辦)。James自陳「常常被問到」=canonical。
+  @05:00/26:30–27:30 + deck頁。links 勞工還是資本家/為什麼是納斯達克100/家人賣了/投資沒有標準答案。
+
+Reinforce/candidates (logged): **茅草屋泡沫寓言(源自00184@38:10–41:30)**——A/B互相買賣茅草屋炒到1300萬、A拿現金
+雲遊四海、B守著實值100萬茅草屋揹1300萬債；價格vs價值脫鉤、擊鼓傳花、asset inflation泡沫如何形成→**強候選但本集
+為CLEC-AI(Gemini)重構、需待00184實際逐字稿驗證再建頁**(勿信AI重構數字); Cupertino買房vs投資機會成本(00022/00434,
+房3-5% vs 股10-15%)→房地產現金流 reinforce; 生在→認識→運用→享受資本主義四部曲→勞工還是資本家 reinforce;
+joannemind QA(Roth未達30%能否在普通帳戶續買QLD?→不可以、別勉強拉高槓桿部位、沒槓桿績效也不差)→帳戶類型該放
+什麼資產 reinforce; CLEC-AI工具(Clec-ai-Gemini/CLEC-tutor)→resources候選。Knowledge base +1 qa × 2 langs (98 pages).
+Next un-ingested-with-deck: 00553。
+
+## [2026-07-23] ingest (loop, dynamic self-paced) | 00553 QQQI+433 打造15倍退休現金流 → 退休需要多少錢 extension
+
+Loop iteration 4. Bundle 00553: transcript + 簡報(pptx). Mostly overlaps existing 退休/現金流 doctrine (15倍
+900萬台幣版=同1440萬結構 reinforce)。Filed ONE distinctive new rule:
+- EXTEND retirement-planning/退休需要多少錢 (zh+en) — 新節「你的退休資產怎麼算？應稅帳戶只算稅後(約70%)」：
+  計算夠不夠退休時，應稅brokerage帳戶只能算稅後(~70%,依成本基礎與稅率)；例300萬只算210萬、+其他200萬=退休
+  總資產410萬、開銷用410萬×2%非500萬×2%(高估可用資產=最常見退休試算錯誤)；**唯一例外=質押打死不賣不觸發
+  資本利得稅可全額計入**(=CLEC偏好借出來花勝過賣出來花)。@CYMoo1190 Q&A + deck頁。cross 美國退休帳戶只提撥
+  Roth/欠錢不還。
+
+Reinforce/candidates (logged): **貸款只還息vs還本息**(本金可超過15年後再還→只還息；本金短於10年內要還→本利和
+較安全，因10年內不保證市場漲、若10年後虧損又還本金可能殺低)→十五年現金流/韓信點兵 **強候選**; **資產配置不決定
+績效，市場決定**(市場跌→現金多beta低虧得少績效好；市場漲→beta高賺得多；震盪→誰知道；別以預測配置績效來選配置=
+如預測市場徒勞)→現金是空氣/景氣循環 **強候選**; 中國高股息基金(007751景順長城沪港深红利~8%/年化6%、561580华泰柏瑞
+中证央企红利ETF 7.6%/年化8.21%)+中國現金161115(易方达岁丰添利、但現金是空氣頁已警告161115含債+股本金會虧不宜當
+現金)+加拿大RBC private bank質押(要求≥100萬加幣)→全球對照候選(regional,decays)。Knowledge base +0 new pages
+（1 extension × 2 langs, 98 pages）。Next un-ingested-with-deck: 00552。
+
+## [2026-07-24] ingest | 00574 消費才是經濟之母，有錢人消費是道德！ (bundle: transcript+簡報, 3h14m) → +2 pages, 4 updates
+
+Source downloaded from YouTube (jJg841pOAyc) + transcribed via whisper large-v3 (this session); deck pptx
+converted from drop-then-delete. Four-stream split of a very rich 3h14m Clubhouse:
+
+- NEW macro-economy/消費才是經濟之母 (zh+en) — 開場講授 flagship (=title). 製造只提供就業、消費才拉動經濟；
+  同質製造→內卷殺價(亞洲vs美國Micron)；製造是火箭燃料、消費是點火系統；消費是製造業之母；存款是死錢、
+  借款與消費才促進經濟→補上CLEC借錢投資/質押消費的「道德正當性」。deck頁29–31 + transcript @15:00–20:30。
+- NEW qa/要不要讓小孩貸款上大學 (zh+en, subcat risk-cashflow) — 學員Peter用AI回測三方案(賣股/PAL/student
+  loan)。賣股付學費=中斷複利；最簡單PAL付不賣股；孩子願意就student loan(延遲還款=借到6年投資時間)；進階
+  從小開custodial account每年贈與、24/26歲前別交給孩子(投資帳戶是毒品)、ownership心理；能借就借能投就投、
+  看全家總資產；2000起回測反而總資產更高。cross 欠錢不還/韓信點兵/子女是風箏。@2:17:00–2:30:00。
+- EXTEND relationships/子女是風箏 (zh+en) — 開場反例「別用錢代替父母」：小留學生給大錢養出揮霍魔鬼、25萬美元
+  =毒品、堂弟血淚(黑道→吸毒→自殺)、錢是父母的價值觀要正確；+學員in「鼓勵孩子花錢創造經驗、10塊以下不用問、
+  別把匱乏感傳下一代」。@00:00–05:30 / @2:58:30–2:59:30。
+- EXTEND behavioral-finance/身份認同與長期投資 (zh+en) — 學員YJ「吸血鬼思考實驗/質變」：質變無法靠理性完成
+  (改變前後不是同一個人)、只有外部颶風(癌症車禍)或勇敢者能質變、擋人的是「被咬一口」的過程不是致富的美好、
+  用「願意付代價」取代「相信會成功」、辭職陪父親親身驗證；+James電扶梯(旁邊有電扶梯不用槍林彈雨)/我不是最強
+  是倖存者(lucky)。@1:29:00–1:55:30。
+- EXTEND qa/資本家為何留翻身路會不會崩潰 (zh+en) — +2026-07-18 dated entry：YJ吸血鬼實驗補「為什麼喚不醒
+  99%的人」的心理機制(過不了被咬那關)=制度不崩潰的原因。link 身份認同。
+- EXTEND index-etf/全球納斯達克100指數基金對照 (zh+en, regional/decays) — 中國大陸多銀行「滾動信貸」(A→B→C→D
+  倒貸、20萬3%/3年、同倒卡概念)+資金辦香港卡轉香港+大陸高股息513530不夠穩(底層A股、葵花寶典~7.65%、未知風險)、
+  現金511880。@36:30–44:30。lastVerified收緊到2026-07-18。
+
+Reinforce/skipped (logged, not filed): 阿甘「主管每天只做三件事/check-in list/把猴子丟回去/艦長不去輪機室」
+(職場管理，off-topic但canonical，強候選新life-philosophy頁); Steven QLD深入(槓桿基金不歸零vs個股歸零、最壞20年
+回本、QLD 93x vs QQQ 26x since2006、一定要再平衡否則別碰、≤20%別吃太辣=高湯現金)→Beta/聰明再平衡 強候選;
+學員in健康intel(single疫苗防失智25%、40歲吃statin控LDL<100、冠狀動脈低劑量CT、可吸收支架)→健康候選;
+Demo「觀察者角度/西藏生死書/六祖慧能/Alex Honnold杏仁核/人類大歷史想像力/催眠想像富有」→life-philosophy候選;
+「無所謂沒關係是放心裡不是拿來講的」(職場/關係social)→候選。Knowledge base +2 new pages (100 pages)。
+Next un-ingested-with-deck: 00552 / 00575。
+
+## [2026-07-24] ingest | 00574 消費才是經濟之母，有錢人消費是道德！ (bundle: transcript+簡報, 3h14m) → +2 pages, 4 updates
+
+Source downloaded from YouTube (jJg841pOAyc) + transcribed via whisper large-v3 (this session); deck pptx
+converted from drop-then-delete. Four-stream split of a very rich 3h14m Clubhouse:
+
+- NEW macro-economy/消費才是經濟之母 (zh+en) — 開場講授 flagship (=title). 製造只提供就業、消費才拉動經濟；
+  同質製造→內卷殺價(亞洲vs美國Micron)；製造是火箭燃料、消費是點火系統；消費是製造業之母；存款是死錢、
+  借款與消費才促進經濟→補上CLEC借錢投資/質押消費的「道德正當性」。deck頁29-31 + transcript @15:00-20:30。
+- NEW qa/要不要讓小孩貸款上大學 (zh+en, subcat risk-cashflow) — 學員Peter用AI回測三方案(賣股/PAL/student
+  loan)。賣股付學費=中斷複利；最簡單PAL付不賣股；孩子願意就student loan(延遲還款=借到6年投資時間)；進階
+  從小開custodial account每年贈與、24/26歲前別交給孩子(投資帳戶是毒品)、ownership心理；能借就借能投就投、
+  看全家總資產；2000起回測反而總資產更高。cross 欠錢不還/韓信點兵/子女是風箏。@2:17:00-2:30:00。
+- EXTEND relationships/子女是風箏 (zh+en) — 開場反例「別用錢代替父母」：小留學生給大錢養出揮霍魔鬼、25萬美元
+  =毒品、堂弟血淚(黑道→吸毒→自殺)、錢是父母的價值觀要正確；+學員in「鼓勵孩子花錢創造經驗、10塊以下不用問、
+  別把匱乏感傳下一代」。@00:00-05:30 / @2:58:30-2:59:30。
+- EXTEND behavioral-finance/身份認同與長期投資 (zh+en) — 學員YJ「吸血鬼思考實驗/質變」：質變無法靠理性完成
+  (改變前後不是同一個人)、只有外部颶風(癌症車禍)或勇敢者能質變、擋人的是「被咬一口」的過程不是致富的美好、
+  用「願意付代價」取代「相信會成功」、辭職陪父親親身驗證；+James電扶梯(旁邊有電扶梯不用槍林彈雨)/我不是最強
+  是倖存者(lucky)。@1:29:00-1:55:30。
+- EXTEND qa/資本家為何留翻身路會不會崩潰 (zh+en) — +2026-07-18 dated entry：YJ吸血鬼實驗補「為什麼喚不醒
+  99
