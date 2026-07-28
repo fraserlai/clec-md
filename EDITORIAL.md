@@ -14,6 +14,13 @@ taiwan-md's editorial pipeline for an investing/personal-finance domain.
   channel's style) over jargon. Define terms the first time they appear.
 - **Not financial advice.** Never phrase content as a personal recommendation to
   a reader. Describe principles and reasoning. The site-wide disclaimer stands.
+- **Anonymize 學員 (member) names.** Never publish a Clubhouse participant's given
+  name in `knowledge/`, `index.md`, or `log.md`. Mask to a role/context descriptor —
+  `一位學員` / `a member`, or something distinguishing where several co-occur
+  (`一位家庭主婦學員` / `a homemaker member`, `一位大陸學員`, `另一位學員` / `another member`).
+  Keep public figures and named people from James's published autobiography
+  (e.g. Peter Lynch, Frank Lee) — they are not anonymous members. `raw/` transcripts
+  are immutable provenance and stay as-is; anonymize only the rendered wiki.
 
 ## Anti-slop rules (塑膠偵測)
 

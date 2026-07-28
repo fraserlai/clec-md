@@ -138,7 +138,7 @@ Built:
   - risk-cashflow/韓信點兵借貸順序 (講授: 信貸→房貸→質押 by risk attribute)
   - qa/退休需要幾倍年開銷 (提問: 15×/25× by dividend yield; links to 退休需要多少錢 doctrine)
   - qa/帳戶類型該放什麼資產 (提問: QLD→Roth, BOXX/QQQI→Traditional, pair to Beta 1.0)
-  - behavioral-finance/身份認同與長期投資 (分享: 大喬's Atomic Habits identity → 打死不賣)
+  - behavioral-finance/身份認同與長期投資 (分享: 一位學員's Atomic Habits identity → 打死不賣)
   - Updated asset-allocation/現金是空氣: 現金流 refinement box + 00570 source.
 Knowledge base now 24 topic pages × 2 langs (incl. first 2 qa + first 2 risk-cashflow).
 
@@ -1031,18 +1031,18 @@ converted from drop-then-delete. Four-stream split of a very rich 3h14m Clubhous
 - NEW macro-economy/消費才是經濟之母 (zh+en) — 開場講授 flagship (=title). 製造只提供就業、消費才拉動經濟；
   同質製造→內卷殺價(亞洲vs美國Micron)；製造是火箭燃料、消費是點火系統；消費是製造業之母；存款是死錢、
   借款與消費才促進經濟→補上CLEC借錢投資/質押消費的「道德正當性」。deck頁29–31 + transcript @15:00–20:30。
-- NEW qa/要不要讓小孩貸款上大學 (zh+en, subcat risk-cashflow) — 學員Peter用AI回測三方案(賣股/PAL/student
+- NEW qa/要不要讓小孩貸款上大學 (zh+en, subcat risk-cashflow) — 學員用AI回測三方案(賣股/PAL/student
   loan)。賣股付學費=中斷複利；最簡單PAL付不賣股；孩子願意就student loan(延遲還款=借到6年投資時間)；進階
   從小開custodial account每年贈與、24/26歲前別交給孩子(投資帳戶是毒品)、ownership心理；能借就借能投就投、
   看全家總資產；2000起回測反而總資產更高。cross 欠錢不還/韓信點兵/子女是風箏。@2:17:00–2:30:00。
 - EXTEND relationships/子女是風箏 (zh+en) — 開場反例「別用錢代替父母」：小留學生給大錢養出揮霍魔鬼、25萬美元
   =毒品、堂弟血淚(黑道→吸毒→自殺)、錢是父母的價值觀要正確；+學員in「鼓勵孩子花錢創造經驗、10塊以下不用問、
   別把匱乏感傳下一代」。@00:00–05:30 / @2:58:30–2:59:30。
-- EXTEND behavioral-finance/身份認同與長期投資 (zh+en) — 學員YJ「吸血鬼思考實驗/質變」：質變無法靠理性完成
+- EXTEND behavioral-finance/身份認同與長期投資 (zh+en) — 學員「吸血鬼思考實驗/質變」：質變無法靠理性完成
   (改變前後不是同一個人)、只有外部颶風(癌症車禍)或勇敢者能質變、擋人的是「被咬一口」的過程不是致富的美好、
   用「願意付代價」取代「相信會成功」、辭職陪父親親身驗證；+James電扶梯(旁邊有電扶梯不用槍林彈雨)/我不是最強
   是倖存者(lucky)。@1:29:00–1:55:30。
-- EXTEND qa/資本家為何留翻身路會不會崩潰 (zh+en) — +2026-07-18 dated entry：YJ吸血鬼實驗補「為什麼喚不醒
+- EXTEND qa/資本家為何留翻身路會不會崩潰 (zh+en) — +2026-07-18 dated entry：一位學員吸血鬼實驗補「為什麼喚不醒
   99%的人」的心理機制(過不了被咬那關)=制度不崩潰的原因。link 身份認同。
 - EXTEND index-etf/全球納斯達克100指數基金對照 (zh+en, regional/decays) — 中國大陸多銀行「滾動信貸」(A→B→C→D
   倒貸、20萬3%/3年、同倒卡概念)+資金辦香港卡轉香港+大陸高股息513530不夠穩(底層A股、葵花寶典~7.65%、未知風險)、
@@ -1064,16 +1064,81 @@ converted from drop-then-delete. Four-stream split of a very rich 3h14m Clubhous
 - NEW macro-economy/消費才是經濟之母 (zh+en) — 開場講授 flagship (=title). 製造只提供就業、消費才拉動經濟；
   同質製造→內卷殺價(亞洲vs美國Micron)；製造是火箭燃料、消費是點火系統；消費是製造業之母；存款是死錢、
   借款與消費才促進經濟→補上CLEC借錢投資/質押消費的「道德正當性」。deck頁29-31 + transcript @15:00-20:30。
-- NEW qa/要不要讓小孩貸款上大學 (zh+en, subcat risk-cashflow) — 學員Peter用AI回測三方案(賣股/PAL/student
+- NEW qa/要不要讓小孩貸款上大學 (zh+en, subcat risk-cashflow) — 學員用AI回測三方案(賣股/PAL/student
   loan)。賣股付學費=中斷複利；最簡單PAL付不賣股；孩子願意就student loan(延遲還款=借到6年投資時間)；進階
   從小開custodial account每年贈與、24/26歲前別交給孩子(投資帳戶是毒品)、ownership心理；能借就借能投就投、
   看全家總資產；2000起回測反而總資產更高。cross 欠錢不還/韓信點兵/子女是風箏。@2:17:00-2:30:00。
 - EXTEND relationships/子女是風箏 (zh+en) — 開場反例「別用錢代替父母」：小留學生給大錢養出揮霍魔鬼、25萬美元
   =毒品、堂弟血淚(黑道→吸毒→自殺)、錢是父母的價值觀要正確；+學員in「鼓勵孩子花錢創造經驗、10塊以下不用問、
   別把匱乏感傳下一代」。@00:00-05:30 / @2:58:30-2:59:30。
-- EXTEND behavioral-finance/身份認同與長期投資 (zh+en) — 學員YJ「吸血鬼思考實驗/質變」：質變無法靠理性完成
+- EXTEND behavioral-finance/身份認同與長期投資 (zh+en) — 學員「吸血鬼思考實驗/質變」：質變無法靠理性完成
   (改變前後不是同一個人)、只有外部颶風(癌症車禍)或勇敢者能質變、擋人的是「被咬一口」的過程不是致富的美好、
   用「願意付代價」取代「相信會成功」、辭職陪父親親身驗證；+James電扶梯(旁邊有電扶梯不用槍林彈雨)/我不是最強
   是倖存者(lucky)。@1:29:00-1:55:30。
-- EXTEND qa/資本家為何留翻身路會不會崩潰 (zh+en) — +2026-07-18 dated entry：YJ吸血鬼實驗補「為什麼喚不醒
+- EXTEND qa/資本家為何留翻身路會不會崩潰 (zh+en) — +2026-07-18 dated entry：一位學員吸血鬼實驗補「為什麼喚不醒
   99
+
+## [2026-07-27] ingest | 00575 真正教會你的，不是結果，而是過程！ (bundle: transcript+簡報pptx, 1h56m) → +8 pages, 5 updates (zh+en)
+
+Video downloaded from YouTube (MWs9bQWG2JI) + transcribed via whisper large-v3 (this session, 242行/含時間軸);
+deck pptx (user-provided from ~/Downloads; Drive copy blocked "Operation not permitted") converted via markitdown
+→ raw/docs/簡報資料/00575…簡報資料.md (transcriptPair linked). Four-stream split.
+
+**新流程要求（本次建立）**：學員提問要先 grep 整個 raw 轉錄語料庫 (~500 長篇) 找歷次被問到的場次再寫 qa 頁，
+群組化「一問再問」——因為多數場次尚未 ingest，qa 頁嚴重低估遞迴次數（用戶例：00574學生貸款題其實問過很多次
+但只引到00574）。已存成 memory qa-cross-check-corpus。本次每個 qa 頁都附「🔎 這題也出現在 00xxx…（關鍵字命中，
+待逐一核對）」交叉引用。
+
+Stream 1 — 開場講授（概念頁）:
+- NEW life-philosophy/過程才是老師 — episode headline (=title, deck slide 17)。目的沒教育性、過程才是老師
+  (旅遊/體育/奧斯卡/畢業證書)；致富本身不教你人生，追求富有的過程才教貪婪恐懼風控平常心。+學員分享家庭主婦學員
+  (家庭婦女找到人生意義)/PhD海歸高管(退保賣房全投、公司壓力變小)。@15:00–20:30 / 48:30 / 1:34:00。
+- NEW behavioral-finance/世界不是真的 — 柏拉圖洞穴(每人在自己的洞不必爭辯)、專家=學院派投資少成功、媒體靡靡
+  之音、ChatGPT=餵教科書的學院派書匠(可餵CLEC理念限定)；不聽不看不存在、把力氣拿去證偽自己的系統；相信/證實
+  自己所相信的。deck slide 18–20。常青(00523洞穴/00445遠離專家)。@21:00–27:30。
+- NEW asset-allocation/資產配置的終極問題 — deck slide 21「投資終極問題」：假設漲20–30年 vs 跌80%三年各50%
+  機率，找一套配置兩邊都吃得好睡得好；不是追求賺最多；全押/全現金都錯(barbell)；是所有配置頁的出發點。@27:30–32:30。
+
+Stream 2 — 學員提問（qa 頁，含跨場交叉引用）:
+- NEW qa/我適不適合借錢投資利率多高值得借 (subcat risk-cashflow) — 兩層：利率層便宜且還得起就借(台灣學員質押4%
+  先借先贏、別管政府、借完全投、風控>利息)、適格層只適合已堅信指數且手上做得對的人(一位學員投資都不成功→不適合
+  借、可能該離開市場)。cross 韓信點兵/十五年現金流/質押借款。常青命中00517/52/60/62/63/64/66/67/68。@1:09:30 / 1:19:00。
+- NEW qa/套牢捨不得賣要不要認賠換納指 (subcat behavioral) — 一位學員 40%套牢A股要不要換；立即市價全賣換納指、
+  壞掉的電梯比喻、沉沒成本、不違反打死不賣。@1:16:30–1:19:00。
+- NEW qa/出現更低費率的ETF要不要換 (subcat index-etf) — IQQ 0.1%可買嗎/QQQM要不要換QQQ；不用換(換=賣=繳稅)、
+  新資金買新的。@1:22:00–1:23:00。
+- NEW qa/要不要讓伴侶或家人知道我的資產 (subcat relationships) — 一位學員(藏資產?)+另一學員(pre-up/Living Trust)；
+  不要斤斤計較、財產共有制下pre-up只是感覺好、找價值觀相近的人、傳承平等給並愛屋及烏、別信「遺產被外人拿走」話術。
+  常青命中00234/36/43/52/56/66/372/462/551。@1:02:00 / 1:42:30–1:51:30。
+- NEW qa/錢還留在海外要不要搬到美國 (subcat macro-economy) — 家庭主婦學員 600萬未申報 + 退休夫婦；除非回當地養老否則
+  要搬且趁早、5萬額度螞蟻搬家/賣房一次帶回/香港中轉、當地留日常小額、稅繳清、中等收入陷阱。@53:00 / 1:27:00–1:33:30。
+- EXTEND qa/該不該當保人或借錢給朋友 — +2026-07-25 dated entry：一位學員幫男友cosign質押200萬。伴侶+共同資產+
+  穩定收入特例判準鬆動(還得起→cosign風險不大)、真正風險是他會不會亂搞、別為cosign勸分手(wait and see、關係風險>財務)。
+  常青命中00481/00565。@58:00–1:09:00 / 1:40:30–1:42:30。
+- EXTEND qa/保單該不該解約還是等期滿 — +2026-07-25 dated entry：用人壽保險付遺產稅做傳承划算嗎→不划算(50萬保險
+  不如自己投資變5000萬、美國繼承後才課稅有step-up、繼承完再賣繳稅即可)。@1:23:00–1:26:00。
+
+Stream 3 — 學員分享/region intel（decays→lastVerified緊）:
+- EXTEND index-etf/全球納斯達克100指數基金對照 — 資深學員：3451.HK/9451 vs QQQI vs GEPQ比較表(管理費0.9/0.35/~0.68、
+  3451規模僅~3000萬美金→現金~20%→YTD<4%，QQQI現金<5%/YTD~12%，GEPQ 9–10%；期貨+OTC vs 期權)；新加坡三種帳戶
+  (聯名/受益人/信託)+QQQI退稅(IBKR/Citibank可退,HSBC/渣打可能不行)；歐洲SXRV(=CNDX的Xetra上市)；大陸513100場內
+  (無限制)vs場外(限額)、買一支跟四支一樣。@34:30–46:30 / 56:30。deck slide 22(3451殖利率12.8–13%)、slide 24(SXRV)。
+- UPDATE retirement/退休需要多少錢 + qa/退休需要幾倍年開銷 — 安全邊際更新：15→17倍、QQQI 10→12年(股票跌50%→股息
+  縮水~30%，多2年當緩衝；市場沒跌時多的股息投00662；只有15倍仍可退但要省)；資深學員「QQQI是5–10年過渡期產品、15→20
+  →30倍後賣掉、故遺產稅非主要考量」。@1:52:30–1:55:00 / 38:00–41:00。
+
+Stream 4 — 外部資源: deck 為 X/價值十億元講座連結 + bilibili，無新編號貼文可拉。
+
+**English mirrors: 全部完成（同一 session 補齊）** — 8 新頁 en + 5 延伸頁 en（退休需要多少錢/退休需要幾倍年開銷/
+全球納指對照/該不該當保人/保單解約）。index.md 全部標「· zh-TW · en」。npm test ✓ 118 pages（59 zh + 59 en）、sync ✓。
+Next un-ingested-with-deck: 00552。
+
+## [2026-07-28] maintenance | anonymize 學員 names (wiki-wide)
+
+Privacy pass: masked all Clubhouse member given-names in `knowledge/` (zh+en), `index.md`,
+`log.md` → role/context descriptors (`一位學員`/`a member`, `一位家庭主婦學員`, `一位大陸學員`,
+`另一位學員`, `一位資深學員` for 令). Covered 00575 batch + older pages (身份認同/資本家/要不要讓
+小孩貸款/退休需要幾倍/全球對照/勞保國保/十五年現金流…). Kept public figures & autobiography names
+(Peter Lynch, Frank Lee). `raw/` left untouched (immutable provenance). Rule added to EDITORIAL.md
+(Voice & stance) + memory `anonymize-student-names`, so future ingests anonymize at write time.
+npm test ✓ 118 pages, sync ✓.
