@@ -53,6 +53,33 @@ function extractEp(stem) {
   return m ? m[1] : '';
 }
 
+// James reuses ep numbers for unrelated posts (two 0029s, three 0038s). Never
+// renumber — the ep is his — but disambiguate collisions as 0038-1/-2/-3,
+// ordered oldest-first so the suffix reads as "the Nth post he numbered 0038".
+// Ordering is positional: a later-discovered post with an earlier date shifts
+// the suffixes of its siblings. That's safe because ep is metadata only — it
+// isn't part of the slug or URL.
+function assignEps(files) {
+  const groups = new Map();
+  for (const relFile of files) {
+    const stem = basename(relFile, extname(relFile));
+    const ep = extractEp(stem);
+    if (!ep) continue;
+    if (!groups.has(ep)) groups.set(ep, []);
+    groups.get(ep).push({ relFile, stem, date: parseDate(stem) || '' });
+  }
+  const assigned = new Map();
+  for (const [ep, items] of groups) {
+    if (items.length === 1) {
+      assigned.set(items[0].relFile, ep);
+      continue;
+    }
+    items.sort((a, b) => a.date.localeCompare(b.date) || a.stem.localeCompare(b.stem));
+    items.forEach((item, i) => assigned.set(item.relFile, `${ep}-${i + 1}`));
+  }
+  return assigned;
+}
+
 function detectSeries(stem) {
   const m =
     stem.match(/(理財入門|投資哲學|投資心法|投資策略)\s*[\(（]?\s*\d*/) ||
@@ -105,6 +132,7 @@ function importFolder(folder) {
   const dir = join(RAW_DOCS, folder);
   if (!existsSync(dir)) return { total: 0, written: 0 };
   const files = listMdRel(dir).sort();
+  const eps = assignEps(files);
   let written = 0;
   for (const relFile of files) {
     const subdir = relFile.includes('/') ? relFile.slice(0, relFile.lastIndexOf('/')) : '';
@@ -135,7 +163,7 @@ function importFolder(folder) {
       url ? `sourceUrl: ${JSON.stringify(url)}` : null,
       `sourceType: ${JSON.stringify(folder)}`,
       detectSeries(stem) ? `series: ${JSON.stringify(detectSeries(stem))}` : null,
-      extractEp(stem) ? `ep: ${JSON.stringify(extractEp(stem))}` : null,
+      eps.get(relFile) ? `ep: ${JSON.stringify(eps.get(relFile))}` : null,
       'status: published',
       '---',
       '',
