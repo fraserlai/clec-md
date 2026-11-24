@@ -37,6 +37,7 @@ if (!files.length) {
   process.exit(1);
 }
 
+const MODEL_LABEL = basename(WHISPER_MODEL).replace(/^ggml-/, '').replace(/\.bin$/, '');
 const toTraditional = OpenCC.Converter({ from: 'cn', to: 'twp' });
 const OUT = join(RAW_DIR, 'transcripts', subdir);
 mkdirSync(OUT, { recursive: true });
@@ -92,7 +93,7 @@ for (const abs of files) {
     const fm = ['---', `title: ${JSON.stringify(stem)}`,
       `sourceFile: ${JSON.stringify(basename(abs))}`, `sourceType: ${JSON.stringify(subdir)}`,
       `durationSec: ${dur(abs)}`, `transcribedAt: ${new Date().toISOString().slice(0, 10)}`,
-      'transcriber: whisper.cpp large-v3 (zh) + opencc s2twp',
+      `transcriber: whisper.cpp ${MODEL_LABEL} (zh) + opencc s2twp`,
       ...(timestamped ? ['segmentTimestamps: true'] : []),
       'kind: transcript', '---', '', body, ''].join('\n');
     writeFileSync(out, fm);

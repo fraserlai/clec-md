@@ -12,8 +12,11 @@ status: 'published'
 translationStatus: 'complete'
 sources:
   - '閒聊/0001閒聊『投資 VTI VT SPY的也是會落入窮人，因為QQQ回報是25％而SPY只有12%』 2025年7月31日'
+  - '長篇/00581【別迷信AI、別忽略伴侶：學會放過自己，找回快樂與自由】日期：2026年9月5日（不要拿AI的答案來問我 @05:30–08:30；簡報 slide 17）'
+  - '長篇/00582【先借先贏？善用低利資金，啟動年輕人的致富引擎】日期：2026年9月12日（請用CLEC投資哲學問AI @07:30–09:30；AI與孩子的未來 @09:30–15:00；簡報 slide 20–21）'
+  - '長篇/00580【輝達財報亮眼，QQQ別輕易下車！退休配置與投資心態全解析】日期：2026年8月29日（要管理AI而不是被AI管理 @2:05:30–2:07:30）'
 relatedTopics: ['世界不是真的', '投資沒有標準答案', '投資的七個層級', '選錯指數也會變窮']
-lastVerified: 2025-07-31
+lastVerified: 2026-09-12
 lastHumanReview: false
 ---
 
@@ -78,6 +81,25 @@ He closes it on a character breakdown: **the Chinese word 智 (wisdom) is 知 (t
 
 > How James uses AI himself: he demonstrated getting OpenAI to make a dental appointment (it even reports the price) and to book flights and hotels — "at the end it just asks me to confirm the order." He says it's precisely because he is "both an investor and an industry person" that he can see this shift in business models — **which is why he opened the room to warn people that day**.[^1]
 
+## 2026: don't bring me AI's answers — but do tell AI to answer with CLEC's philosophy
+
+A year later, AI is part of members' daily lives, and James's stance comes down to two lines that look opposite but agree:
+
+**One: don't send me AI's answers to decode (00581).** Many people ask an AI, paste its long reply into an email and ask "Teacher, is this right?" — he never answers those: "I don't know how you asked it or why it answered that way." It's the same as not bringing him a banker's, an investment newsletter's or an influencer's advice. **Either question the AI until you understand, or don't follow it**; if you can't think it through yourself, the advice is useless to you. The deck is harsher: "When an ignorant person who can't ask good questions asks AI, AI gives an idiotic answer; you bring me the idiotic answer — do I need to reply?" — **I think, therefore I am; only by thinking for yourself do you exist.**[^2]
+
+**Two: but you can tell AI to answer with CLEC's philosophy (00582).** CLEC's videos and texts are now spread across the internet worldwide; "every AI should have learned our investing philosophy." So the deck suggests opening your question with "**Please answer according to CLEC's investment philosophy regarding…**"; to find a video, ask it to "search every platform for CLEC video number xxxxx and give the link." "You can do all that — no need to ask me."[^3]
+
+Both lines say the same thing: **AI is a tool, not your brain.** In 00580: "Even with AI, you can't believe it completely; you still need to think — **you manage the AI, not let the AI manage you**." Don't be a parrot; 99.999% of people believe whatever they hear.[^4]
+
+### Will AI leave our children without jobs? (00582)
+
+Someone worried what children should learn when AI is so capable. James says not to panic: calculators were once banned from exams, and when Excel arrived people said accountants would be jobless — "I tell you, accountants got busier, because there's more they can do." When he graduated, Taiwan offered mostly PC or semiconductor jobs; now there's far more to do — **"Every generation has its opportunities, and they keep growing. I'm actually a bit jealous of the new generation."**[^3]
+
+He also notes the other side: **"AI can do everything, but people allow"** — some things humans won't hand to AI, not because it can't. He'd rather reply to emails himself, typos and all, "because that shows it's me"; perhaps one day laws will bar AI from raising children or providing end-of-life care — "When you draw your last breath, would you want an AI at your side?"[^3]
+
 > ⚠️ This page summarizes a CLEC chat-room discussion — James's and members' observations about AI use in July 2025. It is not a technical evaluation and not investment advice. AI products change fast; judge by the tool you actually use.
 
 [^1]: CLEC James and members, chat room 0001 "Investing in VTI, VT, SPY will also make you poor…", 2025-07-31. "AI is a mirror" question and the agent/probability-distribution answer @21:30–25:00; environmental limits, awareness, parrots @25:00–27:00; AI agrees with you / "no loyal ministers, only a blind king" @27:00–29:00; "the architect" and "ask about what you don't believe" @29:00–30:30; "zero trust" @31:00; four stages @1:51:00–1:52:30; 智 = 知 + 日 @1:53:00–1:54:30; OpenAI booking dentist/flights @1:32:30–1:33:30. Transcript: `raw/transcripts/閒聊/0001…`.
+[^2]: CLEC James, long-form 00581 "Don't Worship AI, Don't Neglect Your Partner…", 2026-09-05, @05:30–08:30; deck slide 17 ("don't ask me with the answers you got from AI… I think, therefore I am"). See `raw/transcripts/長篇/00581…`, `raw/docs/簡報資料/00581…簡報資料.md`.
+[^3]: CLEC James, long-form 00582 "Borrow First, Win First? Use Low-Cost Money to Start Young People's Wealth Engine," 2026-09-12, asking AI with CLEC's philosophy and finding video numbers @07:30–09:30; AI and children's future, "AI can do everything but people allow" @09:30–15:00; deck slides 20–21. See `raw/transcripts/長篇/00582…`, `raw/docs/簡報資料/00582…簡報資料.md`.
+[^4]: CLEC James, long-form 00580 "Nvidia's Earnings Shine — Don't Get Off QQQ Lightly!…", 2026-08-29, @2:05:30–2:07:30 ("you manage the AI, not let the AI manage you"; "don't be a parrot"). Transcript: `raw/transcripts/長篇/00580…`.
