@@ -1,17 +1,19 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { CHANNELS, VIDEOS, videoUrl } from '../data/videos.mjs';
+import { CHANNELS, PODCAST_LINKS, VIDEOS, entryUrl } from '../data/videos.mjs';
 
 const lang = 'zh-TW' as const;
 const groups = [
   { key: 'lecture', label: '投資第一堂課《價值十億元的投資講座》' },
   { key: 'topic', label: 'CLEC 專題' },
   { key: 'long', label: '長篇' },
+  { key: 'podcast', label: 'CLEC James 漫談（Podcast）' },
 ];
 const byGroup = (k: string) => VIDEOS.filter((v) => v.group === k);
 const title = '影片目錄';
-const desc = 'CLEC 所有影片（X 頻道）索引：集數、標題、日期與影片連結。集數越大越新。';
+const desc = 'CLEC 影片（X 頻道）與 James 漫談 Podcast 索引：集數、標題、日期與連結。集數越大越新。';
 const watch = '在 X 上觀看 ↗';
+const listen = '在 Apple Podcasts 收聽 ↗';
 ---
 
 <BaseLayout title={`${title} · clec.md`} description={desc} lang={lang}>
@@ -33,16 +35,25 @@ const watch = '在 X 上觀看 ↗';
     groups.map((g) => (
       <section class="group">
         <h2>{g.label}</h2>
+        {g.key === 'podcast' && (
+          <div class="channels podlinks">
+            {PODCAST_LINKS.map((c) => (
+              <a href={c.url} target="_blank" rel="noopener noreferrer">
+                {c.name} ↗
+              </a>
+            ))}
+          </div>
+        )}
         <ul class="vlist">
           {byGroup(g.key).map((v) => (
             <li>
               <span class="ep">{v.ep}</span>
-              <a class="vtitle" href={videoUrl(v.id)} target="_blank" rel="noopener noreferrer">
+              <a class="vtitle" href={entryUrl(v)} target="_blank" rel="noopener noreferrer">
                 {v.title}
               </a>
               <time>{v.date}</time>
-              <a class="watch" href={videoUrl(v.id)} target="_blank" rel="noopener noreferrer">
-                {watch}
+              <a class="watch" href={entryUrl(v)} target="_blank" rel="noopener noreferrer">
+                {v.group === 'podcast' ? listen : watch}
               </a>
             </li>
           ))}
@@ -52,7 +63,7 @@ const watch = '在 X 上觀看 ↗';
   }
 
   <p class="disclaimer">
-    影片連結指向 CLEC 官方 X 頻道貼文，僅供索引與參考。內容版權屬 CLEC。
+    影片連結指向 CLEC 官方 X 頻道貼文，Podcast 連結指向 Apple Podcasts，僅供索引與參考。內容版權屬 CLEC。
   </p>
 </BaseLayout>
 
@@ -81,6 +92,9 @@ const watch = '在 X 上觀看 ↗';
     border: 1px solid var(--line);
     border-radius: 999px;
     padding: 0.3rem 0.9rem;
+  }
+  .podlinks {
+    margin: 0 0 0.6rem;
   }
   .group {
     margin-top: 2rem;

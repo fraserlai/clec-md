@@ -1,17 +1,19 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { CHANNELS, VIDEOS, videoUrl } from '../../data/videos.mjs';
+import { CHANNELS, PODCAST_LINKS, VIDEOS, entryUrl } from '../../data/videos.mjs';
 
 const lang = 'en' as const;
 const groups = [
   { key: 'lecture', label: 'First Class · The Ten-Billion-Dollar Investment Lecture' },
   { key: 'topic', label: 'CLEC Features' },
   { key: 'long', label: 'Long-form' },
+  { key: 'podcast', label: 'CLEC James 漫談 (podcast)' },
 ];
 const byGroup = (k: string) => VIDEOS.filter((v) => v.group === k);
 const title = 'Video Index';
-const desc = "Index of all CLEC videos (X channel): episode, title, date, and link. Higher episode number = newer. Titles are in Chinese.";
+const desc = "Index of CLEC videos (X channel) and the James 漫談 podcast: episode, title, date, and link. Higher episode number = newer. Titles are in Chinese.";
 const watch = 'Watch on X ↗';
+const listen = 'Listen on Apple Podcasts ↗';
 ---
 
 <BaseLayout title={`${title} · clec.md`} description={desc} lang={lang}>
@@ -33,16 +35,25 @@ const watch = 'Watch on X ↗';
     groups.map((g) => (
       <section class="group">
         <h2>{g.label}</h2>
+        {g.key === 'podcast' && (
+          <div class="channels podlinks">
+            {PODCAST_LINKS.map((c) => (
+              <a href={c.url} target="_blank" rel="noopener noreferrer">
+                {c.name} ↗
+              </a>
+            ))}
+          </div>
+        )}
         <ul class="vlist">
           {byGroup(g.key).map((v) => (
             <li>
               <span class="ep">{v.ep}</span>
-              <a class="vtitle" href={videoUrl(v.id)} target="_blank" rel="noopener noreferrer">
+              <a class="vtitle" href={entryUrl(v)} target="_blank" rel="noopener noreferrer">
                 {v.title}
               </a>
               <time>{v.date}</time>
-              <a class="watch" href={videoUrl(v.id)} target="_blank" rel="noopener noreferrer">
-                {watch}
+              <a class="watch" href={entryUrl(v)} target="_blank" rel="noopener noreferrer">
+                {v.group === 'podcast' ? listen : watch}
               </a>
             </li>
           ))}
@@ -52,7 +63,7 @@ const watch = 'Watch on X ↗';
   }
 
   <p class="disclaimer">
-    Links point to CLEC's official X channel posts, for indexing and reference only.
+    Video links point to CLEC's official X channel posts and podcast links to Apple Podcasts, for indexing and reference only.
     Content is copyright CLEC.
   </p>
 </BaseLayout>
@@ -82,6 +93,9 @@ const watch = 'Watch on X ↗';
     border: 1px solid var(--line);
     border-radius: 999px;
     padding: 0.3rem 0.9rem;
+  }
+  .podlinks {
+    margin: 0 0 0.6rem;
   }
   .group {
     margin-top: 2rem;
